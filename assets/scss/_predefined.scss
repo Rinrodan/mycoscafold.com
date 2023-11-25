@@ -10,7 +10,7 @@ $typewriter: hsl(172, 100%, 36%);
 
 // Fonts
 //
-$fonts: "Trebuchet MS", Verdana, "Verdana Ref", "Segoe UI", Candara, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+$fonts: "Tourney-semiBold", "Trebuchet MS", Verdana, "Verdana Ref", "Segoe UI", Candara, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 $code-fonts: Consolas, "Andale Mono WT", "Andale Mono", Menlo, Monaco, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, "YaHei Consolas Hybrid", monospace, "Segoe UI Emoji", "PingFang SC", "Microsoft YaHei";
 
 //Admonition
@@ -56,9 +56,16 @@ $admonition-color: (
     }
   }
 }
+@font-face {
+  font-family: 'Tourney-SemiBold';
+  src: url('\fonts\Tourney-SemiBold.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+}
 
 .homeTitle {
   display: flex;
+font-family: 'Tourney';
   font-weight: 900;
   font-size: 6rem;
   padding-bottom: 6rem;

@@ -11,7 +11,7 @@
 {{ define "main" }}
 {{.Site.Params.title}}
 	{{- if (or .Site.Params.images .Site.Params.bgImg) }}
-	<div class="bg-img"></div>
+		<div class="bg-img"></div>
 	{{- end }}
 	<div id="spotlight" class="animated fadeIn">
 		<div id="home-center">
@@ -23,13 +23,10 @@
 			{{- with .Site.Params.socialLinks }}
 			<div id="home-social">
 				{{ partialCached "social-icons.html" . }}
+				<div>(916) 538-1551</div>
 			</div>
 
-			
-			<div>
-				
-				
-			</div>
+		
 			{{- end }}
 			<nav id="home-nav" class="site-nav">
 				{{ partialCached "menu.html" . }}
@@ -37,4 +34,10 @@
 		</div>
 		<div id="home-footer">{{ partialCached "single-footer.html" . }}</div>
 	</div>
+	<style>
+
+		@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@500&display=swap');
+
+	</style> 
+	{{/*  @import url('https://fonts.googleapis.com/css2?family=Tourney:wght@300&display=swap');  */}}
 {{ end }}

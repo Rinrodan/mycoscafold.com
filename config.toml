@@ -58,7 +58,7 @@ enableEmoji = true
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 -0700"
   
-[params.contact]  
+  
   phoneNumber = "(916) 538-1551"
   email = "mailto:mycoscaffold@gmail.com/"
 
@@ -69,7 +69,8 @@ enableEmoji = true
   homeSubtitle = "Currently under construction"
   footerCopyright = "All Rights Reserved"
  
-  # bgImg = ""
+  bgImg = "/images/scaffold-sidewalk-night.jpg"
+  #bgImgAttr = Photo by Erik Mclean: https://www.pexels.com/photo/scaffolding-on-sidewalk-9538592/
   # gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging"
 
   justifyContent = false
@@ -85,24 +86,26 @@ enableEmoji = true
   # legacyLayout = false
   shareSocial = true
 
+
   [[params.socialLinks]]
     name = "email"
     url = "mailto:mycoscaffold@gmail.com/"
-  [[params.socialLinks]]
-    name = "youtube"
-    url = "https://youtube.com/"
 
-  [[params.socialLinks]]
-    name = "facebook"
-    url = "https://facebook.com"
+#  [[params.socialLinks]]
+#    name = "youtube"
+#    url = "https://youtube.com/"
 
-  [[params.socialLinks]]
-    name = "x"
-    url = "https://twitter.com/"
+#  [[params.socialLinks]]
+#    name = "facebook"
+#    url = "https://facebook.com"
 
-  [[params.socialLinks]]
-    name = "linkedin"
-    url = "https://linkedin.com"
+#  [[params.socialLinks]]
+#    name = "x"
+#    url = "https://twitter.com/"
+
+#  [[params.socialLinks]]
+#    name = "linkedin"
+#    url = "https://linkedin.com"
 
 [menu]
 

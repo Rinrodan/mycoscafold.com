@@ -1,6 +1,7 @@
 <p>
 	&copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Params.author.name }}</a> &#183; {{ .Site.Params.footerCopyright | safeHTML }}
 	{{/*{{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }}*/}}
-	&#183; <a href="{{ "posts/index.xml" | absLangURL }}" target="_blank" title="rss">{{ partial "svg.html" (dict "context" . "name" "rss") }}</a>
+	{{/*  &#183; <a href="{{ "posts/index.xml" | absLangURL }}" target="_blank" title="rss">{{ partial "svg.html" (dict "context" . "name" "rss") }}</a>  */}}
+	&#183; <a href="https://www.pexels.com/photo/scaffolding-on-sidewalk-9538592/" style="color:gray">Photo</a>
 	{{/*{{ end }}*/}}
 </p>
