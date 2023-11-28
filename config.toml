@@ -70,7 +70,7 @@ enableEmoji = true
   footerCopyright = "All Rights Reserved"
  
   bgImg = "/images/scaffold-sidewalk-night.jpg"
-  logo = "/images/blue-atlas.png"
+  logo = "/images/logo-white-bg.png"
   #bgImgAttr = Photo by Erik Mclean: https://www.pexels.com/photo/scaffolding-on-sidewalk-9538592/
   # gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging"
 
