@@ -9,12 +9,16 @@
 {{ end }}
 
 {{ define "main" }}
+
 {{.Site.Params.title}}
 	{{- if (or .Site.Params.images .Site.Params.bgImg) }}
 		<div class="bg-img"></div>
 	{{- end }}
 	<div id="spotlight" class="animated fadeIn">
 		<div id="home-center">
+			
+				<img id="home-logo" src={{.Site.Params.logo}}></img>
+			
 			<div id="home-title" class="homeTitle">{{ .Site.Title }}</div>
 
 			{{- with .Site.Params.homeSubtitle }}

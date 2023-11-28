@@ -23,7 +23,7 @@
 }
 
 html {
-  background: $light-grey;
+  background: rgb(30, 29, 29);
   line-height: 1.6;
   letter-spacing: .06em;
   scroll-behavior: smooth;
@@ -400,16 +400,27 @@ p.img-404 {
   justify-content: center;
 }
 
+#home-logo {
+  display: flex;
+ height:500px;
+ height:500px;
+  margin: auto;
+  margin-bottom: 0px;
+  object-fit: scale-down;
+  padding: 0px;
+}
+
 #home-title {
+  display: flex;
   font-size: 7rem;
-  margin: 0;
+  margin: auto;
+  margin-top: 0px;
   text-align: center;
   font-family: 'Stick No Bills', sans-serif, impact;
 }
 
 #home-subtitle {
-  margin-top: 0;
-  margin-bottom: 1.5em;
+  margin:auto;
   text-align: center;
   line-height: normal;
   font-size: 1.5rem;
@@ -421,6 +432,7 @@ p.img-404 {
   font-size: 1.4em;
   text-align: center;
   opacity: .8;
+  margin: auto;
 
   a {
     margin: 0 .2em;
@@ -912,8 +924,16 @@ a.footnote-ref {
   #mobile-menu {
     right: 4.2em;
   }
+  #home-title {
+
+    font-size: 5rem;
+  }
   #home-subtitle {
     font-size: 1.2rem;
+  }
+  #home-logo {
+    height: 200px;
+    font-size: 5rem;
   }
 }
 

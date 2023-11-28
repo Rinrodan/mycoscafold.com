@@ -60,7 +60,7 @@ enableEmoji = true
   
   
   phoneNumber = "(916) 538-1551"
-  email = "mailto:mycoscaffold@gmail.com/"
+  email = "mailto:info@mycoscaffold.com/"
 
   # description = "The Myco Scaffold Landing Page"
   # images = [""]
@@ -70,6 +70,7 @@ enableEmoji = true
   footerCopyright = "All Rights Reserved"
  
   bgImg = "/images/scaffold-sidewalk-night.jpg"
+  logo = "/images/blue-atlas.png"
   #bgImgAttr = Photo by Erik Mclean: https://www.pexels.com/photo/scaffolding-on-sidewalk-9538592/
   # gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging"
 
@@ -89,7 +90,7 @@ enableEmoji = true
 
   [[params.socialLinks]]
     name = "email"
-    url = "mailto:mycoscaffold@gmail.com/"
+    url = "mailto:info@mycoscaffold.com/"
 
 #  [[params.socialLinks]]
 #    name = "youtube"
