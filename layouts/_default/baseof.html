@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{.Site.LanguageCode}}">
 <head>
-{{- partial "analytics.html" . -}}
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZ1GX8XSSK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZZ1GX8XSSK');
+</script>
+
 {{- partial "site-meta.html" -}}
 {{ $author := (.Params.author | default .Site.Params.author.name) -}}
 <meta name="author" content="{{ $author }}">
