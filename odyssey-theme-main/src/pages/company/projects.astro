@@ -3,9 +3,10 @@ import Layout from '../../layouts/Page.astro';
 import ProjectCard from '../../components/cards/ProjectCard.astro';
 
 const seo = {
-	title: 'About | Myco',
-	description: 'About Page',
+	title: 'Projects | Myco',
+	description: 'Some of Our Projects',
 };
+
 const projOneIMG = 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg';
 const projOneTitle = 'Project one Title'
 const projOneLink = '/company/contact'
@@ -19,18 +20,6 @@ const projThreeTitle = 'Project Three Title';
 const projThreeLink = '/company/contact'
 
 ---
-
-<!-- 
-  - Three project cards horizontal aligned
-  - projectCard contains:
-    - one image filling top 50% of card
-    - project title
-    - button
-  :::::::::: On Button Click :::::::::::::
-    - open modal and populate with project modal hero
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  
- -->
 
 <Layout {seo}>
   <div id="project-cards-container">
@@ -60,8 +49,12 @@ const projThreeLink = '/company/contact'
     }
   }
   @media (width <= 800px) {
+    .project-card{
+      min-width: 430px;
+    }
     #project-cards-container {
       gap: 1.5rem;
+      height: 50%;
       padding: 2rem 0px;
     }
   }

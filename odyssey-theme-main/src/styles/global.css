@@ -5,6 +5,7 @@ body {
 
 body {
 	max-width: 1920px;
+	min-width: 430px;
 	margin: 0 auto;
 	background-color: var(--theme-bg);
 	position: relative;

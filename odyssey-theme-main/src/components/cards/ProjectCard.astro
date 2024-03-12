@@ -1,30 +1,9 @@
 ---
+
 import { Button } from "@components/odyssey-theme";
-import type { Props as BaseHeadProps } from '../../components/head/BaseHead.astro'
 const {	title, description,	canonicalURL, image} = Astro.props;
 
-const imageTest = 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg'
-const projectTitle = 'project title goes here'
-const projectLink = '/company/contact'
-
-
-
 ---
-
-
-<!-- 
-  - Three project cards horizontal aligned
-  - projectCard contains:
-    - one image filling top 50% of card
-    - project title
-    - button
-  :::::::::: On Button Click :::::::::::::
-    - open modal and populate with project modal hero
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  
- -->
-
-
 
 <div class="project-card">
 
@@ -32,15 +11,13 @@ const projectLink = '/company/contact'
         <img src={image} />
     </div>
     <div class="project-card-text">
-        <h3>{title}</h3>
+        <span>{title}</span>
     </div>
     <div class="project-card-footer">
         <a href={canonicalURL}><Button>Learn More</Button></a>
     </div>
 
 </div> 
-
-
 
 <style>
     .project-card {
@@ -50,12 +27,12 @@ const projectLink = '/company/contact'
         width: 30%;
         height: 100%;
         max-height: 800px;
-        min-width: 250px;
+        min-width: 280px;
         padding: 1rem;
         margin: 0px auto;
         background-color: var(--theme-surface-1);
         color: var(--theme-on-surface-1);
-        border-radius: var(--theme-shape-radius);
+        border-radius: 2rem;
         transition-duration: 300ms;
     }
 
@@ -66,7 +43,7 @@ const projectLink = '/company/contact'
         min-height: 320px;
         overflow: hidden;
         border: 0px solid transparent;
-        border-radius: 5%;
+        border-radius: 1rem;
         & img {
             position: relative;
             top: 0;
@@ -79,9 +56,13 @@ const projectLink = '/company/contact'
     .project-card-text {
         display: flex;
         padding: 1rem 0px;
-        text-wrap: nowrap;
+        font-size: 2vh;
+        font-weight: 700;
+        text-wrap: wrap
         line-height: 2rem;
-        height: 4rem;
+        height: max-content;;
+        min-height: 5rem;
+
     }
     .project-card-footer {
         width: 100%;
@@ -94,7 +75,11 @@ const projectLink = '/company/contact'
             text-decoration: none;
         }
     }
-    @media (width >= 1000px)  {
+    @media (width <= 1000px)  {
+        .project-card {
+            border-radius: 2rem;
+            width: 45%;
+        }
     .project-card-image-container {
         width: 100%;
         height: 500px;
@@ -107,17 +92,28 @@ const projectLink = '/company/contact'
 
     @media (width <= 800px)  {
     .project-card {
-        width: 40%;
+        border-radius: 2rem;
+        gap: 5%;
+        & .project-card-image-container {
+            height: max-content;
+            min-height: 300px;
+
+        }
     }
     }
     @media (width <= 600px)  {
         .project-card {
-            width: 60%;
+            width: 75%;
+            height: auto;
+            & .project-card-text {
+                font-size: 2rem;
+            }
         }
     }
     @media (width <= 450px) {
     .project-card {
         width: 100%%;
+        height: max-content;;
 
         & .project-card-image-container {
             height: 50%;
