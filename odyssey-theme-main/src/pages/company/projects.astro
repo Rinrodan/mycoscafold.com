@@ -1,47 +1,73 @@
 ---
-import { TextSection } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
-import HeroSection from '../../components/sections/heros/HeroSection.astro';
+import ProjectCard from '../../components/cards/ProjectCard.astro';
 
 const seo = {
 	title: 'About | Myco',
 	description: 'About Page',
 };
+const projOneIMG = 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg';
+const projOneTitle = 'Project one Title'
+const projOneLink = '/company/contact'
+
+const projTwoIMG = 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg'
+const projTwoTitle = 'Project Two Title';
+const projTwoLink = '/company/contact'
+
+const projThreeIMG = 'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg'
+const projThreeTitle = 'Project Three Title';
+const projThreeLink = '/company/contact'
+
 ---
 
+<!-- 
+  - Three project cards horizontal aligned
+  - projectCard contains:
+    - one image filling top 50% of card
+    - project title
+    - button
+  :::::::::: On Button Click :::::::::::::
+    - open modal and populate with project modal hero
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+ -->
+
 <Layout {seo}>
-	<HeroSection>
-		<div slot="text-container">
-			<h1>Projects</h1>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, nisi
-				recusandae? Quidem dignissimos nobis, dicta unde, aperiam voluptate
-				autem iste reprehenderit, aliquam ducimus illo ea ipsum qui animi sequi.
-				Numquam.
-			</p>
-		</div>
-    <picture slot="image-container">
-      <img
-        src="/assets/images/home/classic-hero.jpg"
-        alt="Astro Odyssee"
-        id="home-hero-image"
-      />
-    </picture>
-	</HeroSection>
-  <TextSection narrow>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo asperiores alias illo accusamus voluptatem ea cum nemo odit! Consequatur quidem quo iusto quam ea neque nisi dolorum quod, recusandae id!
-      Repudiandae, fugit labore voluptatum beatae modi omnis adipisci corrupti aut aliquid cumque inventore iure possimus doloremque iste incidunt nulla architecto. Nobis iusto sunt voluptatem necessitatibus laborum, earum doloremque fugit rerum!
-    </p>
-    <p>Fugit asperiores harum consectetur sapiente deleniti. Optio enim tenetur impedit reprehenderit labore, illo eius in, consequatur odio dolore iste assumenda explicabo, nisi similique qui obcaecati possimus delectus reiciendis quod modi.</p>
-    
-    <p>
-      Vel tempore rem omnis esse officiis optio, explicabo, quod deleniti adipisci ullam cum necessitatibus eius minus vero saepe ad, dicta rerum praesentium deserunt illo itaque odio corrupti voluptatum quibusdam. Pariatur.
-      Porro neque tempore, illum eligendi deleniti iure dolorem amet magnam at dolores veniam nemo cumque aut alias repellat est dicta sit repellendus facilis officia? Minima dolorum quo ducimus adipisci perferendis.
-    </p>
-    <p>
-      Quis distinctio tempora sequi sit repudiandae cumque nostrum deserunt, voluptatibus rem eum fuga modi beatae cum ullam delectus dicta atque eius nam quos corporis. Animi praesentium quae nobis. Odit, mollitia. Voluptatum, hic explicabo. Ex accusamus ipsa ea dolor commodi quas esse ipsum alias et adipisci error necessitatibus atque facere rerum ratione consequatur aspernatur repudiandae minima consectetur fuga, doloremque dolorum pariatur.
-      Ipsam error eaque velit possimus porro eum quod illo iusto officia magnam magni, beatae nisi voluptate praesentium? Saepe distinctio adipisci quas hic quae facilis? Sequi eum hic aperiam impedit minus?
-    </p>
-  </TextSection>
+  <div id="project-cards-container">
+    <ProjectCard image={projOneIMG} title={projOneTitle} canonicalURL={projOneLink}></ProjectCard>
+    <ProjectCard image={projTwoIMG} title={projTwoTitle} canonicalURL={projTwoLink}></ProjectCard>
+    <ProjectCard image={projThreeIMG} title={projThreeTitle} canonicalURL={projThreeLink}></ProjectCard>
+  </div>
 </Layout>
+
+
+<style>
+  #project-cards-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      min-width: 450px;
+      gap: 2rem;
+      padding: 2rem 0px;
+      height: max-content;
+      flex-wrap: wrap;
+
+  }
+  @media (width >= 800px) {
+    #project-cards-container {
+      gap: 1.5rem;
+      padding: 2rem 0px;
+    }
+  }
+  @media (width <= 800px) {
+    #project-cards-container {
+      gap: 1.5rem;
+      padding: 2rem 0px;
+    }
+  }
+  @media (width <= 450px) {
+    #project-cards-container {
+      padding: 2rem 0.3rem;
+    }
+  }
+  </style>

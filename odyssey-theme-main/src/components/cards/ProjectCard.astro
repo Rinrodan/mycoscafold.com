@@ -1,0 +1,132 @@
+---
+import { Button } from "@components/odyssey-theme";
+import type { Props as BaseHeadProps } from '../../components/head/BaseHead.astro'
+const {	title, description,	canonicalURL, image} = Astro.props;
+
+const imageTest = 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg'
+const projectTitle = 'project title goes here'
+const projectLink = '/company/contact'
+
+
+
+---
+
+
+<!-- 
+  - Three project cards horizontal aligned
+  - projectCard contains:
+    - one image filling top 50% of card
+    - project title
+    - button
+  :::::::::: On Button Click :::::::::::::
+    - open modal and populate with project modal hero
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+ -->
+
+
+
+<div class="project-card">
+
+    <div class="project-card-image-container">
+        <img src={image} />
+    </div>
+    <div class="project-card-text">
+        <h3>{title}</h3>
+    </div>
+    <div class="project-card-footer">
+        <a href={canonicalURL}><Button>Learn More</Button></a>
+    </div>
+
+</div> 
+
+
+
+<style>
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30%;
+        height: 100%;
+        max-height: 800px;
+        min-width: 250px;
+        padding: 1rem;
+        margin: 0px auto;
+        background-color: var(--theme-surface-1);
+        color: var(--theme-on-surface-1);
+        border-radius: var(--theme-shape-radius);
+        transition-duration: 300ms;
+    }
+
+    .project-card-image-container {
+        display: flex;
+        width: 100%;
+        height: 70%;
+        min-height: 320px;
+        overflow: hidden;
+        border: 0px solid transparent;
+        border-radius: 5%;
+        & img {
+            position: relative;
+            top: 0;
+            width: 100%;
+            /* translate: 0px -30%; */
+
+            object-fit: cover;
+        }
+    }
+    .project-card-text {
+        display: flex;
+        padding: 1rem 0px;
+        text-wrap: nowrap;
+        line-height: 2rem;
+        height: 4rem;
+    }
+    .project-card-footer {
+        width: 100%;
+        height: max-content;
+        & a {
+            display: flex;
+            height: max-content;
+            width: max-content;
+            margin: 0px auto;
+            text-decoration: none;
+        }
+    }
+    @media (width >= 1000px)  {
+    .project-card-image-container {
+        width: 100%;
+        height: 500px;
+            }
+            .project-card-text {
+                padding: 0px;
+            }
+    
+  }
+
+    @media (width <= 800px)  {
+    .project-card {
+        width: 40%;
+    }
+    }
+    @media (width <= 600px)  {
+        .project-card {
+            width: 60%;
+        }
+    }
+    @media (width <= 450px) {
+    .project-card {
+        width: 100%%;
+
+        & .project-card-image-container {
+            height: 50%;
+            min-height: 300px;
+
+        }
+        .project-card-text {
+            padding: 0px;
+        }
+    }
+  }
+  </style>

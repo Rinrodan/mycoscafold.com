@@ -1,9 +1,9 @@
 # build output
-dist/
-.output/
+/odyssey-theme-main/dist/
+/odyssey-theme-main/.output/
 
 # dependencies
-node_modules/
+/odyssey-theme-main/node_modules/
 
 # logs
 npm-debug.log*
@@ -13,11 +13,11 @@ pnpm-debug.log*
 
 
 # environment variables
-.env
-.env.production
+/odyssey-theme-main/.env
+/odyssey-theme-main/.env.production
 
 # macOS-specific files
-.DS_Store
+/odyssey-theme-main/.DS_Store
 
 icon.d.ts
 *.cache
