@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Page.astro';
 import ProjectCard from '../../components/cards/ProjectCard.astro';
 import ProjectsModal from '../../components/modals/ProjectsModal.astro';
+import Modal2 from '../../components/modals/Modal2.astro';
 import { defaultUser } from '../../icons/icons'
 
 const seo = {
@@ -113,11 +114,18 @@ const projects = [
 ---
 
 <Layout {seo}>
-	<ProjectsModal content={projects[0]} />
+
+	<!-- <ProjectsModal content={projects[0]} /> -->
 	<div id="project-cards-container">
-		{projects.map((project) => (<ProjectCard project={project} />))}
+		{projects.map((project, index) => (
+				<ProjectCard 
+					project={project} 
+					index={index}/>
+		))}
 	</div>
 </Layout>  
+
+
 
 <style>
 	#project-cards-container {

@@ -3,14 +3,16 @@
   }
   .carouselContainer {
     margin: auto;
-    height: 100%;
+    width: 100%;
+    margin-top: 0px;
+    max-width: 800px;
     flex-wrap: nowrap;
   }
   /* Slideshow container */
   .sliderContainer {
     position: relative;
     top: 0px;
-    height: 100%;
+   width: 100%;
     margin: auto;
     aspect-ratio: 1/1;
     overflow: hidden;

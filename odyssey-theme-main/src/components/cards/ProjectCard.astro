@@ -1,19 +1,16 @@
 ---
 
 import ProjectsModal from '@components/modals/ProjectsModal.astro';
+import Modal2 from '../../components/modals/Modal2.astro';
 // import { Button } from '@components/odyssey-theme';
-const {project} = Astro.props;
-const content = []
-const handleLoadProject = (project) => {
-    if(project){
-        const content = project.content
-        return content
-    }
-}
-console.log("from project card to modal", content)
+const {project, index} = Astro.props;
+
+const modalIndex = index + 1
+console.log("modal Index + 1  ", modalIndex)
+console.log("from project card to modal", project)
 ---
 
-<div class="project-card" id={project.id} key={project.id}>
+<div class="project-card" id={project.id} >
 
     <div class="project-card-image-container">
         <img src={project.thumb.url} alt={project.thumb.title}  id={project.thumb.id}/>
@@ -22,8 +19,13 @@ console.log("from project card to modal", content)
         <span>{project.title}</span>
     </div>
     <div class="project-card-footer">
-            <ProjectsModal content={content} />
+            <!-- <ProjectsModal content={content} /> -->
+            <button id={`modal${index + 1}-trigger`}>View Project</button>
     </div>
+    <Modal2 
+        triggerId={`modal${index + 1}-trigger`} 
+        project={project}>
+	</Modal2>
 
 </div> 
 
