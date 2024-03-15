@@ -1,20 +1,28 @@
 ---
 
-import { Button } from "@components/odyssey-theme";
-const {	title, description,	canonicalURL, image} = Astro.props;
-
+import ProjectsModal from '@components/modals/ProjectsModal.astro';
+// import { Button } from '@components/odyssey-theme';
+const {project} = Astro.props;
+const content = []
+const handleLoadProject = (project) => {
+    if(project){
+        const content = project.content
+        return content
+    }
+}
+console.log("from project card to modal", content)
 ---
 
-<div class="project-card">
+<div class="project-card" id={project.id} key={project.id}>
 
     <div class="project-card-image-container">
-        <img src={image} />
+        <img src={project.thumb.url} alt={project.thumb.title}  id={project.thumb.id}/>
     </div>
     <div class="project-card-text">
-        <span>{title}</span>
+        <span>{project.title}</span>
     </div>
     <div class="project-card-footer">
-        <a href={canonicalURL}><Button>Learn More</Button></a>
+            <ProjectsModal content={content} />
     </div>
 
 </div> 
@@ -27,7 +35,7 @@ const {	title, description,	canonicalURL, image} = Astro.props;
         width: 30%;
         height: 100%;
         max-height: 800px;
-        min-width: 280px;
+        min-width: 400px;
         padding: 1rem;
         margin: 0px auto;
         background-color: var(--theme-surface-1);
@@ -56,7 +64,7 @@ const {	title, description,	canonicalURL, image} = Astro.props;
     .project-card-text {
         display: flex;
         padding: 1rem 0px;
-        font-size: 2vh;
+        font-size: 2rem;
         font-weight: 700;
         text-wrap: wrap
         line-height: 2rem;
@@ -67,7 +75,7 @@ const {	title, description,	canonicalURL, image} = Astro.props;
     .project-card-footer {
         width: 100%;
         height: max-content;
-        & a {
+        & :first-child {
             display: flex;
             height: max-content;
             width: max-content;
@@ -85,7 +93,7 @@ const {	title, description,	canonicalURL, image} = Astro.props;
         height: 500px;
             }
             .project-card-text {
-                padding: 0px;
+                padding-top: 1rem;
             }
     
   }
@@ -97,7 +105,9 @@ const {	title, description,	canonicalURL, image} = Astro.props;
         & .project-card-image-container {
             height: max-content;
             min-height: 300px;
-
+        & .project-card-text {
+            font-size: 1.5rem;
+        }
         }
     }
     }
@@ -106,7 +116,7 @@ const {	title, description,	canonicalURL, image} = Astro.props;
             width: 75%;
             height: auto;
             & .project-card-text {
-                font-size: 2rem;
+                font-size: 5vw;
             }
         }
     }

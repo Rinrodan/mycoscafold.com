@@ -1,292 +1,325 @@
 ---
 import { Button, TextSection } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
-import FeatureCard from '../../components/cards/FeatureCard.astro'
+import FeatureCard from '../../components/cards/FeatureCard.astro';
 
 const seo = {
 	title: 'Services | Myco',
 	description: 'Services Page',
 };
-const quoteLink = '/company/contact'
-const scaffoldBW = 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg'
-const scaffoldHouse = 'https://www.probuilder.com/sites/default/files/construction-scaffolding-safety-correctly-installed-house-interior.png'
-
+const quoteLink = '/company/contact';
+const scaffoldBW =
+	'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg';
+const scaffoldHouse =
+	'https://www.probuilder.com/sites/default/files/construction-scaffolding-safety-correctly-installed-house-interior.png';
 ---
+
 <script>
-  const residentialCard = document.getElementById('residential') as HTMLElement;
-  const residentialButton = document.getElementById('residential-button') as HTMLElement;
-  const residentialContent = document.getElementById('services-body-residential') as HTMLElement;
-  const commercialCard = document.getElementById('commercial') as HTMLElement;
-  const commercialButton = document.getElementById('commercial-button') as HTMLElement;
-  const commercialContent = document.getElementById('services-body-commercial') as HTMLElement;
+	const residentialCard = document.getElementById('residential') as HTMLElement;
+	const residentialButton = document.getElementById(
+		'residential-button'
+	) as HTMLElement;
+	const residentialContent = document.getElementById(
+		'services-body-residential'
+	) as HTMLElement;
+	const commercialCard = document.getElementById('commercial') as HTMLElement;
+	const commercialButton = document.getElementById(
+		'commercial-button'
+	) as HTMLElement;
+	const commercialContent = document.getElementById(
+		'services-body-commercial'
+	) as HTMLElement;
 
-  function toggleCommercial(selectedContent, selectedCard, otherContent, otherCard) {
-    selectedContent.classList.remove('hidden');
-    selectedContent.classList.add('show');
-    selectedCard.classList.add('selected');
+	function toggleCommercial(
+		selectedContent,
+		selectedCard,
+		otherContent,
+		otherCard
+	) {
+		selectedContent.classList.remove('hidden');
+		selectedContent.classList.add('show');
+		selectedCard.classList.add('selected');
 
-    otherContent.classList.add('hidden');
-    otherContent.classList.remove('show');
-    otherCard.classList.remove('selected');
-  }
-  function toggleResidential(selectedContent, selectedCard, otherContent, otherCard) {
-    selectedContent.classList.remove('hidden');
-    selectedContent.classList.add('show');
-    selectedCard.classList.add('selected');
+		otherContent.classList.add('hidden');
+		otherContent.classList.remove('show');
+		otherCard.classList.remove('selected');
+	}
+	function toggleResidential(
+		selectedContent,
+		selectedCard,
+		otherContent,
+		otherCard
+	) {
+		selectedContent.classList.remove('hidden');
+		selectedContent.classList.add('show');
+		selectedCard.classList.add('selected');
 
-    otherContent.classList.add('hidden');
-    otherContent.classList.remove('show');
-    otherCard.classList.remove('selected');
-  }
+		otherContent.classList.add('hidden');
+		otherContent.classList.remove('show');
+		otherCard.classList.remove('selected');
+	}
 
+	commercialCard.addEventListener('click', () => {
+		toggleCommercial(
+			commercialContent,
+			commercialCard,
+			residentialContent,
+			residentialCard
+		);
+	});
 
+	residentialCard.addEventListener('click', () => {
+		toggleResidential(
+			residentialContent,
+			residentialCard,
+			commercialContent,
+			commercialCard
+		);
+	});
 
-commercialCard.addEventListener('click', () => {
-  toggleCommercial(commercialContent, commercialCard, residentialContent, residentialCard);
-});
+	commercialButton.addEventListener('click', () => {
+		toggleCommercial(
+			commercialContent,
+			commercialButton,
+			residentialContent,
+			residentialButton
+		);
+	});
 
-residentialCard.addEventListener('click', () => {
-  toggleResidential(residentialContent, residentialCard, commercialContent, commercialCard);
-});
-
-commercialButton.addEventListener('click', () => {
-  toggleCommercial(commercialContent, commercialButton, residentialContent, residentialButton);
-});
-
-residentialButton.addEventListener('click', () => {
-  toggleResidential(residentialContent, residentialButton, commercialContent, commercialButton);
-});
-
+	residentialButton.addEventListener('click', () => {
+		toggleResidential(
+			residentialContent,
+			residentialButton,
+			commercialContent,
+			commercialButton
+		);
+	});
 </script>
 
-
 <Layout {seo}>
-      <div id="services-page">
-			<h1>Services</h1>
-      <section id="services-hero">
-          <a  id="commercial" class="services-hero-card">
-            <img
-              src="/assets/images/building.svg"
-              alt="Commercial Building"
-              id="icon-building"
-            />
-            <p>Commercial</p>
-          </a>
-          <a class="services-button" id="commercial-button">
-            <Button elevated>Commercial</Button>
-          </a>
-          <a id="residential"  class="services-hero-card selected">
-            <img
-              src="/assets/images/house.svg"
-              alt="house"
-              id="icon-house"
-            />
-            <p>Residential</p>
-          </a>
-          <a class="services-button" id="residential-button">
-            <Button elevated>Residential</Button>
-          </a>
-      </section>
+	<div id="services-page">
+		<h1>Services</h1>
+		<section id="services-hero">
+			<a id="commercial" class="services-hero-card">
+				<img
+					src="/assets/images/building.svg"
+					alt="Commercial Building"
+					id="icon-building"
+				/>
+				<p>Commercial</p>
+			</a>
+			<a class="services-button" id="commercial-button">
+				<Button elevated>Commercial</Button>
+			</a>
+			<a id="residential" class="services-hero-card selected">
+				<img src="/assets/images/house.svg" alt="house" id="icon-house" />
+				<p>Residential</p>
+			</a>
+			<a class="services-button" id="residential-button">
+				<Button elevated>Residential</Button>
+			</a>
+		</section>
 
-      <section id="services-body">
-  
-          <div id="services-body-residential" class="services-body-content show">
-              <div>
-                <img
-                src={scaffoldHouse}
-                alt="house"
-                id="icon-house"
-              />
-              </div>
-              <div>
-                <ul> <span>asdf</span>
-                  <li>asd asdf asdf asdf asd fasdfasd </li>
-                  <li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
-                  <li>asd asdf asdf asdf asd sdfasd asdff</li>
-                  <li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
-                  <li>asd asdf asd fasdfasd fasdfa sdfasd asdff</li>
-                  <li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
-                  <li>asd asdf asdf asdf asd fasdfasd  asdff</li>
-                </ul>
-              </div>
-          </div>
-          <div id="services-body-commercial" class="services-body-content hidden">
-            <div class="services-body-content">
-              <div>
-                <img
-                src={scaffoldBW}
-                alt="building"
-                id="icon-building"
-              />
-              </div>
-              <div>
-                
-                <ul> <span>Commercial</span>
-                  <li>asd asdf asdf asdf asd fasdfasd </li>
-                  <li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
-
-                </ul>
-              </div>
-            </div>
-          </div>
-      </section>
-      <section id="services-footer">
-        <div>
-          <a href={quoteLink}><Button >Get a Quote</Button></a>
-        </div>
-      </section>
-    </div>
-
-
-
-
-  
+		<section id="services-body">
+			<div id="services-body-residential" class="services-body-content show">
+				<div class="body-image-container">
+					<img src={scaffoldHouse} alt="house" id="icon-house" />
+				</div>
+				<div class="body-text-container">
+					<span>Residential Services We Provide</span>
+					<ul>
+						<li>asd asdf asdf asdf asd fasdfasd</li>
+						<li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
+						<li>asd asdf asdf asdf asd sdfasd asdff</li>
+						<li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
+						<li>asd asdf asd fasdfasd fasdfa sdfasd asdff</li>
+						<li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
+						<li>asd asdf asdf asdf asd fasdfasd asdff</li>
+					</ul>
+				</div>
+			</div>
+			<div id="services-body-commercial" class="services-body-content hidden">
+				<div class="services-body-content">
+					<div class="body-image-container">
+						<img src={scaffoldBW} alt="building" />
+					</div>
+					<div class="body-text-container">
+						<span>Commercial Services We Provide</span>
+						<ul>
+							<li>asd asdf asdf asdf asd fasdfasd</li>
+							<li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="services-footer">
+			<div>
+				<a href={quoteLink}><Button>Get a Quote</Button></a>
+			</div>
+		</section>
+	</div>
 </Layout>
+
 <style>
-#services-page {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  width: 100%;
+	#services-page {
+		display: flex;
+		flex-direction: column;
+		height: auto;
+		width: 100%;
+		& h1 {
+			text-align: center;
+		}
+	}
+	#services-hero {
+		background-color: var(--theme-surface-1);
+		display: flex;
+		flex-direction: row;
+		padding: 1rem 0px;
+		justify-content: space-evenly;
+		border-radius: var(--theme-shape-radius);
+		& .services-hero-card {
+			display: flex;
+			flex-direction: column;
+			width: max-content;
+			padding-top: 1rem;
+			border: 4px solid transparent;
+			border-radius: var(--theme-shape-radius);
+			transition-duration: 400ms;
+			transition-timing-function: ease-in-out;
+			font-size: 90%;
+			&:hover,
+			.selected {
+				background-color: rgba(240, 255, 255, 0.466);
+				border-radius: 2rem;
+				border-color: var(--theme-surface-2);
+				box-shadow: 2px 2px 8px rgb(0, 0, 0);
+				/* font-weight: 600; */
+				cursor: pointer;
+			}
+			& img {
+				display: flex;
+				margin: 0px auto;
+				width: 30%;
+			}
+			& p {
+				text-align: center;
+				width: 100%;
+				font-size: 1.5rem;
+			}
+		}
+		& .services-button {
+			display: none;
+			height: max-content;
+		}
+		& .selected {
+			scale: 1.2;
+			border-color: var(--theme-surface-1);
+		}
+	}
+	#services-body {
+		display: flex;
+		flex-direction: row;
+		height: 40vh;
+		width: 100%;
+		& .servicesBodyHeader {
+			display: flex;
+			width: 90%;
+			margin: 0px auto;
+			background-color: aquamarine;
+		}
+		& .services-body-content {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			margin: 0px auto;
+			opacity: 1;
+			& .body-image-container {
+				display: flex;
+				width: 60%;
+				padding: 1rem;
+				overflow: hidden;
+				justify-content: right;
+				& img {
+					width: 75%;
+					object-fit: cover;
+					border: 1px solid transparent;
+					border-radius: 0.5rem;
+				}
+			}
+			& .body-text-container {
+				display: flex;
+				flex-direction: column;
+				width: 60%;
+				padding: 1rem;
+				& span {
+					font-size: 2rem;
+				}
+			}
+		}
+		& .hidden {
+			display: none;
+		}
+		& .show {
+			opacity: 1;
+			transition: opacity 2s linear;
+		}
+	}
+	#services-footer {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		height: max-content;
+		margin: 0px auto;
+		padding: 1rem 0px;
+		justify-content: flex-end;
 
-}
-#services-hero{
-  background-color: var(--theme-surface-1);
-  display: flex;
-  flex-direction: row;
-  padding: 2rem;
-  justify-content: space-evenly;
-  border-radius: var(--theme-shape-radius);
-  & .services-hero-card {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    padding-top: 1rem;
-    border: 4px solid transparent;
-    border-radius: var(--theme-shape-radius);
-    transition-duration: 400ms;
-    transition-timing-function: ease-in-out;
-    font-size: 90%;
-    &:hover{
-      background-color: rgba(240, 255, 255, 0.466);
-      border-radius: var(--theme-shape-radius);
-      border-color: var(--theme-surface-2);
-      box-shadow: 2px 2px 8px rgb(0, 0, 0);
-      /* font-weight: 600; */
-      cursor: pointer;
-    }
-    & img {
-      display: flex;
-      margin: auto;
-      width: 50%;
-    }
-    & p {
-      text-align: center;
-      width: 100%;
-      font-size: 1.5rem;
-    }
-  }
-  & .services-button {
-    display: none;
-    height: max-content;
-  }
-  & .selected{
-    scale: 1.2;
-    border-color: var(--theme-surface-2);
-  }
-}
-#services-body{
-  display: flex;
-  flex-direction: row;
-  height: 50vh;
-  width: 100%;
-  & .servicesBodyHeader {
-    display: flex;
-    width: 90%;
-    margin: 0px auto;
-    background-color: aquamarine;
-  }
-  & .services-body-content {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin: 0px auto;
-    opacity: 1;
-
-    & div {
-      display: flex;
-      width: 100%;
-      padding: 1rem;
-    }
-  }
-  & .hidden{
-    display: none;
-
-  }
-  & .show{
-    opacity:1;
-    transition: opacity 2s linear;
-  }
-}
-#services-footer {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: max-content;
-  margin: 0px auto;
-  padding: 1rem 0px;
-  justify-content: flex-end;
-
-  & div {
-    display: flex;
-    width: 50%;
-    & a {
-      display: flex;
-      width: max-content;
-      margin: 0px auto;
-      font-weight: 800;
-      text-decoration: none;
-      background-color: antiquewhite;
-      & button {
-        margin: auto;
-      }
-    }
-  }
-}
-@media (width <= 1000px) {
-  #services-hero{
-   justify-content: space-around;
-  }
-  #services-body{
-    height: auto;
-    flex-wrap: wrap;
-    margin: 1px;
-    & .services-body-content {
-      flex-direction: column;
-      & img {
-        width: 75%;
-        margin: 0px auto;
-      }
-      & ul {
-        margin: 0px auto;
-      }
-    }
-  }
-}
-@media (width <= 450px) {
-  #services-hero{
-    & .services-hero-card {
-        display: none;
-        background-color: yellow;
-      }
-    & .services-button {
-      display: flex;
-      background-color: aliceblue;
-    }
-  }
-}
-
-
-
-
+		& div {
+			display: flex;
+			width: 50%;
+			& a {
+				display: flex;
+				width: max-content;
+				margin: 0px auto;
+				font-weight: 800;
+				text-decoration: none;
+				& button {
+					margin: auto;
+					width: 4rem;
+				}
+			}
+		}
+	}
+	@media (width <= 1000px) {
+		#services-hero {
+			justify-content: space-around;
+		}
+		#services-body {
+			height: auto;
+			flex-wrap: wrap;
+			margin: 1px;
+			& .services-body-content {
+				flex-direction: column;
+				& img {
+					width: 75%;
+					margin: 0px auto;
+				}
+				& ul {
+					margin: 0px auto;
+				}
+			}
+		}
+	}
+	@media (width <= 450px) {
+		#services-hero {
+			& .services-hero-card {
+				display: none;
+				background-color: yellow;
+			}
+			& .services-button {
+				display: flex;
+				background-color: aliceblue;
+			}
+		}
+	}
 </style>

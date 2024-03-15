@@ -1,66 +1,154 @@
 ---
 import Layout from '../../layouts/Page.astro';
 import ProjectCard from '../../components/cards/ProjectCard.astro';
+import ProjectsModal from '../../components/modals/ProjectsModal.astro';
+import { defaultUser } from '../../icons/icons'
 
 const seo = {
 	title: 'Projects | Myco',
 	description: 'Some of Our Projects',
 };
+const projects = [
+	{
+		id: 'p1',
+		title: 'Project One',
+		thumb: {
+			id: '379960',
+			title:'thumb image title',
+			url:'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg',
+		},
+		content:{
+			photos: [
+				{
+					id: 'p1',
+					title: '1 The Guys',
+					url: 'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg',
+				},{
+					id: 'p2',
+					title: '1 Photo Two',
+					url: 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg',
+				},{
+					id: 'p3',
+					title: '1 Photo Three',
+					url: 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
+				}
+			],
+			description: 'sodf aosdif upaos ia aods aisduf oaisduf poaisdu aposdifu aosdif uaosdif aosidupoaisudpfoa iusdpofiau psdoiapsdofiu aposdifupa oidpaos ipaosdifu paosdiufp aoidufp oaisdufpo aisudpoaiuds pfoiu',
+			tesitmonial:{
+				thumb: {defaultUser},
+				quote: '1 asdf adsf asd asdf asd fasdf asd  asdf',
+				rating: '4',
+			}
+		}
+	},
+	{
+		id: 'p2',
+		title: 'Project Two',
+		thumb: {
+			id: '379962',
+			title:'thumb image title',
+			url:'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
+		},
+		content:{
+				photos: [
+				{
+					id: 'p1',
+					title: '2 The Guys',
+					url: 'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg',
+				},{
+					id: 'p2',
+					title: '2 Photo Two',
+					url: 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg',
+				},{
+					id: 'p3',
+					title: '2 Photo Three',
+					url: 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
+				}
+			],
+			description: 'lakjd l kalk alk j;alsdkjalk ja;ldkf',
+			tesitmonial:{
+				thumb: {defaultUser},
+				quote: '2 asdf adsf asd asdf asd fasdf asd  asdf',
+				rating: '4',
+			}
+		}
+	},
+	{
+		id: 'p3',
+		title: 'Project Three',
+		thumb: {
+			id: '379963',
+			title:'thumb image title',
+			url:'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg',
+		},
+		content:{
+			photos: [
+				{
+					id: 'p1',
+					title: '3 The Guys',
+					url: 'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg',
+				},{
+					id: 'p2',
+					title: '3 Photo Two',
+					url: 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg',
+				},{
+					id: 'p3',
+					title: '3 Photo Three',
+					url: 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
+				}
+			],
+			description: 'lakjd l kalk alk j;alsdkjalk ja;ldkf',
+			tesitmonial:{
+				thumb: {defaultUser},
+				quote: '3 asdf adsf asd asdf asd fasdf asd  asdf',
+				rating: '4',
+			}
+		}
+	},
+]
 
-const projOneIMG = 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg';
-const projOneTitle = 'Project one Title'
-const projOneLink = '/company/contact'
-
-const projTwoIMG = 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg'
-const projTwoTitle = 'Project Two Title';
-const projTwoLink = '/company/contact'
-
-const projThreeIMG = 'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg'
-const projThreeTitle = 'Project Three Title';
-const projThreeLink = '/company/contact'
-
+// const handleClick = () => (
+	
+// )
 ---
 
 <Layout {seo}>
-  <div id="project-cards-container">
-    <ProjectCard image={projOneIMG} title={projOneTitle} canonicalURL={projOneLink}></ProjectCard>
-    <ProjectCard image={projTwoIMG} title={projTwoTitle} canonicalURL={projTwoLink}></ProjectCard>
-    <ProjectCard image={projThreeIMG} title={projThreeTitle} canonicalURL={projThreeLink}></ProjectCard>
-  </div>
-</Layout>
-
+	<ProjectsModal content={projects[0]} />
+	<div id="project-cards-container">
+		{projects.map((project) => (<ProjectCard project={project} />))}
+	</div>
+</Layout>  
 
 <style>
-  #project-cards-container {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      min-width: 450px;
-      gap: 2rem;
-      padding: 2rem 0px;
-      height: max-content;
-      flex-wrap: wrap;
-
-  }
-  @media (width >= 800px) {
-    #project-cards-container {
-      gap: 1.5rem;
-      padding: 2rem 0px;
-    }
-  }
-  @media (width <= 800px) {
-    .project-card{
-      min-width: 430px;
-    }
-    #project-cards-container {
-      gap: 1.5rem;
-      height: 50%;
-      padding: 2rem 0px;
-    }
-  }
-  @media (width <= 450px) {
-    #project-cards-container {
-      padding: 2rem 0.3rem;
-    }
-  }
-  </style>
+	#project-cards-container {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		min-width: 450px;
+		gap: 2rem;
+		padding: 2rem 0px;
+		height: max-content;
+		flex-wrap: wrap;
+	}
+	@media (width >= 800px) {
+		#project-cards-container {
+			gap: 1.5rem;
+			padding: 2rem 0px;
+		}
+	}
+	@media (width <= 800px) {
+		.project-card {
+			min-width: 430px;
+		}
+		#project-cards-container {
+			gap: 1.5rem;
+			height: 40%;
+			padding: 2rem 0px;
+		}
+	}
+	@media (width <= 450px) {
+		#project-cards-container {
+			padding: 2rem 0.3rem;
+		}
+	}
+</style>
