@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Page.astro';
 import ProjectCard from '../../components/cards/ProjectCard.astro';
+import projects from '../../data/projects.json'
 
 const defaultUser = 'https://www.svgrepo.com/show/425240/users-avatar.svg'
 const missingImage = 'https://www.svgrepo.com/show/366275/missing-image.svg'
@@ -9,106 +10,7 @@ const seo = {
 	title: 'Projects | Myco',
 	description: 'Some of Our Projects',
 };
-const projects = [
-	{
-		id: 'p1',
-		title: 'Project One',
-		thumb: {
-			id: '379960',
-			title:'thumb image title',
-			url:'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg',
-		},
-		content:{
-			description: '1 sodf aosdif upaos ia aods ',
-			tesitmonial:{
-				thumb: defaultUser,
-				quote: '1 testimonial quote',
-				rating: '4',
-			},
-			photos: [
-				{
-					id: 'p1',
-					title: '1 The Guys',
-					url: 'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg',
-				},{
-					id: 'p2',
-					title: '1 Photo Two',
-					url: 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg',
-				},{
-					id: 'p3',
-					title: '1 Photo Three',
-					url: 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
-				}
-			],
-		}
-	},
-	{
-		id: 'p2',
-		title: 'Project Two',
-		thumb: {
-			id: '379962',
-			title:'thumb image title',
-			url:'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
-		},
-		content:{
 
-			description: '2 lakjd l kalk alk j;alsdkjalk ja;ldkf',
-			tesitmonial: {
-				thumb: defaultUser,
-				quote: '2 testimonial quote',
-				rating: '4'
-			},
-			photos: [
-				{
-					id: 'p1',
-					title: '2 The Guys',
-					url: 'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg',
-				},{
-					id: 'p2',
-					title: '2 Photo Two',
-					url: 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg',
-				},{
-					id: 'p3',
-					title: '2 Photo Three',
-					url: 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
-				}
-			],
-		}
-	},
-	{
-		id: 'p3',
-		title: 'Project Three',
-		thumb: {
-			id: '379963',
-			title:'thumb image title',
-			url:'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg',
-		},
-		content: {
-
-			description: '3 lakjd l kalk alk j;alsdkjalk ja;ldkf',
-			tesitmonial: {
-				thumb: defaultUser,
-				quote: 'Myco gave me a good price and were right on schedule. Definitely work with them again! - Jon Doe III, Construction Company Co.',
-				rating: '4'
-			}, 
-			photos: [
-				{
-					id: 'p1',
-					title: '3 The Guys',
-					url: 'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg',
-				},{
-					id: 'p2',
-					title: '3 Photo Two',
-					url: 'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg',
-				},{
-					id: 'p3',
-					title: '3 Photo Three',
-					url: 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
-				}
-			],
-		}
-	},
-]
 const projectsFallback = [
 	{
 		id: '1', 
@@ -136,12 +38,7 @@ const projectsFallback = [
 	}
 ]
 
-
 	const projectsArray = projects.length >= 1 ? projects : projectsFallback
-
-
-// console.log("testimonial:  ", projects[0]?.content?.tesitmonial)
-// console.log("content:  ", content)
 ---
 
 <Layout {seo}>

@@ -2,6 +2,8 @@
 import { Button } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
 import HeroServices from '../../components/sections/heros/HeroServices.astro';
+import services from '../../data/services.json'
+
 
 const seo = {
 	title: 'Services | Myco',
@@ -15,70 +17,10 @@ const scaffoldHouse =
 
 const windFarm = 'https://images.pexels.com/photos/532192/pexels-photo-532192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 
-const services = [
-	{
-		id: "residentialServices",
-		header: "Residential Services We Provide",
-		image:{
-			id: "service3",
-			description: "",
-			location: "https://www.probuilder.com/sites/default/files/construction-scaffolding-safety-correctly-installed-house-interior.png",
-		},
-		body: [
-			"residential service #1",
-			"residential service #2",
-			"residential service #3",
-			"residential service #4",
-		]
-	},{
-		id: "commercialServices",
-		header: "Comercial Services We Provide",
-		image:{
-			id: "service3",
-			description: "",
-			location:"https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg",
-		},
-		body: [
-			"Comercial service #1",
-			"Comercial service #2",
-			"Comercial service #3",
-			"Comercial service #4",
-		]
-	},{
-		id: "utilityServices",
-		header: "Utility Services We Provide",
-		image:{
-			id: "service3",
-			description: "",
-			location:"https://images.pexels.com/photos/532192/pexels-photo-532192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-		},
+const residentialData = services[0] ;
+const commercialData = services[1] ;
+const utilityData = services[2] ;
 
-		body: [
-			"Utility service #1",
-			"Utility service #2",
-			"Utility service #3",
-			"Utility service #4",
-		]
-	}
-const getServices = () => {
-	const results = {
-		image,
-		imageID, 
-		imageDescription, 
-		servicesHeader,
-		servicesBody
-	}
-
-	return results
-}
-	// image={},
-	// imageID={}, 
-	// imageDescription={}, 
-	// servicesHeader={},
-	// servicesBody={},
-
-
-]
 ---
 
 <script>
@@ -89,6 +31,7 @@ const getServices = () => {
 	const residentialContent = document.getElementById(
 		'services-body-residential'
 	) as HTMLElement;
+
 	const commercialCard = document.getElementById('commercial') as HTMLElement;
 	const commercialButton = document.getElementById(
 		'commercial-button'
@@ -96,6 +39,7 @@ const getServices = () => {
 	const commercialContent = document.getElementById(
 		'services-body-commercial'
 	) as HTMLElement;
+
 	const utilityCard = document.getElementById('utility') as HTMLElement;
 	const utilityButton = document.getElementById(
 		'utility-button'
@@ -104,68 +48,90 @@ const getServices = () => {
 		'services-body-utility'
 	) as HTMLElement;
 
-	function toggleCommercial(
+	function toggleContent(
 		selectedContent,
 		selectedCard,
-		otherContent,
-		otherCard
+		otherContent1,
+		otherCard1,
+		otherContent2,
+		otherCard2,
+	
 	) {
 		selectedContent.classList.remove('hidden');
 		selectedContent.classList.add('show');
 		selectedCard.classList.add('selected');
 
-		otherContent.classList.add('hidden');
-		otherContent.classList.remove('show');
-		otherCard.classList.remove('selected');
-	}
-	function toggleResidential(
-		selectedContent,
-		selectedCard,
-		otherContent,
-		otherCard
-	) {
-		selectedContent.classList.remove('hidden');
-		selectedContent.classList.add('show');
-		selectedCard.classList.add('selected');
+		otherContent1.classList.add('hidden');
+		otherContent1.classList.remove('show');
+		otherContent2.classList.add('hidden');
+		otherContent2.classList.remove('show');
+		otherCard1.classList.remove('selected');
+		otherCard2.classList.remove('selected');
 
-		otherContent.classList.add('hidden');
-		otherContent.classList.remove('show');
-		otherCard.classList.remove('selected');
 	}
-
+	
 	commercialCard.addEventListener('click', () => {
-		toggleCommercial(
+		toggleContent(
 			commercialContent,
 			commercialCard,
 			residentialContent,
-			residentialCard
+			residentialCard,
+			utilityContent,
+			utilityCard
 		);
 	});
 
 	residentialCard.addEventListener('click', () => {
-		toggleResidential(
+		toggleContent(
+			residentialContent,
+			residentialCard,
+			commercialContent,
+			commercialCard,
+			utilityContent,
+			utilityCard
+		);
+	});
+	utilityCard.addEventListener('click', () => {
+		toggleContent(
+			utilityContent,
+			utilityCard,
 			residentialContent,
 			residentialCard,
 			commercialContent,
 			commercialCard
+
 		);
 	});
 
 	commercialButton.addEventListener('click', () => {
-		toggleCommercial(
+		toggleContent(
 			commercialContent,
 			commercialButton,
 			residentialContent,
-			residentialButton
+			residentialButton,
+			utilityContent,
+			utilityCard
 		);
 	});
 
 	residentialButton.addEventListener('click', () => {
-		toggleResidential(
+		toggleContent(
 			residentialContent,
 			residentialButton,
 			commercialContent,
-			commercialButton
+			commercialButton,
+			utilityContent,
+			utilityCard
+		);
+	});
+	utilityButton.addEventListener('click', () => {
+		toggleContent(
+			residentialContent,
+			residentialButton,
+			commercialContent,
+			commercialButton,
+			utilityContent,
+			utilityCard
 		);
 	});
 </script>
@@ -212,45 +178,31 @@ const getServices = () => {
 		</section>
 
 		<section id="services-body">
-			{services.map((service, index) => (
-				<HeroServices 
-					id={service.id}
-					image={service.image.location}
-					imageID={service.image.id}
-					imageDescription={service.image.description}
-					title={service.header}
-					servicesBody={}	
-				/>
-			))}
 
-
-			<!-- <div id="services-body-residential" class="services-body-content show">
+			<div id="services-body-residential" class="services-body-content show">
 				<div class="body-image-container">
-					<img src={scaffoldHouse} alt="house" id="icon-house" />
+					<img src={residentialData?.image?.location} alt={residentialData?.image?.description} id={residentialData?.image?.id} />
 				</div>
 				<div class="body-text-container">
-					<span>Residential Services We Provide</span>
+					<span>{residentialData?.header}</span>
 					<ul>
-						<li>asd asdf asdf asdf asd fasdfasd</li>
-						<li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
-						<li>asd asdf asdf asdf asd sdfasd asdff</li>
-						<li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
-						<li>asd asdf asd fasdfasd fasdfa sdfasd asdff</li>
-						<li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
-						<li>asd asdf asdf asdf asd fasdfasd asdff</li>
+						{residentialData?.body.map((bullet, index) => (
+							<li key={index}>{bullet}</li>
+						))}
 					</ul>
 				</div>
 			</div>
 			<div id="services-body-commercial" class="services-body-content hidden">
 				<div class="services-body-content">
 					<div class="body-image-container">
-						<img src={scaffoldBW} alt="building" />
+						<img src={commercialData?.image?.location} alt={commercialData?.image?.description} id={commercialData?.image?.id} />
 					</div>
 					<div class="body-text-container">
 						<span>Commercial Services We Provide</span>
 						<ul>
-							<li>asd asdf asdf asdf asd fasdfasd</li>
-							<li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
+							{commercialData?.body.map((bullet, index) => (
+								<li key={index}>{bullet}</li>
+							))}
 						</ul>
 					</div>
 				</div>
@@ -258,17 +210,18 @@ const getServices = () => {
 			<div id="services-body-utility" class="services-body-content hidden">
 				<div class="services-body-content">
 					<div class="body-image-container">
-						<img src={windFarm} alt="turbines" />
+						<img src={utilityData?.image?.location} alt={utilityData?.image?.description} id={utilityData?.image?.id} />
 					</div>
 					<div class="body-text-container">
 						<span>Utility Services We Provide</span>
 						<ul>
-							<li>asd asdf asdf asdf asd fasdfasd</li>
-							<li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
+							{utilityData?.body.map((bullet, index) => (
+								<li key={index}>{bullet}</li>
+							))}
 						</ul>
-					</div> -->
-				<!-- </div>
-			</div> -->
+					</div>
+				</div>
+			</div>
 		</section>
 		<section id="services-footer">
 			<div>
