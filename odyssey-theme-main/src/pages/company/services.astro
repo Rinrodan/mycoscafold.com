@@ -1,7 +1,7 @@
 ---
-import { Button, TextSection } from '@components/odyssey-theme';
+import { Button } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
-import FeatureCard from '../../components/cards/FeatureCard.astro';
+import HeroServices from '../../components/sections/heros/HeroServices.astro';
 
 const seo = {
 	title: 'Services | Myco',
@@ -12,6 +12,73 @@ const scaffoldBW =
 	'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg';
 const scaffoldHouse =
 	'https://www.probuilder.com/sites/default/files/construction-scaffolding-safety-correctly-installed-house-interior.png';
+
+const windFarm = 'https://images.pexels.com/photos/532192/pexels-photo-532192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+
+const services = [
+	{
+		id: "residentialServices",
+		header: "Residential Services We Provide",
+		image:{
+			id: "service3",
+			description: "",
+			location: "https://www.probuilder.com/sites/default/files/construction-scaffolding-safety-correctly-installed-house-interior.png",
+		},
+		body: [
+			"residential service #1",
+			"residential service #2",
+			"residential service #3",
+			"residential service #4",
+		]
+	},{
+		id: "commercialServices",
+		header: "Comercial Services We Provide",
+		image:{
+			id: "service3",
+			description: "",
+			location:"https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg",
+		},
+		body: [
+			"Comercial service #1",
+			"Comercial service #2",
+			"Comercial service #3",
+			"Comercial service #4",
+		]
+	},{
+		id: "utilityServices",
+		header: "Utility Services We Provide",
+		image:{
+			id: "service3",
+			description: "",
+			location:"https://images.pexels.com/photos/532192/pexels-photo-532192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+		},
+
+		body: [
+			"Utility service #1",
+			"Utility service #2",
+			"Utility service #3",
+			"Utility service #4",
+		]
+	}
+const getServices = () => {
+	const results = {
+		image,
+		imageID, 
+		imageDescription, 
+		servicesHeader,
+		servicesBody
+	}
+
+	return results
+}
+	// image={},
+	// imageID={}, 
+	// imageDescription={}, 
+	// servicesHeader={},
+	// servicesBody={},
+
+
+]
 ---
 
 <script>
@@ -28,6 +95,13 @@ const scaffoldHouse =
 	) as HTMLElement;
 	const commercialContent = document.getElementById(
 		'services-body-commercial'
+	) as HTMLElement;
+	const utilityCard = document.getElementById('utility') as HTMLElement;
+	const utilityButton = document.getElementById(
+		'utility-button'
+	) as HTMLElement;
+	const utilityContent = document.getElementById(
+		'services-body-utility'
 	) as HTMLElement;
 
 	function toggleCommercial(
@@ -100,6 +174,15 @@ const scaffoldHouse =
 	<div id="services-page">
 		<h1>Services</h1>
 		<section id="services-hero">
+			<a id="residential" class="services-hero-card selected">
+				<img src="/assets/images/house.svg" alt="house" id="icon-house" />
+				<p>Residential</p>
+			</a>
+			<a class="services-button" id="residential-button">
+				<Button elevated>Residential</Button>
+			</a>
+
+
 			<a id="commercial" class="services-hero-card">
 				<img
 					src="/assets/images/building.svg"
@@ -111,17 +194,37 @@ const scaffoldHouse =
 			<a class="services-button" id="commercial-button">
 				<Button elevated>Commercial</Button>
 			</a>
-			<a id="residential" class="services-hero-card selected">
-				<img src="/assets/images/house.svg" alt="house" id="icon-house" />
-				<p>Residential</p>
+
+
+			<a id="utility" class="services-hero-card">
+				<img
+					src="/assets/images/powerLine.svg"
+					alt="High Voltage Powerline Tower"
+					id="icon-powerTower"
+				/>
+				<p>Utility</p>
 			</a>
-			<a class="services-button" id="residential-button">
-				<Button elevated>Residential</Button>
+			<a class="services-button" id="commercial-button">
+				<Button elevated>Utility</Button>
 			</a>
+
+
 		</section>
 
 		<section id="services-body">
-			<div id="services-body-residential" class="services-body-content show">
+			{services.map((service, index) => (
+				<HeroServices 
+					id={service.id}
+					image={service.image.location}
+					imageID={service.image.id}
+					imageDescription={service.image.description}
+					title={service.header}
+					servicesBody={}	
+				/>
+			))}
+
+
+			<!-- <div id="services-body-residential" class="services-body-content show">
 				<div class="body-image-container">
 					<img src={scaffoldHouse} alt="house" id="icon-house" />
 				</div>
@@ -152,6 +255,20 @@ const scaffoldHouse =
 					</div>
 				</div>
 			</div>
+			<div id="services-body-utility" class="services-body-content hidden">
+				<div class="services-body-content">
+					<div class="body-image-container">
+						<img src={windFarm} alt="turbines" />
+					</div>
+					<div class="body-text-container">
+						<span>Utility Services We Provide</span>
+						<ul>
+							<li>asd asdf asdf asdf asd fasdfasd</li>
+							<li>asd asdf asdf asdf asd fasdfasd fasdfa sdfasd asdff</li>
+						</ul>
+					</div> -->
+				<!-- </div>
+			</div> -->
 		</section>
 		<section id="services-footer">
 			<div>

@@ -1,9 +1,9 @@
 ---
 import Layout from '../../layouts/Page.astro';
 import ProjectCard from '../../components/cards/ProjectCard.astro';
-import ProjectsModal from '../../components/modals/ProjectsModal.astro';
-import Modal2 from '../../components/modals/Modal2.astro';
-import { defaultUser } from '../../icons/icons'
+
+const defaultUser = 'https://www.svgrepo.com/show/425240/users-avatar.svg'
+const missingImage = 'https://www.svgrepo.com/show/366275/missing-image.svg'
 
 const seo = {
 	title: 'Projects | Myco',
@@ -19,6 +19,12 @@ const projects = [
 			url:'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg',
 		},
 		content:{
+			description: '1 sodf aosdif upaos ia aods ',
+			tesitmonial:{
+				thumb: defaultUser,
+				quote: '1 testimonial quote',
+				rating: '4',
+			},
 			photos: [
 				{
 					id: 'p1',
@@ -34,12 +40,6 @@ const projects = [
 					url: 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
 				}
 			],
-			description: 'sodf aosdif upaos ia aods aisduf oaisduf poaisdu aposdifu aosdif uaosdif aosidupoaisudpfoa iusdpofiau psdoiapsdofiu aposdifupa oidpaos ipaosdifu paosdiufp aoidufp oaisdufpo aisudpoaiuds pfoiu',
-			tesitmonial:{
-				thumb: {defaultUser},
-				quote: '1 asdf adsf asd asdf asd fasdf asd  asdf',
-				rating: '4',
-			}
 		}
 	},
 	{
@@ -51,7 +51,14 @@ const projects = [
 			url:'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
 		},
 		content:{
-				photos: [
+
+			description: '2 lakjd l kalk alk j;alsdkjalk ja;ldkf',
+			tesitmonial: {
+				thumb: defaultUser,
+				quote: '2 testimonial quote',
+				rating: '4'
+			},
+			photos: [
 				{
 					id: 'p1',
 					title: '2 The Guys',
@@ -66,12 +73,6 @@ const projects = [
 					url: 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
 				}
 			],
-			description: 'lakjd l kalk alk j;alsdkjalk ja;ldkf',
-			tesitmonial:{
-				thumb: {defaultUser},
-				quote: '2 asdf adsf asd asdf asd fasdf asd  asdf',
-				rating: '4',
-			}
 		}
 	},
 	{
@@ -82,7 +83,14 @@ const projects = [
 			title:'thumb image title',
 			url:'https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg',
 		},
-		content:{
+		content: {
+
+			description: '3 lakjd l kalk alk j;alsdkjalk ja;ldkf',
+			tesitmonial: {
+				thumb: defaultUser,
+				quote: 'Myco gave me a good price and were right on schedule. Definitely work with them again! - Jon Doe III, Construction Company Co.',
+				rating: '4'
+			}, 
 			photos: [
 				{
 					id: 'p1',
@@ -98,29 +106,50 @@ const projects = [
 					url: 'https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg',
 				}
 			],
-			description: 'lakjd l kalk alk j;alsdkjalk ja;ldkf',
-			tesitmonial:{
-				thumb: {defaultUser},
-				quote: '3 asdf adsf asd asdf asd fasdf asd  asdf',
-				rating: '4',
-			}
 		}
 	},
 ]
+const projectsFallback = [
+	{
+		id: '1', 
+		title: '!!!_No_Projects_Found_!!!',
+		thumb: {
+			id: '2',
+			title: '!!!_No_Projects_Found_!!!',
+			url: missingImage,
+		},
+		content:{
+			description: '!!!_No_Projects_Found_!!!',
+			photos:[
+				{
+					id: '3',
+					title: '!!!_No_Projects_Found_!!!',
+					url: missingImage,
+				},
+				{
+					id: '4',
+					title: '!!!_No_Projects_Found_!!!',
+					url: missingImage,
+				}
+			]
+		}
+	}
+]
 
-// const handleClick = () => (
-	
-// )
+
+	const projectsArray = projects.length >= 1 ? projects : projectsFallback
+
+
+// console.log("testimonial:  ", projects[0]?.content?.tesitmonial)
+// console.log("content:  ", content)
 ---
 
 <Layout {seo}>
 
 	<!-- <ProjectsModal content={projects[0]} /> -->
 	<div id="project-cards-container">
-		{projects.map((project, index) => (
-				<ProjectCard 
-					project={project} 
-					index={index}/>
+		{projectsArray.map((project, index) => (
+			<ProjectCard project={project} index={index} testimonial={project?.content?.tesitmonial}/>
 		))}
 	</div>
 </Layout>  

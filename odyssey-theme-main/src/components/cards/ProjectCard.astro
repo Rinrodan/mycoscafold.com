@@ -1,13 +1,27 @@
 ---
 
-import ProjectsModal from '@components/modals/ProjectsModal.astro';
 import Modal2 from '../../components/modals/Modal2.astro';
 // import { Button } from '@components/odyssey-theme';
-const {project, index} = Astro.props;
+
+interface Props {
+  project: any
+  index: number
+  testimonial: any
+}
+const {project, index, testimonial} = Astro.props;
+
+const { content } = project;  
+const description  = content?.description;
+// const { quote } = testimonial;
+// const { quote, rating } = testimonial;
 
 const modalIndex = index + 1
 console.log("modal Index + 1  ", modalIndex)
-console.log("from project card to modal", project)
+console.log("description:  ", description)
+console.log("content:  ", content)
+// console.log("testimonial:  ", testimonial)
+
+
 ---
 
 <div class="project-card" id={project.id} >
@@ -22,10 +36,7 @@ console.log("from project card to modal", project)
             <!-- <ProjectsModal content={content} /> -->
             <button id={`modal${index + 1}-trigger`}>View Project</button>
     </div>
-    <Modal2 
-        triggerId={`modal${index + 1}-trigger`} 
-        project={project}>
-	</Modal2>
+    <Modal2 project={project} triggerId={`modal${index + 1}-trigger`} testimonial={testimonial} />
 
 </div> 
 

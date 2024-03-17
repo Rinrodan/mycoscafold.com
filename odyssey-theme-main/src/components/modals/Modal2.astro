@@ -1,16 +1,26 @@
 ---
 import QuoteButton from '@components/buttons/QuoteButton.astro'
 import CarouselReact from '@components/images/CarouselReact'
-import Projects from '@pages/company/projects.astro'
+import goldStar from '../../icons/goldStar.svg'
 
 interface Props {
+  project: any
   triggerId: string
-  title: string
+  title?: string
   closeText?: string
   children?: HTMLElement | HTMLElement[]
+  testimonial: any
 }
 
-const { project, triggerId, title, closeText = 'Close' } = Astro.props
+const { project, triggerId, title, closeText = 'Close', testimonial } = Astro.props
+
+const { thumb, quote, rating } = testimonial;
+
+
+
+// console.log("project array from prop", project)
+
+// console.log(project)
 ---
 
 <dialog class="modal" aria-labelledby={triggerId}>
@@ -44,8 +54,16 @@ const { project, triggerId, title, closeText = 'Close' } = Astro.props
               <QuoteButton />
             </div>
             <div class="testimonial-card"> 
-              <div></div>
-              <img src={project.content.tesitmonial.thumb} >
+              <img src={`${thumb}`} >
+              <span>{quote}</span>
+              <div>
+                <img src="https://www.svgrepo.com/show/475275/star.svg"> 
+                <img src="https://www.svgrepo.com/show/475275/star.svg"> 
+                <img src="https://www.svgrepo.com/show/475275/star.svg"> 
+                <img src="https://www.svgrepo.com/show/475275/star.svg"> 
+                <img src="https://www.svgrepo.com/show/475275/star.svg"> 
+              </div>
+              
 
 
             </div>
@@ -309,12 +327,41 @@ const { project, triggerId, title, closeText = 'Close' } = Astro.props
         }
         & .testimonial-card{
           display: flex;
+          flex-direction: column;
           aspect-ratio: 3/4;
           width: 50%;
           min-width: 200px;
           margin: auto;
-          background-color: rgba(0, 0, 255, 0.546);
+          background-color: var(--theme-surface-2);
+          border: 2px solid transparent;
+          border-radius: 0.75rem;
           box-shadow: 4px 4px 8px black;
+          justify-content: space-around;
+          & img {
+            display: flex;
+            aspect-ratio: 1/1;
+            width: 75%;
+            margin: auto;
+          }
+          & span {
+            display: flex;
+            margin: auto;
+            width: 100%;
+            padding: 0.5rem;
+            height: auto;
+            flex-wrap: wrap;
+            background-color: rgba(240, 248, 255, 0.548);
+          }
+          & div {
+            display: flex;
+            margin: auto;
+            height: 2.5rem;
+            width: 100%;
+            padding: 0.5rem;
+            & img{
+              height: 100%;
+            }
+          }
         }
       }
 

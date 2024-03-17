@@ -1,5 +1,5 @@
 // KindaCode.com
-// src/App.js
+// src/App.jss
 import { React, useState } from 'react';
 import * as styles from './carouselReact.module.css';
 
