@@ -26,25 +26,21 @@ const { thumb, quote, rating } = testimonial;
 <dialog class="modal" aria-labelledby={triggerId}>
   <div class="modal__inner">
     <div class="modal__content">
-      <h3 tabindex="-1">
-        {project.title}
-      </h3>
+
+
       <div class="modal-body">
 
-        
- 
-        <!-- <div id="modal-container-left"> 
-          <img src='https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg'>
-          <img src='https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg'>
-          <img src='https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg'>
-          <img src='https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg'>
-        </div> -->
         <div id="modal-container-left"> 
           <CarouselReact photos={project.content.photos} client:only="react" />
         </div>
 
         <div id='modal-container-right'>
-
+          <div class="modal__header">
+            <h3 tabindex="-1">{project.title}</h3>
+            <div class="modal__close">
+              <button>{closeText}</button>
+            </div>
+          </div>
           <div class="project-description"> 
             <p>{project.content.description}</p>
           </div>
@@ -53,10 +49,14 @@ const { thumb, quote, rating } = testimonial;
             <div class="quote-button-container">  
               <QuoteButton />
             </div>
+
             <div class="testimonial-card"> 
-              <img src={`${thumb}`} >
+              <div class="testimonial-image-container" >
+                <img src={`${thumb}`} >
+              </div>
+              
               <span>{quote}</span>
-              <div>
+              <div>1  
                 <img src="https://www.svgrepo.com/show/475275/star.svg"> 
                 <img src="https://www.svgrepo.com/show/475275/star.svg"> 
                 <img src="https://www.svgrepo.com/show/475275/star.svg"> 
@@ -72,9 +72,7 @@ const { thumb, quote, rating } = testimonial;
   
       </div>
     </div>
-    <div class="modal__close">
-      <button>{closeText}</button>
-    </div>
+
   </div>
 </dialog>
 
@@ -211,14 +209,14 @@ const { thumb, quote, rating } = testimonial;
 
 <style is:global>
   dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--theme-bg);
     filter: blur(6px);
   }
 
   :where(.modal) {
-    color: black;
-    background-color: white;
-    border: 0.5rem solid black;
+    color: var(--theme-primary);
+    background-color: var(--theme-bg);
+    border: 0.5rem solid var(--theme-on-primary);
     border-radius: 1rem;
     padding: 0;
   }
@@ -227,6 +225,7 @@ const { thumb, quote, rating } = testimonial;
     width: clamp(30ch, 70%, 75ch);
     border-radius: 1rem;
     width: 100%;
+
   }
 
   .modal__content {
@@ -242,23 +241,43 @@ const { thumb, quote, rating } = testimonial;
     animation-duration: 0.4s;
     overflow: scroll;
   }
+  .modal__header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: max-content;
+    margin: 0px;
+    justify-content: space-between;
+    & h3 {
+      width: 50%;
+      text-align: center;
+    }
+  }
 
   .modal__close {
-    width: 100%;
+    
   }
 
-  .modal__close button {
-    border: none;
-    background-color: lightgrey;
-    border-bottom-left-radius: 0.4rem;
-    border-bottom-right-radius: 0.4rem;
-    color: black;
-    text-align: right;
+  .modal__close  {
+    display: flex;
+
+    color: var(--theme-primary);
+    text-align: center;
     transition: background-color 0.15s ease-in-out;
-    width: 100%;
-    margin: 0;
-    padding: 0.5rem;
+    height: max-content;
+    margin: 0px;
+
+    & .button {
+      display: flex;
+      border: none;
+      background-color: lightgrey;
+      border-radius: 0.4rem;
+      height: auto;
+      margin: auto;
+      padding: 1rem;
+    }
   }
+  
 
   .modal__close button:hover,
   .modal__close button:focus {
@@ -337,12 +356,23 @@ const { thumb, quote, rating } = testimonial;
           border-radius: 0.75rem;
           box-shadow: 4px 4px 8px black;
           justify-content: space-around;
-          & img {
+          & .testimonial-image-container{
             display: flex;
-            aspect-ratio: 1/1;
             width: 75%;
+            height: 50%;
             margin: auto;
+            object-fit: cover;
+            vertical-align: middle;
+            overflow: hidden;
+            & img {
+              display: flex;
+              width: 100%;
+              height: auto;
+              margin: auto 0px;
+            }
+
           }
+
           & span {
             display: flex;
             margin: auto;
@@ -350,7 +380,7 @@ const { thumb, quote, rating } = testimonial;
             padding: 0.5rem;
             height: auto;
             flex-wrap: wrap;
-            background-color: rgba(240, 248, 255, 0.548);
+
           }
           & div {
             display: flex;

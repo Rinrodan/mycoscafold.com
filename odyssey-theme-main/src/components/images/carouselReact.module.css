@@ -16,6 +16,9 @@
     margin: auto;
     aspect-ratio: 1/1;
     overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+
   }
   
   /* Style each slide */

@@ -9,18 +9,11 @@ const seo = {
 	title: 'Services | Myco',
 	description: 'Services Page',
 };
-const quoteLink = '/company/contact';
-const scaffoldBW =
-	'https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg';
-const scaffoldHouse =
-	'https://www.probuilder.com/sites/default/files/construction-scaffolding-safety-correctly-installed-house-interior.png';
-
-const windFarm = 'https://images.pexels.com/photos/532192/pexels-photo-532192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 
 const residentialData = services[0] ;
 const commercialData = services[1] ;
 const utilityData = services[2] ;
-
+const quoteButtonLink = '/company/contact'
 ---
 
 <script>
@@ -62,8 +55,9 @@ const utilityData = services[2] ;
 		selectedCard.classList.add('selected');
 
 		otherContent1.classList.add('hidden');
-		otherContent1.classList.remove('show');
 		otherContent2.classList.add('hidden');
+		otherContent1.classList.remove('show');
+
 		otherContent2.classList.remove('show');
 		otherCard1.classList.remove('selected');
 		otherCard2.classList.remove('selected');
@@ -225,7 +219,7 @@ const utilityData = services[2] ;
 		</section>
 		<section id="services-footer">
 			<div>
-				<a href={quoteLink}><Button>Get a Quote</Button></a>
+				<a href={quoteButtonLink}><Button>Get a Quote</Button></a>
 			</div>
 		</section>
 	</div>

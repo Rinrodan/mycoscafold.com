@@ -10,7 +10,7 @@
         "content": {
             "description": "1 sodf aosdif upaos ia aods",
             "tesitmonial": {
-                "thumb": "/assets/images/blog/consider-hybrid-work/featured.jpg",
+                "thumb": "/assets/images/customer2.webp",
                 "quote": "1 testimonial quote",
                 "rating": "4"
             },
@@ -44,7 +44,7 @@
         "content": {
             "description": "2 lakjd l kalk alk j;alsdkjalk ja;ldkf",
             "tesitmonial": {
-                "thumb": "/assets/images/blog/consider-hybrid-work/featured.jpg",
+                "thumb": "/assets/images/customer1.webp",
                 "quote": "2 testimonial quote",
                 "rating": "4"
             },
@@ -73,12 +73,12 @@
         "thumb": {
             "id": "379963",
             "title": "thumb image title",
-            "url": "https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg"
+            "url": "/assets/images/projects/scaffoldBuilding1.webp"
         },
         "content": {
             "description": "Content for Project Three",
 			"tesitmonial": {
-				"thumb": "/assets/images/blog/consider-hybrid-work/featured.jpg",
+				"thumb": "/assets/images/customer3.webp",
 				"quote": "Myco gave me a good price and were right on schedule. Definitely work with them again! - Jon Doe III, Construction Company Co.",
 				"rating": "4"
 			}, 
@@ -86,7 +86,7 @@
 				{
 					"id": "p1",
 					"title": "3 The Guys",
-					"url": "https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg"
+					"url": "/assets/images/projects/scaffoldBuilding1.webp"
 				},{
 					"id": "p2",
 					"title": "3 Photo Two",
