@@ -1,16 +1,23 @@
 ---
 
+import Modal2 from '../modals/Modal2.astro';
+import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-import Modal2 from '../../components/modals/Modal2.astro';
 
 
+const images = import.meta.glob("../../assets/*");
 
+// import { Button } from '@components/
 interface Props {
-  project: any
-  index: number
-  testimonial: any
+    project: any
+    index: number
+    testimonial: any
+    thumb?: object
+    imgSrc: string;
+    altText?: string;
 }
-const {project, index, testimonial } = Astro.props;
+
+const { project, index, testimonial, thumb, imgSrc, altText } = Astro.props;
 
 const { content } = project;  
 const description  = content?.description;
@@ -23,13 +30,17 @@ console.log("description:  ", description)
 console.log("content:  ", content)
 // console.log("testimonial:  ", testimonial)
 
+if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "../assets/*"`);
 
 ---
 
 <div class="project-card" id={project.id} >
 
+    
     <div class="project-card-image-container">
-        <img src={project.thumb.url} alt={project.thumb.title}  id={project.thumb.id}/>
+        <!-- <img src={thumb} alt={project.thumb.title}  id={project.thumb.id}/> -->
+        <Image src={import(imgSrc)} alt={project.thumb.title}  id={project.thumb.id}/>
+  
     </div>
     <div class="project-card-text">
         <span>{project.title}</span>

@@ -4,7 +4,11 @@ import React from 'react';
 import { Container, Button } from '@components/odyssey-theme';
 import settings from '../../../config/settings.js';
 import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
+import { Image } from 'astro:assets';
+import image from '../../../../assets/water-tower-1-square.jpg'
 ---
+
+
 
 <Container>
 	<section class="hero-section__section">
@@ -27,9 +31,9 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 		</div>
 		<div class="hero-section__image">
 				<picture>
-					<img
-						src="/assets/images/home/classic-hero.jpg"
-						alt="Astro Odyssey"
+					<Image
+						src={image}
+						alt="water tower at dusk"
 						id="home-hero-image"
 					/>
 				</picture>

@@ -1,22 +1,31 @@
 ---
 import QuoteButton from '@components/buttons/QuoteButton.astro'
 import CarouselReact from '@components/images/CarouselReact'
+import Carousel2 from '../images/Carousel2.astro'
 import goldStar from '../../icons/goldStar.svg'
+import mountainLake from '../../assets/mountainLake.webp'
+
 
 interface Props {
   project: any
-  triggerId: string
+  triggerId?: string
   title?: string
   closeText?: string
   children?: HTMLElement | HTMLElement[]
   testimonial: any
+
 }
 
-const { project, triggerId, title, closeText = 'Close', testimonial } = Astro.props
+const { 
+  project, 
+  triggerId, 
+  title, 
+  closeText = 'Close', 
+  testimonial,
+
+ } = Astro.props
 
 const { thumb, quote, rating } = testimonial;
-
-
 
 // console.log("project array from prop", project)
 
@@ -32,6 +41,10 @@ const { thumb, quote, rating } = testimonial;
 
         <div id="modal-container-left"> 
           <CarouselReact photos={project.content.photos} client:only="react" />
+          <!-- <Carousel2 
+            imgSrc='../../assets/mountainLake.webp'
+            altText="A headshot of Priya against a brick wall background."
+          /> -->
         </div>
 
         <div id='modal-container-right'>

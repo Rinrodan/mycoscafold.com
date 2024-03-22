@@ -5,7 +5,7 @@
 		"allowSyntheticDefaultImports": true,
 		"baseUrl": "src",
 		// Add type definitions for our Vite runtime.
-		"types": ["astro/client"],
+		"types": ["astro/client","vite/client"],
 		"paths": {
 			"@config": ["config/*"],
 			"@icons": ["icons/*"],

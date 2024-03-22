@@ -1,15 +1,22 @@
 ---
 import Layout from '../../layouts/Page.astro';
-import ProjectCard from '../../components/cards/ProjectCard.astro';
+// import ProjectCard from '../../components/cards/ProjectCard.astro';
+import ProjectCardV2 from '../../components/cards/ProjectCardV2.astro';
 import projects from '../../data/projects.json'
+import mountainLake from '../../assets/mountainLake.webp'
 
 const defaultUser = 'https://www.svgrepo.com/show/425240/users-avatar.svg'
 const missingImage = 'https://www.svgrepo.com/show/366275/missing-image.svg'
+
+
 
 const seo = {
 	title: 'Projects | Myco',
 	description: 'Some of Our Projects',
 };
+const project1 = projects[0]
+const project2 = projects[1]
+const project3 = projects[2]
 
 const projectsFallback = [
 	{
@@ -45,9 +52,19 @@ const projectsFallback = [
 
 	<!-- <ProjectsModal content={projects[0]} /> -->
 	<div id="project-cards-container">
-		{projectsArray.map((project, index) => (
-			<ProjectCard project={project} index={index} testimonial={project?.content?.tesitmonial}/>
-		))}
+	<!-- {projectsArray.map((project, index) => (
+		<ProjectCard project={project} index={index} testimonial={project?.content?.tesitmonial}/>
+	))} -->
+
+	<ProjectCardV2 project={project1} index={1} testimonial={project1?.content?.tesitmonial} imgSrc="../../assets/mountainLake.webp"/>
+	<ProjectCardV2 
+		project={project2} 
+		index={2} 
+		testimonial={project2?.content?.tesitmonial} 
+		imgSrc="../../assets/storeFront.jpg"
+	/>
+	<ProjectCardV2 project={project3} index={3} testimonial={project3?.content?.tesitmonial} imgSrc="../../assets/mountainLake.webp"/>
+
 	</div>
 </Layout>  
 
