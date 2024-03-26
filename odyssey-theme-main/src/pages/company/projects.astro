@@ -56,14 +56,27 @@ const projectsFallback = [
 		<ProjectCard project={project} index={index} testimonial={project?.content?.tesitmonial}/>
 	))} -->
 
-	<ProjectCardV2 project={project1} index={1} testimonial={project1?.content?.tesitmonial} imgSrc="../../assets/mountainLake.webp"/>
+	<ProjectCardV2 
+		project={project1} 
+		index={1} 
+		testimonial={project1?.content?.tesitmonial} 
+		imgSrc="../../assets/mountainLake.webp"
+		altText='mountain cabin job by a lake'
+	/>
 	<ProjectCardV2 
 		project={project2} 
 		index={2} 
 		testimonial={project2?.content?.tesitmonial} 
 		imgSrc="../../assets/storeFront.jpg"
+		altText='a storefront'
 	/>
-	<ProjectCardV2 project={project3} index={3} testimonial={project3?.content?.tesitmonial} imgSrc="../../assets/mountainLake.webp"/>
+	<ProjectCardV2 
+		project={project3} 
+		index={3} 
+		testimonial={project3?.content?.tesitmonial} 
+		imgSrc="../../assets/steel-roof-2.jpg"
+		altText='steel roof business'
+	/>
 
 	</div>
 </Layout>  

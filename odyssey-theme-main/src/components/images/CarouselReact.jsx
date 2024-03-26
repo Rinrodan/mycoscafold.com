@@ -34,7 +34,7 @@ function CarouselReact({photos}) {
             className={photos[currentIndex].id === photo.id ? [styles.slide, styles.fade] : [styles.slide]
             }
           >
-            <img src={photo.url} alt={photo.title} className={styles.photo} id={photo.id}/>
+            <img src={photo.url} alt={photo.title} className={styles.photo} id={photo.id} />
             <div className={styles.caption}>{photo.title}</div>
           </div>
         ))}
@@ -52,15 +52,18 @@ function CarouselReact({photos}) {
 
       {/* Render dots indicator */}
       <div className={styles.dots}>
+        <ul id="dots-list">
         {photos.map((photo) => (
           <li
             key={photo.id}
+            id={photo.id}
             // highlight the dot that corresponds to the current photo
             className={photos[currentIndex].id === photo.id ? [styles.dot, styles.active] : [styles.dot]}
             // when the user clicks on a dot, go to the corresponding photo
             onClick={() => setCurrentIndex(photos.indexOf(photo))}
           ></li>
         ))}
+        </ul>
       </div>
       </div>
     </>

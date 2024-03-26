@@ -5,7 +5,7 @@
         "thumb": {
             "id": "379960",
             "title": "thumb image title",
-            "url": "https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg"
+            "url": "../../assets/mountainLake.webp"
         },
         "content": {
             "description": "1 sodf aosdif upaos ia aods",
@@ -18,17 +18,17 @@
                 {
                     "id": "p1",
                     "title": "1 The Guys",
-                    "url": "https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg"
+                    "url": "/assets/water-tower-1-square.jpg"
                 },
                 {
                     "id": "p2",
                     "title": "1 Photo Two",
-                    "url": "https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg"
+                    "url": "/assets/roof-bridge-1.jpg"
                 },
                 {
                     "id": "p3",
-                    "title": "1 Photo Three",
-                    "url": "https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg"
+                    "title": "Steel Roof",
+                    "url": "../../assets/steel-roof-2.jpg"
                 }
             ]
         }
@@ -39,7 +39,7 @@
         "thumb": {
             "id": "379962",
             "title": "thumb image title",
-            "url": "https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg"
+            "url": "/assets/roof-bridge-1.jpg"
         },
         "content": {
             "description": "2 lakjd l kalk alk j;alsdkjalk ja;ldkf",
@@ -52,17 +52,17 @@
                 {
                     "id": "p1",
                     "title": "2 The Guys",
-                    "url": "https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg"
+                    "url": "/assets/roof-bridge-1.jpg"
                 },
                 {
                     "id": "p2",
                     "title": "2 Photo Two",
-                    "url": "https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg"
+                    "url": "/assets/roof-bridge-2.jpg"
                 },
                 {
                     "id": "p3",
                     "title": "2 Photo Three",
-                    "url": "https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg"
+                    "url": "/assets/roof-bridge-3.jpg"
                 }
             ]
         }
@@ -72,8 +72,8 @@
         "title": "Project Three",
         "thumb": {
             "id": "379963",
-            "title": "thumb image title",
-            "url": "/assets/images/projects/scaffoldBuilding1.webp"
+            "title": "steel roof scaffold",
+            "url": "../../assets/steel-roof-2.jpg"
         },
         "content": {
             "description": "Content for Project Three",
@@ -81,20 +81,20 @@
 				"thumb": "/assets/images/customer3.webp",
 				"quote": "Myco gave me a good price and were right on schedule. Definitely work with them again! - Jon Doe III, Construction Company Co.",
 				"rating": "4"
-			}, 
+			},
 			"photos": [
 				{
 					"id": "p1",
 					"title": "3 The Guys",
-					"url": "/assets/images/projects/scaffoldBuilding1.webp"
+                    "url": "/assets/steel-roof-2.jpg"
 				},{
 					"id": "p2",
 					"title": "3 Photo Two",
-					"url": "https://images.pexels.com/photos/17745340/pexels-photo-17745340/free-photo-of-construction-workers-standing-on-the-scaffolding-outside-of-a-building-in-city.jpeg"
+					"url": "/assets/steel-roof-1.jpg"
 				},{
 					"id": "p3",
 					"title": "3 Photo Three",
-					"url": "https://images.pexels.com/photos/17346602/pexels-photo-17346602/free-photo-of-worker-climbing-steel-ladder.jpeg"
+					"url": "/assets/steel-roof-2.jpg"
 				}
 			]
 		}
