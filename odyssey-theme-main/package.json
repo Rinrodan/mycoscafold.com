@@ -7,13 +7,13 @@
 		"url": "https://github.com/Rinrodan/mycoscaffold.com/tree/v2"
 	},
 	"scripts": {
-		"dev": "astro dev",
+		"dev": "astro dev && nvm use 20.11.1",
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
 		"format": "npx prettier -w .",
 		"node20": "npm i node@20.11.1 --save-exact",
-		"v": "node -v"
+		"v": "node -v && astro --version"
 	},
 	"engines": {
 		"node": "^20.11.1",

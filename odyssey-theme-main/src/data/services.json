@@ -4,8 +4,8 @@
 		"header": "Residential Services We Provide",
 		"image":{
 			"id": "service3",
-			"description": "",
-			"location": "https://www.probuilder.com/sites/default/files/construction-scaffolding-safety-correctly-installed-house-interior.png"
+			"description": "Residential Services Image",
+			"location": "../../assets/service-utility-square.webp"
 		},
 		"body": [
 			"residential service #1",
@@ -18,8 +18,8 @@
 		"header": "Comercial Services We Provide",
 		"image":{
 			"id": "service3",
-			"description": "",
-			"location":"https://images.pexels.com/photos/379960/pexels-photo-379960.jpeg"
+			"description": "Commercial Services Image",
+			"location":"../../assets/service-commercial-square.webp"
 		},
 		"body": [
 			"Comercial service #1",
@@ -27,13 +27,13 @@
 			"Comercial service #3",
 			"Comercial service #4"
 		]
-        },{
+    },{
         "id": "utilityServices",
 		"header": "Utility Services We Provide",
 		"image":{
 			"id": "service3",
-			"description": "",
-			"location":"https://images.pexels.com/photos/532192/pexels-photo-532192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+			"description": "Utility Services Image",
+			"location":"../../assets/service-utility-square.webp"
 		},
 
 		"body": [

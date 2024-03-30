@@ -3,13 +3,14 @@
 import Modal2 from '../modals/Modal2.astro';
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+import services from '../../data/services.json'
 
 
 const images = import.meta.glob("../../assets/*");
 
 // import { Button } from '@components/
 interface Props {
-    project: any
+    service: any
     index: number
     testimonial: any
     thumb?: object
@@ -41,11 +42,11 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "../as
 
 ---
 
-<div class="project-card" id={project.id} >
+<section id={service.id} >
 
     
     <div class="project-card-image-container">
-        <!-- <img src={thumb} alt={project.thumb.title}  id={project.thumb.id}/> -->
+      
         <Image src={import(imgSrc)} alt={altText}  id={project.thumb.id}/>
   
     </div>
@@ -56,7 +57,11 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "../as
             <!-- <ProjectsModal content={content} /> -->
             <button id={`modal${index + "a"}-trigger`}>View Project</button>
     </div>
-    <Modal2 project={project} triggerId={`modal${index + "a"}-trigger`} testimonial={testimonial} />
+    <ul>
+        {residentialData?.body.map((bullet, index) => (
+            <li key={index}>{bullet}</li>
+        ))}
+    </ul>
 
 </div> 
 
@@ -66,8 +71,8 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "../as
         flex-direction: column;
         justify-content: space-between;
         width: 30%;
-        height: auto;
-        max-height: 70vh;
+        height: 100%;
+        max-height: 800px;
         min-width: 400px;
         padding: 1rem;
         margin: 0px auto;
@@ -80,16 +85,17 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "../as
     .project-card-image-container {
         display: flex;
         width: 100%;
-        height: 50%;
+        height: 70%;
         min-height: 320px;
         overflow: hidden;
         border: 0px solid transparent;
         border-radius: 1rem;
         & img {
-position: relative;
-top: 0px;
-            height: 100%;
+            position: relative;
+            top: 0;
+            width: 100%;
             /* translate: 0px -30%; */
+
             object-fit: cover;
         }
     }

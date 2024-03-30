@@ -2,8 +2,6 @@
 import ContactForm from '../../components/forms/ContactForm.astro';
 import Layout from '../../layouts/Page.astro';
 import { Container } from '@components/odyssey-theme';
-import GoogleContactForm from '../../components/forms/GoogleContactForm.astro'
-import QuoteButton from '@components/buttons/QuoteButton.astro';
 
 const seo = {
 	title: 'Contact | Myco',
@@ -15,59 +13,40 @@ const seo = {
 	<Container>
 		<section class="contact-hero__section">
 			<div class="contact-hero__text-section">
+				<h1>Get an Estimate</h1>
 
-
-				<div id="text-top">
-					<h1>Contact Us</h1>
-					<div>
-						<em><a href="tel:8008675309">(800) 867-5309</a></em> 
-						• 
-						<em><a href="mailto:MycoScaffold@gmail.com">MycoScaffold@gmail.com</a></em>
-					</div>
-				</div>
-				<div id="text-bottom">
-					<p> Looking for a Quote? <QuoteButton/>	</p>
+				<div>
+					<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjVujvUXV8HuGb1hSaQYXwM0P5-KOGDk_x4vt59DQi6EuDaw/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 				</div>
 			</div>
-			<div class="col-2__container">
-				<GoogleContactForm />
-				<!-- <ContactForm /> -->
-			</div>
+
 		</section>
 	</Container>
 </Layout>
 
 <style>
 	.contact-hero__section {
-		margin: var(--section-margin) auto;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		height: 80vh;
-
-		gap: 3rem;
+		display: flex;
+		height: auto;
+		width: 100%;
+		padding-bottom: 3rem;
 	}
 	.contact-hero__text-section {
 		padding: 2rem;
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		background-color: var(--theme-surface-1);
 		border-radius: var(--theme-shape-radius);
-		& #text-top{
-			display: flex;
-			flex-direction: column;
-			justify-content: space-evenly	;
-			height: 80%;
-		}
-		& #text-bottom{
-			height: 20%;
+		& div{
+			margin: 0px auto;
 		}
 	}
 	.col-2__container {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		height: auto;
 	}
 	@media (max-width: 768px) {
 		.contact-hero__section {
