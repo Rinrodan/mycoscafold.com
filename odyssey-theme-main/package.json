@@ -8,6 +8,7 @@
 	},
 	"scripts": {
 		"dev": "astro dev && nvm use 20.11.1",
+		"LAN": "astro dev --host",
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
