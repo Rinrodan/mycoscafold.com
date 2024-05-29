@@ -1,5 +1,6 @@
 ---
 
+import { Button } from '@components/odyssey-theme';
 import Modal2 from '../modals/Modal2.astro';
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
@@ -72,7 +73,7 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "../as
         padding: 1rem;
         margin: 0px auto;
         background-color: var(--theme-surface-1);
-        color: var(--theme-on-surface-1);
+        color: var(--theme-on-primary);
         border-radius: 2rem;
         transition-duration: 300ms;
     }
@@ -86,8 +87,8 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "../as
         border: 0px solid transparent;
         border-radius: 1rem;
         & img {
-position: relative;
-top: 0px;
+            position: relative;
+            top: 0px;
             height: 100%;
             /* translate: 0px -30%; */
             object-fit: cover;
@@ -98,21 +99,32 @@ top: 0px;
         padding: 1rem 0px;
         font-size: 2rem;
         font-weight: 700;
-        text-wrap: wrap
+        text-wrap: wrap;
         line-height: 2rem;
         height: max-content;;
         min-height: 5rem;
+        color: var(--theme-on-primary);
 
     }
     .project-card-footer {
         width: 100%;
         height: max-content;
-        & :first-child {
+        & button {
             display: flex;
             height: max-content;
             width: max-content;
             margin: 0px auto;
             text-decoration: none;
+            cursor: pointer;
+            padding: var(--theme-button-padding);
+            border-radius: var(--theme-button-border-radius);
+            border-color: var(--theme-primary);
+            background-color: var(--theme-primary);
+        }
+        & button:hover {
+            background-color: var(--theme-on-primary);
+            color: var(--theme-primary);
+
         }
     }
     @media (width <= 1000px)  {

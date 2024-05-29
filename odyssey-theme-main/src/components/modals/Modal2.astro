@@ -51,7 +51,7 @@ const { thumb, quote, rating } = testimonial;
           <div class="modal__header">
             <h3 tabindex="-1">{project.title}</h3>
             <div class="modal__close">
-              <button>{closeText}</button>
+              <button >{closeText}</button>
             </div>
           </div>
           <div class="project-description"> 
@@ -227,9 +227,9 @@ const { thumb, quote, rating } = testimonial;
   }
 
   :where(.modal) {
-    color: var(--theme-primary);
+    color: var(--theme-on-primary);
     background-color: var(--theme-bg);
-    border: 0.5rem solid var(--theme-on-primary);
+    border: 0.5rem solid var(--theme-primary);
     border-radius: 1rem;
     padding: 0;
   }
@@ -265,6 +265,10 @@ const { thumb, quote, rating } = testimonial;
       width: 50%;
       text-align: center;
     }
+    & button {
+      border-radius: 1rem;
+      padding: 0.1rem 1rem;
+    }
   }
 
   .modal__close {
@@ -283,7 +287,7 @@ const { thumb, quote, rating } = testimonial;
     & .button {
       display: flex;
       border: none;
-      background-color: lightgrey;
+      background-color: var(--theme-primary);
       border-radius: 0.4rem;
       height: auto;
       margin: auto;

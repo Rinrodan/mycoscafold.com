@@ -43,14 +43,15 @@ const Tag = href ? 'a' : 'button';
     opacity: var(--theme-primary-hover);
   }
   .btn--outlined {
-    color: var(--theme-primary);
-    background-color: transparent;
-    border: 2px solid var(--theme-primary);
+    color: var(--theme-on-primary);
+    background-color: var(--theme-primary);
+    border: 2px solid var(--theme-on-primary);
     transition: background-color var(--theme-transition);
   }
   .btn--outlined:hover {
-    background-color: var(--theme-primary);
-    color: var(--theme-on-primary);
+    background-color: var(--theme-on-primary);
+    color: var(--theme-primary);
+    border: 2px solid var(--theme-primary);
   }
   .custom-icon__span {
     margin-left: 0.25rem;
