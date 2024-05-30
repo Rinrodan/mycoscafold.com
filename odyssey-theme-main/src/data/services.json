@@ -1,34 +1,34 @@
 [
 	{
 		"id": "residentialServices",
-		"header": "Residential Services We Provide",
+		"header": "Residential Areas we Can Help",
 		"image":{
-			"id": "service3",
+			"id": "service1",
 			"description": "Residential Services Image",
-			"location": "../../assets/service-utility-square.webp"
+			"location": "../../assets/residential-service-square.png"
 		},
 		"body": [
-			"residential service #1",
-			"residential service #2",
-			"residential service #3",
-			"residential service #4"
+			"Need to paint a 30ft ceiling?",
+			"New Construction scaffold",
+			"Renovating/Remodeling",
+			"Good deals on long term rentals"
 		]
 	},{
 		"id": "commercialServices",
-		"header": "Comercial Services We Provide",
+		"header": "Comercial",
 		"image":{
-			"id": "service3",
+			"id": "service2",
 			"description": "Commercial Services Image",
 			"location":"../../assets/service-commercial-square.webp"
 		},
 		"body": [
-			"Comercial service #1",
-			"Comercial service #2",
-			"Comercial service #3",
-			"Comercial service #4"
+			"Pedestrian Overhead Protection",
+			"Building Repairs",
+			"New Construction",
+			"Stairs and trash chutes"
 		]
     },{
-        "id": "utilityServices",
+        "id": "utilities",
 		"header": "Utility Services We Provide",
 		"image":{
 			"id": "service3",
@@ -37,9 +37,9 @@
 		},
 
 		"body": [
-			"Utility service #1",
-			"Utility service #2",
-			"Utility service #3",
+			"Cell Tower Maintenance",
+			"Water Towers",
+			"Hard to reach pipe maintenance",
 			"Utility service #4"
 		]
 	}

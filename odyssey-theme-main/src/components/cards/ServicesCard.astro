@@ -11,6 +11,7 @@ const images = import.meta.glob("../../assets/*");
 // import { Button } from '@components/
 interface Props {
     service: any
+    project: any
     index: number
     testimonial: any
     thumb?: object
@@ -44,7 +45,7 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "../as
 
 <section id={service.id} >
 
-    
+
     <div class="project-card-image-container">
       
         <Image src={import(imgSrc)} alt={altText}  id={project.thumb.id}/>
@@ -66,7 +67,7 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "../as
 </div> 
 
 <style>
-    .project-card {
+    .project-card {   
         display: flex;
         flex-direction: column;
         justify-content: space-between;
