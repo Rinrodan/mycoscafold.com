@@ -1,9 +1,10 @@
 ---
 
 import { Button } from '@components/odyssey-theme';
-import Modal2 from '../modals/Modal2.astro';
+import Modal2 from '../projectsContent/Modal2.astro';
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+
 
 
 const images = import.meta.glob("../../assets/*");
@@ -57,7 +58,7 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "../as
             <!-- <ProjectsModal content={content} /> -->
             <button id={`modal${index + "a"}-trigger`}>View Project</button>
     </div>
-    <Modal2 project={project} triggerId={`modal${index + "a"}-trigger`} testimonial={testimonial} />
+    <Modal2 project={project} triggerId={`modal${index + "a"}-trigger`} testimonial={testimonial}/>
 
 </div> 
 

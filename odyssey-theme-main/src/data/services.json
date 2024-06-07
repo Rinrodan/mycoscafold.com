@@ -1,24 +1,22 @@
 [
 	{
 		"id": "residentialServices",
-		"header": "Residential Areas we Can Help",
+		"header": "Nothing in Your Home Should be Out of Reach",
 		"image":{
 			"id": "service1",
 			"description": "Residential Services Image",
 			"location": "../../assets/residential-service-square.png"
 		},
 		"body": [
-			"Need to paint a 30ft ceiling?",
-			"New Construction scaffold",
-			"Renovating/Remodeling",
-			"Good deals on long term rentals"
+			"Need to paint a 30ft ceiling? We provide a stable platform for your team to work on, enabling you to safely and eficiently transform the look of your space.",
+			"Building your dream home? Our scaffolding services offer the necessary support and access to complete your project safely and efficiently. We'll provide the right scaffolding system tailored to your construction needs."
 		]
 	},{
 		"id": "commercialServices",
-		"header": "Comercial",
+		"header": "Need to stay open during construction?",
 		"image":{
 			"id": "service2",
-			"description": "Commercial Services Image",
+			"description": "Want to stay open during construction?",
 			"location":"../../assets/service-commercial-square.webp"
 		},
 		"body": [
@@ -29,7 +27,7 @@
 		]
     },{
         "id": "utilities",
-		"header": "Utility Services We Provide",
+		"header": "Enabling Utility Repairs",
 		"image":{
 			"id": "service3",
 			"description": "Utility Services Image",
@@ -40,7 +38,7 @@
 			"Cell Tower Maintenance",
 			"Water Towers",
 			"Hard to reach pipe maintenance",
-			"Utility service #4"
+			"Power Generation"
 		]
 	}
 ]

@@ -61,8 +61,14 @@ function CarouselReact({photos}) {
             className={photos[currentIndex].id === photo.id ? [styles.dot, styles.active] : [styles.dot]}
             // when the user clicks on a dot, go to the corresponding photo
             onClick={() => setCurrentIndex(photos.indexOf(photo))}
-          ></li>
+            
+          >
+            {/* <span>{`${currentIndex} / ${photos.length}`}</span> */}
+
+          </li>
+
         ))}
+                  <li>            <span>{currentIndex + 1}/{photos.length}</span></li>
         </ul>
       </div>
       </div>

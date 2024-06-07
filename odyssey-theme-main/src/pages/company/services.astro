@@ -184,7 +184,7 @@ const quoteButtonLink = '/company/contact'
 					<span>{residentialData?.header}</span>
 					<ul>
 						{residentialData?.body.map((bullet, index) => (
-							<li key={index}>{bullet}</li>
+							<li id={`${index}`}>{bullet}</li>
 						))}
 					</ul>
 				</div>
@@ -195,10 +195,10 @@ const quoteButtonLink = '/company/contact'
 						<img src={commercialData?.image?.location} alt={commercialData?.image?.description} id={commercialData?.image?.id} />
 					</div>
 					<div class="body-text-container">
-						<span>Commercial Services We Provide</span>
+						<span>{commercialData?.header}</span>
 						<ul>
 							{commercialData?.body.map((bullet, index) => (
-								<li key={index}>{bullet}</li>
+								<li id={`${index}`}>{bullet}</li>
 							))}
 						</ul>
 					</div>
@@ -210,10 +210,10 @@ const quoteButtonLink = '/company/contact'
 						<img src={utilityData?.image?.location} alt={utilityData?.image?.description} id={utilityData?.image?.id} />
 					</div>
 					<div class="body-text-container">
-						<span>Utility Services We Provide</span>
+						<span>{commercialData?.header}</span>
 						<ul>
 							{utilityData?.body.map((bullet, index) => (
-								<li key={index}>{bullet}</li>
+								<li id={`${index}`}>{bullet}</li>
 							))}
 						</ul>
 					</div>
@@ -280,8 +280,9 @@ const quoteButtonLink = '/company/contact'
 		}
 		& .selected {
 			scale: 1.2;
+			background-color: var(--theme-primary-hover);
 			box-shadow: 2px 2px 8px rgb(0, 0, 0);
-			color: var(--theme-on-primary);
+			color: var(--theme-on-bg);
 		}
 	}
 	#services-body {
@@ -290,6 +291,7 @@ const quoteButtonLink = '/company/contact'
 		height: 40vh;
 		width: 95%;
 		background-color: var(--theme-surface-1);
+		color: var(--theme-bg);
 		border-radius: var(--theme-shape-radius);
 		margin-top: 1rem;
 		margin-inline: auto;

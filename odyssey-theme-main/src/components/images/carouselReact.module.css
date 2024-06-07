@@ -44,8 +44,8 @@
     width: auto;
     padding: 16px;
     margin-top: -22px;
-    background: rgba(0, 0, 0, 0.3);
-    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--theme-primary);
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
@@ -78,16 +78,27 @@
     display: flex;
     justify-content: center;
     height: max-content;
+    width: max-content;
+    margin: 0px auto;
+    & ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+
+    }
   }
   
   .dot {
+    display: none;
+    position: relative;
     cursor: pointer;
     height: 15px;
     width: 15px;
-    margin: 0 5px;
+    margin: 0px 5px;
     background-color: #ccc;
     border-radius: 50%;
-    display: inline-block;
     transition: 0.5s;
   }
   

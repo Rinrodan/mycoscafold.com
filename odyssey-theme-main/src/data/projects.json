@@ -8,7 +8,11 @@
             "url": "../../assets/mountainLake.webp"
         },
         "content": {
-            "description": "2022, contractor needed antennas installed on a tower, 150ft. PLAN: build a scaffold deck around the perimeter of the water tank. PROBLEM: Due to terrain a boom lift could not be used. Needed stationary platforms.",
+            "description": [
+                "Project Overview: A Contractor needed antennas installed on a water tower 150ft up.",
+                "The Challenge: The attached ladder would not be sufficient and due to terrain around the base of the tower a boom lift could not be used.",
+                "Our Solution: We designed and erected a sturdy stairwell, and also additional scaffold deck around the perimeter of the water tank."
+            ],
             "tesitmonial": {
                 "thumb": "/assets/images/customer2.webp",
                 "quote": "1 testimonial quote",
@@ -42,7 +46,11 @@
             "url": "/assets/roof-bridge-2.jpg"
         },
         "content": {
-            "description": "40ft tiltup warehouse in livermore. NEED: safe stair access to the roof. Scaffold used was System Scaffold. CHALLENGE: Creating a safe walkway over the parapet on the edge of the roof. SOLUTION: Build a walking ramp on to the roof and a stair tower for groind level access.",
+            "description": [
+                "The client required a safe access solution to their roof, allowing construction workers to move freely between the two adjacent buildings.",
+                "The primary challenge was not only providing access to the first building's roof but also ensuring that workers could easily transition to the second building's roof , which was 30ft away.",
+                "My solution to address this need was a stair tower was constructed at one end of the buildings, leading up to the first roof. From there, a walking bridge was to install a span between the two structures, providing an accessible path for workers to move between the roofs safely. Results: The implementation of this scaffolding solution allowed construction workers to access both roofs securely and efficiently."
+        ],
             "tesitmonial": {
                 "thumb": "/assets/images/customer1.webp",
                 "quote": "2 testimonial quote",
@@ -76,7 +84,12 @@
             "url": "../../assets/steel-roof-2.jpg"
         },
         "content": {
-            "description": "NEED: Truckee, CA, customer needed access to all the roof areas for a roof inspection.  CHALLENGE: platforms to inspect roof for replacement. Mountain terrain, high degree of difficulty. SOLUTION: systems scaffold, versatility to reach all areas.",
+            "description": [
+                "Project Overview: A client in Truckee, California needed comprehensive access to their roof for a detailed inspection. The location presented unique accessibility concerns.",
+                "The Challenge: The property was perched on a steep incline. This posed a significant challenge in terms of ensuring stability and safety for the inspection team. The complexity of the roof’s design added to the degree of difficulty.",
+                "Our Solution: To match the uniqueness of this project we deployed Systems Scaffold. The scaffold’s modular design met the challenge of the contours of the roof and the varying elevations of the terrain.",
+                "Outcome: The result was a seamless inspection process. Moreover, the safety of the inspection team, and scaffolding crew were upheld throughout the operation."
+            ],
 			"tesitmonial": {
 				"thumb": "/assets/images/customer3.webp",
 				"quote": "Myco gave me a good price and were right on schedule. Definitely work with them again! - Jon Doe III, Construction Company Co.",

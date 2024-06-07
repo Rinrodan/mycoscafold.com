@@ -6,6 +6,7 @@ import goldStar from '../../icons/goldStar.svg'
 import mountainLake from '../../assets/mountainLake.webp'
 
 
+
 interface Props {
   project: any
   triggerId?: string
@@ -26,6 +27,8 @@ const {
  } = Astro.props
 
 const { thumb, quote, rating } = testimonial;
+const {description} = project?.content?.description
+console.log('description.............................................................', description)
 
 // console.log("project array from prop", project)
 
@@ -55,7 +58,13 @@ const { thumb, quote, rating } = testimonial;
             </div>
           </div>
           <div class="project-description"> 
-            <p>{project.content.description}</p>
+            <ul>
+							{project?.content?.description.map((bullet, index) => (
+								<li key={index}>&nbsp; &nbsp;{bullet}</li>
+							))}
+						</ul>
+            <!-- <p>{project.content.description}</p> -->
+
           </div>
 
           <div id="modal-container-right-footer">
@@ -253,6 +262,9 @@ const { thumb, quote, rating } = testimonial;
     animation-name: slideIn;
     animation-duration: 0.4s;
     overflow: scroll;
+    & li{
+      list-style: none;
+    }
   }
   .modal__header {
     display: flex;
@@ -362,7 +374,7 @@ const { thumb, quote, rating } = testimonial;
           width: 50%;
         }
         & .testimonial-card{
-          display: flex;
+          display: none;
           flex-direction: column;
           aspect-ratio: 3/4;
           width: 50%;
