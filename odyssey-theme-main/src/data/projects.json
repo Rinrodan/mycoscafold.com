@@ -1,11 +1,11 @@
 [
     {
         "id": "p1",
-        "title": "Project One",
+        "title": "The Water Tower",
         "thumb": {
             "id": "379960",
-            "title": "thumb image title",
-            "url": "../../assets/mountainLake.webp"
+            "title": "The Water Tower",
+            "url": "/assets/images/customer2.webp"
         },
         "content": {
             "description": [
@@ -21,17 +21,17 @@
             "photos": [
                 {
                     "id": "p1",
-                    "title": "1 The Guys",
+                    "title": "Water Tower",
                     "url": "/assets/projects/water-tower-1.webp"
                 },
                 {
                     "id": "p2",
-                    "title": "1 Photo Two",
+                    "title": "Water Tower Two",
                     "url": "/assets/projects/water-tower-2.webp"
                 },
                 {
                     "id": "p3",
-                    "title": "Steel Roof",
+                    "title": "Water Tower Three",
                     "url": "/assets/projects/water-tower-3.webp"
                 }
             ]
@@ -39,10 +39,10 @@
     },
     {
         "id": "p2",
-        "title": "Project Two",
+        "title": "Roof Bridge",
         "thumb": {
             "id": "379962",
-            "title": "thumb image title",
+            "title": "Roof Bridge",
             "url": "/assets/roof-bridge-2.jpg"
         },
         "content": {
@@ -59,17 +59,17 @@
             "photos": [
                 {
                     "id": "p1",
-                    "title": "2 The Guys",
+                    "title": "Roof Scaffold Build",
                     "url": "/assets/projects/roof-bridge-1.webp"
                 },
                 {
                     "id": "p2",
-                    "title": "2 Photo Two",
+                    "title": "Roof Scaffold Build Two",
                     "url": "/assets/projects/roof-bridge-2.webp"
                 },
                 {
                     "id": "p3",
-                    "title": "2 Photo Three",
+                    "title": "Roof Scaffold Build Three",
                     "url": "/assets/projects/roof-bridge-3.webp"
                 }
             ]
@@ -77,7 +77,7 @@
     },
     {
         "id": "p3",
-        "title": "Project Three",
+        "title": "Mountain Steel Roof",
         "thumb": {
             "id": "379963",
             "title": "steel roof scaffold",
