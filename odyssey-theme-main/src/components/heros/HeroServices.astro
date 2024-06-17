@@ -1,0 +1,68 @@
+---
+
+    interface Props {
+        id: string
+        image: string
+        imageID: string
+        imageDescription: string
+        title: string
+        servicesBody: {}
+        servicesFooter?: HTMLElement | HTMLElement[]
+    }
+
+const { 
+    id,
+    image, 
+    imageID, 
+    imageDescription, 
+    title,
+    servicesBody,
+    servicesFooter,
+     } = Astro.props
+
+     const servicesBodyList = (servicesBody) => {
+  // Check if the input object is empty
+  if (Object.keys(servicesBody).length === 0) {
+    return document.createElement('ul'); // Return an empty UL
+  }
+
+  // Create the UL element
+  const ul = document.createElement('ul');
+
+  // Create an LI for each value
+  Object.values(servicesBody).forEach((value) => {
+    const li = document.createElement('li');
+    li.textContent = value;
+    ul.appendChild(li);
+  });
+
+  return ul;
+};
+
+// Example usage:
+const myServices = {
+  service1: 'Web Development',
+  service2: 'Graphic Design',
+  service3: 'SEO Optimization',
+};
+
+const ulElement = servicesBodyList(myServices);
+// Now you can append 'ulElement' to your desired container in the DOM.
+
+
+---
+
+<div id={id}>
+    <div>
+        <img src={image} id={imageID} alt={imageDescription}>
+    </div>
+    <div>
+        <div>{title}</div>
+
+        <ul>{servicesBodyList(servicesBody)}</ul>
+
+        <div>{servicesFooter}</div>
+    </div>
+
+
+</div>
