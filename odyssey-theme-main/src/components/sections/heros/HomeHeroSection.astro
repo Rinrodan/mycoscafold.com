@@ -2,9 +2,13 @@
 import { Icon } from 'astro-icon/components';
 import { Container, Button } from '@components/odyssey-theme';
 import settings from '../../../config/settings.js';
-import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 import { Image } from 'astro:assets';
 import image from '../../../../assets/water-tower-1-square.jpg'
+
+const headline = settings.headline;
+const description = settings.description;
+const phone = settings.phone;
+const email = settings.email;
 ---
 
 
@@ -12,21 +16,24 @@ import image from '../../../../assets/water-tower-1-square.jpg'
 <Container>
 	<section class="hero-section__section">
 		<div class="hero-section__text">
-				<h1>Building Platforms to Your Success</h1>
+				<h1>{headline}</h1>
 				<p>
-					Quality, Safety, and Customer Projects
+					{description}
 				</p>
 				<div class="hero-btns__container">
-					<Button href="/theme/style-guide" unelevated>Learn More</Button>
-					<Button href="/theme/get-started" customIcon>Get a Quote
-            <Fragment slot="icon">
-              <Icon name="ic:baseline-chevron-right"/>
-            </Fragment>
-            </Button
-					>
+					<Button href={`tel:${phone}`}outlined>{phone}</Button>
+					<Button href={`mailto:${email}`} outlined>{email}</Button>
+					<Button href="/company/services" class="hero-btns__learn-btn" unelevated>Learn More</Button>
+					
+					<!-- <Button href="/company/services" unelevated>Learn More</Button>
+					<Button href="/company/contact" customIcon>Get a Quote -->
+						<!-- <Fragment slot="icon">
+							<Icon name="ic:baseline-chevron-right"/>
+						</Fragment> -->
+					</Button>
 					
 				</div>
-				{settings.enableThemeSwitcher && <ThemeSwitcher client:only="react"/>}
+
 		</div>
 		<div class="hero-section__image">
 				<picture>
@@ -55,11 +62,16 @@ import image from '../../../../assets/water-tower-1-square.jpg'
 	}
 	.hero-btns__container {
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		align-items: left;
 		gap: 1rem;
 	}
 	.hero-btns__container {
 		margin-right: 1rem;
+		width: max-content;
+	}
+	.hero-btns__learn-btn{
+
 	}
 	.hero-section__image {
 		display: flex;

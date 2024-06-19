@@ -4,36 +4,46 @@ import Layout from '../../layouts/Page.astro';
 import { Container } from '@components/odyssey-theme';
 import GoogleContactForm from '../../components/forms/GoogleContactForm.astro'
 import QuoteButton from '@components/buttons/QuoteButton.astro';
+import settings from '../../config/settings';
 
 const seo = {
 	title: 'Contact | Myco',
 	description: 'Contact Page',
 };
+
+const logo = settings.logo;
+const phone = settings.phone;
+const email = settings.email;
+
+
 ---
 
 <Layout {seo}>
 	<Container>
 		<section class="contact-hero__section">
+			<h1>Contact Us</h1>
 			<div class="contact-hero__text-section">
 
 
 				<div id="text-top">
-					<h1>Contact Us</h1>
+					
 					<div>
-						<img src="https://asset.cloudinary.com/daa3cj6jz/a63b3408716f6cf25af656105a011aee"></img>
-						<em><a href="tel:8008675309">(800) 867-5309</a></em> 
-						• 
-						<em><a href="mailto:MycoScaffold@gmail.com">MycoScaffold@gmail.com</a></em>
+						
+						<img src={logo} height="100" alt="Man holding up scaffolding and the globe">
+						
+						<a href={`tel:${phone}`}>{phone}</a>
+						
+						<a href={`mailto:${email}`}>{email}</a>
 					</div>
 				</div>
-				<div id="text-bottom">
+				<!-- <div id="text-bottom">
 					<p> Looking for a Quote? <QuoteButton/>	</p>
-				</div>
+				</div> -->
 			</div>
-			<div class="col-2__container">
+			<!-- <div class="col-2__container">
 				<GoogleContactForm />
-				<!-- <ContactForm /> -->
-			</div>
+				<ContactForm /> 
+			</div> -->
 		</section>
 	</Container>
 </Layout>
@@ -41,15 +51,17 @@ const seo = {
 <style>
 	.contact-hero__section {
 		margin: var(--section-margin) auto;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
 		height: 80vh;
-
+		width: 50%;
 		gap: 3rem;
+		& h1 {
+			text-align: center;
+		}
 	}
 	.contact-hero__text-section {
 		padding: 2rem;
 		display: flex;
+		height: 50%;
 		flex-direction: column;
 		justify-content: center;
 		background-color: var(--theme-surface-1);
@@ -58,7 +70,14 @@ const seo = {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-evenly	;
-			height: 80%;
+			height: 100%;
+			& div{
+				display: flex;
+				flex-direction: column;
+				height: 50%;
+				justify-content: space-evenly;
+				align-items: center;
+			}
 		}
 		& #text-bottom{
 			height: 20%;

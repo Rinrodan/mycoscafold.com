@@ -3,6 +3,7 @@ import { Button } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
 import HeroServices from '../../components/sections/heros/HeroServices.astro';
 import services from '../../data/services.json'
+import QuoteButton from '@components/buttons/QuoteButton.astro';
 
 
 const seo = {
@@ -221,9 +222,9 @@ const quoteButtonLink = '/company/contact'
 			</div>
 		</section>
 		<section id="services-footer">
-			<div>
-				<a href={quoteButtonLink}><Button>Get a Quote</Button></a>
-			</div>
+			<!-- <div>
+				<QuoteButton/>
+			</div> -->
 		</section>
 	</div>
 </Layout>
@@ -370,7 +371,8 @@ const quoteButtonLink = '/company/contact'
 		#services-body {
 			height: auto;
 			flex-wrap: wrap;
-			margin: 1px;
+			margin: auto;
+			margin-top: 1rem;
 			& .services-body-content {
 				flex-direction: column;
 				& img {
