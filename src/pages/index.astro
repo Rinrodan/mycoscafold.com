@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import { emailIcon } from '../icons/icons';
+import ContactCard from '../components/cards/ContactCard.astro';
+import settings from '../config/settings';
+import type { JsxElement } from 'typescript';
+import type { JSX } from 'astro/jsx-runtime';
+import Services from '../components/sections/Services.astro';
+
+interface Props {
+
+	email?: string,
+	phone?: string,
+	contractorsLicense?: string;
+
+}
+const seo = {
+	title: 'Contact | Myco',
+	description: 'Contact Page',
+};
+const logoBig = "https://res.cloudinary.com/daa3cj6jz/image/upload/v1717725094/blue-atlas-5000x4000-white-bg_e4iagg.png"
+const description = settings.description;
+
+
+
+
+---
+
+<Layout {seo}>
+	<main>
+
+		<div class="homeHero">
+			<div class="logoContainer">
+				<img src={logoBig}/>	
+			</div>
+			<div class="title">Myco Scaffold</div>
+			<div class="descriptionSubheading2">{description}</div>
+			</div>
+		</div>	 <!-- homeHero -->
+<div class="descriptionSubheadng">{description}</div>
+<div class="contactContainer">
+	<a href="mailto:MycoScaffold@gmail.com">
+		<button type="button" class="emailButton">
+			<Fragment set:html={emailIcon} />
+			<span>MycoScaffold@gmail.com</span>
+		</button>
+	</a>
+	<a href="mailto:MycoScaffold@gmail.com">
+		<button type="button" class="emailButton">
+
+			<span>(916) 538-1551</span>
+		</button>
+	</a>
+	
+</div>  <!-- contactContainer -->
+		<ContactCard/>
+		<!-- <Services/> -->
+</main>
+</Layout>
+
+<style>
+:root{
+
+	a {
+		text-decoration: none;
+	}
+
+
+	main {
+		margin: auto;
+
+		width: 100%;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+
+
+	.homeHero{
+		display:flex ;
+		width: 100%;
+		height:50%;
+		flex-direction: column;
+		& .descriptionSubheading2{
+			display: flex;
+			width: max-content;
+			margin: auto;
+			text-align: center;
+			font-size: 2rem;
+		}
+	}
+	.title {
+			font-family: 'Stick No Bills Variable', sans-serif;
+			font-size: 5rem;
+			font-weight: 700;
+			line-height: 1;
+			text-align: center;
+			margin-bottom: 1rem;
+
+		}
+	.descriptionSubheadng{
+		display: none;
+		width: 100%;
+		text-align: center;
+		padding: 3rem 0px;
+		font-size: 2rem;
+	}
+	.logoContainer{
+		display: flex;
+		margin: 0px auto;
+		height: 24rem;
+		width: 50%;
+		object-fit:scale-down;
+		& img{
+			height: 100%;
+			width: auto;
+			margin: auto;
+		}
+	}
+	.contactContainer{
+		display:flex ;
+		flex-direction: column;
+		width: max-content;
+		height:100vh;
+		margin: auto;
+		padding-top: 2rem;
+		gap: 0.5rem;
+
+	}
+
+	.emailButton{
+		display: flex;
+		width: max-content;
+		cursor: pointer;
+		height: 100%;
+		flex-direction: row;
+		justify-content:flex-start;
+		width: max-content;
+		text-decoration: none;
+		border: 4px solid black;
+		border-radius: 0.5rem;
+		margin: 0px auto;
+		& span{
+			display: flex;
+			height: auto;
+			text-decoration: none;
+			margin:auto;
+			padding: 1rem;
+			font-size: large;
+			font-weight: 600;
+
+		}
+		&:hover {
+			border-color: aqua;
+			box-shadow: 2px 2px 4px rgb(197, 245, 245);
+		}
+		svg{
+			display: flex;
+				width: 3rem;
+				margin: auto;
+
+			}
+	}
+}
+@media screen and (max-width: 700px) {
+    .homeHero {
+        display: none;
+    }
+	.descriptionSubheadng{
+		display: flex;
+	}
+}
+
+</style>

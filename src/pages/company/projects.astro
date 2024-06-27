@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Page.astro';
+// import ProjectCard from '../../components/cards/ProjectCard.astro';
+import ProjectCardV2 from '../../components/cards/ProjectCardV2.astro';
+import projects from '../../data/projects.json'
+import mountainLake from '../../assets/mountainLake.webp'
+
+const defaultUser = 'https://www.svgrepo.com/show/425240/users-avatar.svg'
+const missingImage = 'https://www.svgrepo.com/show/366275/missing-image.svg'
+
+
+
+const seo = {
+	title: 'Projects | Myco',
+	description: 'Some of Our Projects',
+};
+const project1 = projects[0]
+const project2 = projects[1]
+const project3 = projects[2]
+
+const projectsFallback = [
+	{
+		id: '1', 
+		title: '!!!_No_Projects_Found_!!!',
+		thumb: {
+			id: '2',
+			title: '!!!_No_Projects_Found_!!!',
+			url: missingImage,
+		},
+		content:{
+			description: '!!!_No_Projects_Found_!!!',
+			photos:[
+				{
+					id: '3',
+					title: '!!!_No_Projects_Found_!!!',
+					url: missingImage,
+				},
+				{
+					id: '4',
+					title: '!!!_No_Projects_Found_!!!',
+					url: missingImage,
+				}
+			]
+		}
+	}
+]
+
+	const projectsArray = projects.length >= 1 ? projects : projectsFallback
+---
+
+<Layout {seo}>
+
+	<!-- <ProjectsModal content={projects[0]} /> -->
+	<div id="project-cards-container">
+	<!-- {projectsArray.map((project, index) => (
+		<ProjectCard project={project} index={index} testimonial={project?.content?.tesitmonial}/>
+	))} -->
+
+	<ProjectCardV2 
+		project={project1} 
+		index={1} 
+		testimonial={project1?.content?.tesitmonial} 
+		imgSrc="../../assets/project-water-tower-square.webp"
+		altText='A water tower at dusk'
+	/>
+	<ProjectCardV2 
+		project={project2} 
+		index={2} 
+		testimonial={project2?.content?.tesitmonial} 
+		imgSrc="../../assets/roof-bridge-2.jpg"
+		altText='a storefront'
+	/>
+	<ProjectCardV2 
+		project={project3} 
+		index={3} 
+		testimonial={project3?.content?.tesitmonial} 
+		imgSrc="../../assets/steel-roof-2.jpg"
+		altText='steel roof business'
+	/>
+
+	</div>
+</Layout>  
+
+
+
+<style>
+	#project-cards-container {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		min-width: 450px;
+		
+		gap: 2rem;
+		padding: 2rem 0px;
+		height: max-content;
+		flex-wrap: wrap;
+	}
+	@media (width >= 800px) {
+
+		#project-cards-container {
+			gap: 1.5rem;
+			padding: 2rem 0px;
+		}
+	}
+	@media (width <= 800px) {
+		.project-card {
+			min-width: 430px;
+		}
+		#project-cards-container {
+			gap: 1.5rem;
+			height: 40%;
+			padding: 2rem 0px;
+		}
+	}
+	@media (width <= 450px) {
+		#project-cards-container {
+			padding: 2rem 0.3rem;
+		}
+	}
+</style>

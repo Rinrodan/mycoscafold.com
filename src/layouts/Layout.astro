@@ -1,0 +1,94 @@
+---
+
+// google font 
+import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
+import '@fontsource-variable/stick-no-bills';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+	seo?: BaseHeadProps;
+	title?:string;
+	description?:string;
+}
+const { title, description } = Astro.props;
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<Header/>
+	<body>
+		<slot />
+	</body>
+	<footer>
+		<Footer/>
+	</footer>
+</html>
+<style is:global>
+	:root {
+										/* Theme Colors */
+		--vivid-sky-blue: #0efffb;
+		--sunset: #ebcc9dff;
+		--silver: #a7a7a7ff;
+		--black-ish:rgb(8, 7, 7);
+		--white: #ffffff;
+	
+		--main-bg:var(var(--silver))
+		--secondary-bg:var(--black-ish)
+		--accent: var(--vivid-sky-blue);
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+
+
+		--button-border:var(--black-ish);
+		--button-border-hover:var(--vivid-sky-blue)
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	.button{
+		display: flex;
+		width: max-content;
+		padding:0.25rem 0.75rem;
+		text-decoration: none;
+		text-align: center;
+		border: 4px solid transparent;
+		background-color: var(--black-ish);
+		border-radius: 0.5rem;
+		margin: 0px auto;
+		text-decoration: none;
+		text-align: center;
+		
+		color: var(--vivid-sky-blue);
+		&:hover {
+			background-color: var(--vivid-sky-blue);
+        	color: black;
+			font-weight: 700;
+		}
+	}
+
+
+</style>

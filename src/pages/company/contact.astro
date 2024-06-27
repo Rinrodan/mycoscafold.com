@@ -1,0 +1,77 @@
+---
+import ContactForm from '../../components/forms/ContactForm.astro';
+import Layout from '../../layouts/Page.astro';
+import { Container } from '@components/odyssey-theme';
+import GoogleContactForm from '../../components/forms/GoogleContactForm.astro'
+import QuoteButton from '@components/buttons/QuoteButton.astro';
+
+const seo = {
+	title: 'Contact | Myco',
+	description: 'Contact Page',
+};
+---
+
+<Layout {seo}>
+	<Container>
+		<section class="contact-hero__section">
+			<div class="contact-hero__text-section">
+
+
+				<div id="text-top">
+					<h1>Contact Us</h1>
+					<div>
+						<em><a href="tel:8008675309">(800) 867-5309</a></em> 
+						• 
+						<em><a href="mailto:MycoScaffold@gmail.com">MycoScaffold@gmail.com</a></em>
+					</div>
+				</div>
+				<div id="text-bottom">
+					<p> Looking for a Quote? <QuoteButton/>	</p>
+				</div>
+			</div>
+			<div class="col-2__container">
+				<GoogleContactForm />
+				<!-- <ContactForm /> -->
+			</div>
+		</section>
+	</Container>
+</Layout>
+
+<style>
+	.contact-hero__section {
+		margin: var(--section-margin) auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		height: 80vh;
+
+		gap: 3rem;
+	}
+	.contact-hero__text-section {
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		background-color: var(--theme-surface-1);
+		border-radius: var(--theme-shape-radius);
+		& #text-top{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly	;
+			height: 80%;
+		}
+		& #text-bottom{
+			height: 20%;
+		}
+	}
+	.col-2__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: auto;
+	}
+	@media (max-width: 768px) {
+		.contact-hero__section {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

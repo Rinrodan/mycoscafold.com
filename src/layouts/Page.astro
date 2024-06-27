@@ -1,0 +1,39 @@
+---
+
+import Layout from './Base.astro';
+import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
+
+
+// google font 
+import '@fontsource-variable/stick-no-bills';
+
+export interface Props {
+	seo?: BaseHeadProps;
+}
+
+import { nav } from '../config/nav.js';
+
+const { seo } = Astro.props as Props;
+---
+
+<Layout {seo}>
+	<header slot="header">
+		<span slot="logo">
+			<!-- <Logo /> -->
+		</span>
+	</header>
+	<div id="page">
+		<slot />
+	</div>
+	<footer
+		slot="footer"
+
+		color="var(--theme-on-surface-1)"
+
+
+
+
+	>
+		<!-- <Logo slot="logo" /> -->
+	</footer>
+</Layout>

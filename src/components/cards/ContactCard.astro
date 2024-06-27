@@ -1,0 +1,102 @@
+---
+interface Props {
+
+	email?: string,
+	phone?: string,
+  contractorsLicense?: string;
+
+}
+
+// const { href, title, body } = Astro.props;
+import { nav } from '../../config/nav.js';
+import settings from '../../config/settings.js';
+import EmailButton from '../buttons/EmailButton.astro';
+import PhoneButton from '../buttons/PhoneButton.astro';
+
+
+const email = settings.email;
+const phone = settings.phone;
+const licenseNumber = settings.contractorsLicense
+
+---
+<div class="contactCard">
+    <div class="contactCardHeader">
+        <div>
+            Get in touch
+        </div>
+
+    </div> <!-- contactCardHeader -->
+
+    <div class="contactCardBody">
+        <EmailButton/>
+        <PhoneButton/>
+    </div> <!-- contactCardBody -->
+    
+    <div class="contactCardFooter">
+        <div class="license">
+            <span>
+                {`License No. # ${licenseNumber}`}
+            </span>
+                </div>
+
+    </div> <!-- contactCarBody -->
+
+
+
+</div>  <!-- contactCard -->
+
+<style>
+
+    .contactCard{
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        left: 1rem;
+        bottom: 5rem;
+        width: max-content;
+        height: max-content;
+        margin-top: 0px;
+        padding: 0.5rem 1rem;
+        background-color: yellow;
+        box-shadow: 2px 2px 6px aqua;
+        text-align: center;
+    }
+    .contactCardHeader{
+        background-color: aqua;
+            & div {
+                display: flex;
+                color: black;
+                font-size:2rem;
+                font-weight: 500;
+            }
+    }
+    .contactCardBody{
+        background-color: rgb(0, 255, 60);
+
+
+
+    }
+    .email  {
+            display: flex;
+            text-decoration: none;
+            height: 100%;
+            width: 100%;
+
+        }
+
+    .contactCardFooter{
+        font-size: small;
+        background-color: rgb(255, 85, 0);
+    }
+    /* Hide the element when the screen height is less than 500px */
+@media screen and (max-height: 500px) {
+    .contactCard {
+        display: none;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .contactCard {
+        display: none;
+    }
+}
+</style>

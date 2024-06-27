@@ -1,0 +1,399 @@
+---
+
+import Layout from '../../layouts/Page.astro';
+import HeroServices from '../../components/heros/HeroServices.astro';
+import services from '../../data/services.json'
+import Button from '../buttons/Button.astro';
+
+
+const seo = {
+	title: 'Services | Myco',
+	description: 'Services Page',
+};
+
+const residentialData = services[0] ;
+const commercialData = services[1] ;
+const utilityData = services[2] ;
+const quoteButtonLink = '/company/contact'
+---
+
+<script>
+	const residentialCard = document.getElementById('residential') as HTMLElement;
+	const residentialButton = document.getElementById(
+		'residential-button'
+	) as HTMLElement;
+	const residentialContent = document.getElementById(
+		'services-body-residential'
+	) as HTMLElement;
+
+	const commercialCard = document.getElementById('commercial') as HTMLElement;
+	const commercialButton = document.getElementById(
+		'commercial-button'
+	) as HTMLElement;
+	const commercialContent = document.getElementById(
+		'services-body-commercial'
+	) as HTMLElement;
+
+	const utilityCard = document.getElementById('utility') as HTMLElement;
+	const utilityButton = document.getElementById(
+		'utility-button'
+	) as HTMLElement;
+	const utilityContent = document.getElementById(
+		'services-body-utility'
+	) as HTMLElement;
+
+	function toggleContent(
+		selectedContent:any,
+		selectedCard:any,
+		otherContent1:any,
+		otherCard1:any,
+		otherContent2:any,
+		otherCard2:any,
+	
+	) {
+		selectedContent.classList.remove('hidden');
+		selectedContent.classList.add('show');
+		selectedCard.classList.add('selected');
+
+		otherContent1.classList.add('hidden');
+		otherContent2.classList.add('hidden');
+		otherContent1.classList.remove('show');
+
+		otherContent2.classList.remove('show');
+		otherCard1.classList.remove('selected');
+		otherCard2.classList.remove('selected');
+
+	}
+	
+	commercialCard.addEventListener('click', () => {
+		toggleContent(
+			commercialContent,
+			commercialCard,
+			residentialContent,
+			residentialCard,
+			utilityContent,
+			utilityCard
+		);
+	});
+
+	residentialCard.addEventListener('click', () => {
+		toggleContent(
+			residentialContent,
+			residentialCard,
+			commercialContent,
+			commercialCard,
+			utilityContent,
+			utilityCard
+		);
+	});
+	utilityCard.addEventListener('click', () => {
+		toggleContent(
+			utilityContent,
+			utilityCard,
+			residentialContent,
+			residentialCard,
+			commercialContent,
+			commercialCard
+
+		);
+	});
+
+	commercialButton.addEventListener('click', () => {
+		toggleContent(
+			commercialContent,
+			commercialButton,
+			residentialContent,
+			residentialButton,
+			utilityContent,
+			utilityCard
+		);
+	});
+
+	residentialButton.addEventListener('click', () => {
+		toggleContent(
+			residentialContent,
+			residentialButton,
+			commercialContent,
+			commercialButton,
+			utilityContent,
+			utilityCard
+		);
+	});
+	utilityButton.addEventListener('click', () => {
+		toggleContent(
+			residentialContent,
+			residentialButton,
+			commercialContent,
+			commercialButton,
+			utilityContent,
+			utilityCard
+		);
+	});
+</script>
+
+<Layout {seo}>
+	<div id="services-page">
+		<h1>Services</h1>
+		<section id="services-hero">
+			<a id="residential" class="services-hero-card selected">
+				<img src="/assets/images/house.svg" alt="house" id="icon-house" />
+				<p>Residential</p>
+			</a>
+			<a class="services-button" id="residential-button">
+				<Button >Residential</Button>
+			</a>
+
+
+			<a id="commercial" class="services-hero-card">
+				<img
+					src="/assets/images/building.svg"
+					alt="Commercial Building"
+					id="icon-building"
+				/>
+				<p>Commercial</p>
+			</a>
+			<a class="services-button" id="commercial-button">
+				<button >Commercial</button>
+			</a>
+
+
+			<a id="utility" class="services-hero-card">
+				<img
+					src="/assets/images/powerLine.svg"
+					alt="High Voltage Powerline Tower"
+					id="icon-powerTower"
+				/>
+				<p>Utility</p>
+			</a>
+			<a class="services-button" id="commercial-button">
+				<Button >Utility</Button>
+			</a>
+
+
+		</section>
+
+		<section id="services-body">
+
+			<div id="services-body-residential" class="services-body-content show">
+				<div class="body-image-container">
+					<img 
+						src={residentialData?.image?.location} 
+						alt={residentialData?.image?.description} 
+						id={residentialData?.image?.id} />
+				</div>
+				<div class="body-text-container">
+					<span>{residentialData?.header}</span>
+					<ul>
+						{residentialData?.body.map((bullet, index) => (
+							<li id={`${index}`}>{bullet}</li>
+						))}
+					</ul>
+				</div>
+			</div>
+			<div id="services-body-commercial" class="services-body-content hidden">
+				<div class="services-body-content">
+					<div class="body-image-container">
+						<img src={commercialData?.image?.location} alt={commercialData?.image?.description} id={commercialData?.image?.id} />
+					</div>
+					<div class="body-text-container">
+						<span>{commercialData?.header}</span>
+						<ul>
+							{commercialData?.body.map((bullet, index) => (
+								<li id={`${index}`}>{bullet}</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="services-body-utility" class="services-body-content hidden">
+				<div class="services-body-content">
+					<div class="body-image-container">
+						<img src={utilityData?.image?.location} alt={utilityData?.image?.description} id={utilityData?.image?.id} />
+					</div>
+					<div class="body-text-container">
+						<span>{commercialData?.header}</span>
+						<ul>
+							{utilityData?.body.map((bullet, index) => (
+								<li id={`${index}`}>{bullet}</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="services-footer">
+			<div>
+				<a href={quoteButtonLink}><button>Get a Quote</Button></a>
+			</div>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	#services-page {
+		display: flex;
+		flex-direction: column;
+		height: auto;
+		width: 100%;
+		& h1 {
+			text-align: center;
+		}
+	}
+	#services-hero {
+		background-color: var(--theme-surface-1);
+		display: flex;
+		flex-direction: row;
+		padding: 1rem 0px;
+		justify-content: space-evenly;
+		border-radius: 0px;
+		& .services-hero-card {
+			display: flex;
+			flex-direction: column;
+			width: max-content;
+			min-width: 8rem;
+			padding-top: 1rem;
+			border: 4px solid transparent;
+			border-radius: var(--theme-shape-radius);
+			transition-duration: 400ms;
+			transition-timing-function: ease-in-out;
+			font-size: 90%;
+			&:hover,
+			.selected {
+				border-color: var(--theme-primary);
+				box-shadow: 2px 2px 8px rgb(0, 0, 0);
+				/* font-weight: 600; */
+				cursor: pointer;
+			}
+			& img {
+				display: flex;
+				margin: 0px auto;
+				width: 30%;
+			}
+			& p {
+				text-align: center;
+				width: 100%;
+				font-size: 1.5rem;
+			}
+		}
+		& .services-button {
+			display: none;
+			height: max-content;
+		}
+		& .selected {
+			scale: 1.2;
+			background-color: var(--theme-primary-hover);
+			box-shadow: 2px 2px 8px rgb(0, 0, 0);
+			color: var(--theme-on-bg);
+		}
+	}
+	#services-body {
+		display: flex;
+		flex-direction: row;
+		height: 40vh;
+		width: 95%;
+		background-color: var(--theme-surface-1);
+		color: var(--theme-bg);
+		border-radius: var(--theme-shape-radius);
+		margin-top: 1rem;
+		margin-inline: auto;
+		& .servicesBodyHeader {
+			display: flex;
+			width: 90%;
+			margin: 0px auto;
+			background-color: aquamarine;
+		}
+		& .services-body-content {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			margin: 0px auto;
+			opacity: 1;
+			& .body-image-container {
+				display: flex;
+				width: 60%;
+				padding: 1rem;
+				overflow: hidden;
+				justify-content: right;
+				& img {
+					width: 75%;
+					object-fit: cover;
+					border: 1px solid transparent;
+					border-radius: 0.5rem;
+				}
+			}
+			& .body-text-container {
+				display: flex;
+				flex-direction: column;
+				width: 60%;
+				padding: 1rem;
+				& span {
+					font-size: 2rem;
+				}
+			}
+		}
+		& .hidden {
+			display: none;
+		}
+		& .show {
+			opacity: 1;
+			transition: opacity 2s linear;
+		}
+	}
+	#services-footer {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		height: max-content;
+		margin: 0px auto;
+		padding: 1rem 0px;
+		justify-content: flex-end;
+
+		& div {
+			display: flex;
+			width: 50%;
+			& a {
+				display: flex;
+				width: max-content;
+				margin: 0px auto;
+				font-weight: 800;
+				text-decoration: none;
+				& button {
+					margin: auto;
+					width: 4rem;
+				}
+			}
+		}
+	}
+	@media (width <= 1000px) {
+		#services-hero {
+			justify-content: space-around;
+		}
+		#services-body {
+			height: auto;
+			flex-wrap: wrap;
+			margin: 1px;
+			& .services-body-content {
+				flex-direction: column;
+				& img {
+					width: 75%;
+					margin: 0px auto;
+				}
+				& ul {
+					margin: 0px auto;
+				}
+			}
+		}
+	}
+	@media (width <= 450px) {
+		#services-hero {
+			& .services-hero-card {
+				display: none;
+				background-color: yellow;
+			}
+			& .services-button {
+				display: flex;
+
+			}
+		}
+	}
+</style>

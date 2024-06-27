@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+  }
+  .carouselContainer {
+    margin: auto;
+    width: 100%;
+    margin-top: 0px;
+    max-width: 800px;
+    flex-wrap: nowrap;
+  }
+  /* Slideshow container */
+  .sliderContainer {
+    position: relative;
+    top: 0px;
+   width: 100%;
+    margin: auto;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+
+  }
+  
+  /* Style each slide */
+  .slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .photo {
+    aspect-ratio: 1/1;
+    height: 500%;
+    object-fit: cover;
+    margin-top: 0px;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--theme-primary);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border: none;
+  }
+  
+  /* Position the "next" button to the right */
+  .next {
+    right: 0;
+  }
+  
+  /* On hover, add a semi-transparent black background */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Caption text */
+  .caption {
+    width: 100%;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* The dots indicator */
+  .dots {
+    display: flex;
+    justify-content: center;
+    height: max-content;
+    width: max-content;
+    margin: 0px auto;
+    & ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+
+    }
+  }
+  
+  .dot {
+    display: none;
+    position: relative;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0px 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: 0.5s;
+  }
+  
+  .active,
+  .dot:hover {
+    background-color: gray;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0.3;
+    }
+    to {
+      opacity: 1;
+    }
+  }

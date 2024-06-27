@@ -1,0 +1,438 @@
+---
+import QuoteButton from '../buttons/QuoteButton.astro'
+import CarouselReact from '../images/CarouselReact'
+import Carousel2 from '../images/Carousel2.astro'
+import goldStar from '../../icons/goldStar.svg'
+import mountainLake from '../../assets/mountainLake.webp'
+
+
+
+interface Props {
+  project: any
+  triggerId?: string
+  title?: string
+  closeText?: string
+  children?: HTMLElement | HTMLElement[]
+  testimonial: any
+
+}
+
+const { 
+  project, 
+  triggerId, 
+  title, 
+  closeText = 'Close', 
+  testimonial,
+
+ } = Astro.props
+
+const { thumb, quote, rating } = testimonial;
+const {description} = project?.content?.description
+console.log('description.............................................................', description)
+
+// console.log("project array from prop", project)
+
+// console.log(project)
+---
+
+<dialog class="modal" aria-labelledby={triggerId}>
+  <div class="modal__inner">
+    <div class="modal__content">
+
+
+      <div class="modal-body">
+
+        <div id="modal-container-left"> 
+          <CarouselReact photos={project.content.photos} client:only="react" />
+          <!-- <Carousel2 
+            imgSrc='../../assets/mountainLake.webp'
+            altText="A headshot of Priya against a brick wall background."
+          /> -->
+        </div>
+
+        <div id='modal-container-right'>
+          <div class="modal__header">
+            <h3 tabindex="-1">{project.title}</h3>
+            <div class="modal__close">
+              <button >{closeText}</button>
+            </div>
+          </div>
+          <div class="project-description"> 
+            <ul>
+							{project?.content?.description.map((bullet, index) => (
+								<li key={index}>&nbsp; &nbsp;{bullet}</li>
+							))}
+						</ul>
+            <!-- <p>{project.content.description}</p> -->
+
+          </div>
+
+          <div id="modal-container-right-footer">
+            <div class="quote-button-container">  
+              <QuoteButton />
+            </div>
+
+            <div class="testimonial-card"> 
+              <div class="testimonial-image-container" >
+                <img src={`${thumb}`}  alt="">
+              </div>
+              
+              <span>{quote}</span>
+              <div>1  
+                <img src="https://www.svgrepo.com/show/475275/star.svg" alt=""> 
+                <img src="https://www.svgrepo.com/show/475275/star.svg" alt=""> 
+                <img src="https://www.svgrepo.com/show/475275/star.svg" alt=""> 
+                <img src="https://www.svgrepo.com/show/475275/star.svg" alt=""> 
+                <img src="https://www.svgrepo.com/show/475275/star.svg" alt=""> 
+              </div>
+              
+
+
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+
+  </div>
+</dialog>
+
+<script>
+  type FocusableElement =
+    | HTMLAnchorElement
+    | HTMLButtonElement
+    | HTMLInputElement
+    | HTMLTextAreaElement
+    | HTMLSelectElement
+    | HTMLDetailsElement
+
+  // variables
+  let modals = document.querySelectorAll<HTMLDialogElement>('.modal')
+
+  // abort controllers for global event listeners
+  let trapFocusController: AbortController | undefined
+  let keydownController: AbortController | undefined
+
+  const getKeyboardFocusableElements = (element: HTMLElement) => {
+    return [
+      ...element.querySelectorAll<FocusableElement>(
+        'a, button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
+      ),
+    ].filter((el) => !el.hasAttribute('disabled'))
+  }
+
+  const trapFocus = (event: KeyboardEvent, modal: HTMLDialogElement) => {
+    const focusables = getKeyboardFocusableElements(modal)
+
+    // These will not be undefined as a modal always has at least one <button>
+    const firstFocusable = focusables[0]!
+    const lastFocusable = focusables[focusables.length - 1]!
+
+    if (document.activeElement === lastFocusable && event.key === 'Tab' && !event.shiftKey) {
+      event.preventDefault()
+      firstFocusable.focus()
+    }
+
+    if (document.activeElement === firstFocusable && event.key === 'Tab' && event.shiftKey) {
+      event.preventDefault()
+      lastFocusable.focus()
+    }
+  }
+
+  const openModal = (modal: HTMLDialogElement) => {
+    const modalTitle = modal.querySelector('h3')
+    const modalInner = modal.querySelector<HTMLDivElement>('.modal__inner')
+
+    modal.showModal()
+    modalTitle!.focus()
+
+    trapFocusController = new AbortController()
+    keydownController = new AbortController()
+
+    document.addEventListener('keydown', (e) => trapFocus(e, modal), { signal: trapFocusController.signal })
+
+    modal.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.key === 'Escape') {
+          closeModal()
+        }
+      },
+      { signal: keydownController.signal }
+    )
+
+    modal.addEventListener(
+      'click',
+      () => {
+        closeModal()
+      },
+      { signal: keydownController.signal }
+    )
+
+    modalInner!.addEventListener(
+      'click',
+      (event) => {
+        event.stopPropagation()
+      },
+      { signal: keydownController.signal }
+    )
+  }
+
+  const closeModal = () => {
+    modals.forEach((modal) => {
+      const modalId = modal.getAttribute('aria-labelledby')
+      const modalTrigger = document.querySelector(`#${modalId}`) as HTMLButtonElement
+      modalTrigger.focus({ preventScroll: true })
+      modal.close()
+      trapFocusController?.abort()
+      keydownController?.abort()
+    })
+  }
+
+  // execution
+  modals.forEach((modal) => {
+    const modalId = modal.getAttribute('aria-labelledby')
+    const modalCloseButton = modal.querySelector('.modal__close button')
+    const modalTrigger = document.querySelector(`#${modalId}`)
+
+    if (!modalTrigger) {
+      throw new Error(`Trigger element not found. \n
+      Did you forget to add a trigger element with id: "${modalId}"?`)
+    }
+
+    modalTrigger.addEventListener('click', () => openModal(modal))
+    modalCloseButton!.addEventListener('click', closeModal)
+  })
+
+  window.closeModal = closeModal
+
+  // Listen for view transitions
+  document.addEventListener('astro:after-swap', () => {
+    // reset variables
+    modals = document.querySelectorAll<HTMLDialogElement>('.modal')
+
+    // execution
+    modals.forEach((modal) => {
+      const modalId = modal.getAttribute('aria-labelledby')
+      const modalCloseButton = modal.querySelector('.modal__close button')
+      const modalTrigger = document.querySelector(`#${modalId}`)
+
+      if (!modalTrigger) {
+        throw new Error(`Trigger element not found. \n
+      Did you forget to add a trigger element with id: "${modalId}"?`)
+      }
+
+      modalTrigger.addEventListener('click', () => openModal(modal))
+      modalCloseButton!.addEventListener('click', closeModal)
+    })
+  })
+</script>
+
+<style is:global>
+  dialog::backdrop {
+    background-color: var(--theme-bg);
+    filter: blur(6px);
+  }
+
+  :where(.modal) {
+    color: var(--theme-on-primary);
+    background-color: var(--theme-bg);
+    border: 0.5rem solid var(--theme-primary);
+    border-radius: 1rem;
+    padding: 0;
+  }
+
+  .modal__inner {
+    width: clamp(30ch, 70%, 75ch);
+    border-radius: 1rem;
+    width: 100%;
+
+  }
+
+  .modal__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 2rem;
+    background-color: var(--theme-surface-1);
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+    overflow: scroll;
+    & li{
+      list-style: none;
+    }
+  }
+  .modal__header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: max-content;
+    margin: 0px;
+    justify-content: space-between;
+    & h3 {
+      width: 50%;
+      text-align: center;
+    }
+    & button {
+      border-radius: 1rem;
+      padding: 0.1rem 1rem;
+    }
+  }
+
+  .modal__close {
+    
+  }
+
+  .modal__close  {
+    display: flex;
+
+    color: var(--theme-primary);
+    text-align: center;
+    transition: background-color 0.15s ease-in-out;
+    height: max-content;
+    margin: 0px;
+
+    & .button {
+      display: flex;
+      border: none;
+      background-color: var(--theme-primary);
+      border-radius: 0.4rem;
+      height: auto;
+      margin: auto;
+      padding: 1rem;
+    }
+  }
+  
+
+  .modal__close button:hover,
+  .modal__close button:focus {
+    background-color: grey;
+    text-decoration: underline;
+  }
+
+  /* Animation */
+  dialog[open],
+  dialog[open]::backdrop {
+    animation: fadein 0.3s ease-in-out;
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .modal-body {
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    min-height: 600px;
+    width: 100%;
+    padding: 2px 16px;
+    flex-wrap: wrap;
+    }
+    #modal-container-left {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 50%;
+      object-fit: cover;
+      overflow: hidden;
+      align-items: center;
+      min-width: 400px;
+
+    }
+    #modal-container-right {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 50%;
+      min-width: 300px;
+      justify-content: space-between;
+      & .project-description {
+        display: flex;
+        padding: 2rem 1rem;
+      }
+      & #modal-container-right-footer {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 1rem;
+        flex-wrap: wrap;
+        & .quote-button-container{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin: auto;
+          padding: 2rem;
+          width: 50%;
+        }
+        & .testimonial-card{
+          display: none;
+          flex-direction: column;
+          aspect-ratio: 3/4;
+          width: 50%;
+          min-width: 200px;
+          margin: auto;
+          background-color: var(--theme-surface-2);
+          border: 2px solid transparent;
+          border-radius: 0.75rem;
+          box-shadow: 4px 4px 8px black;
+          justify-content: space-around;
+          & .testimonial-image-container{
+            display: flex;
+            width: 75%;
+            height: 50%;
+            margin: auto;
+            object-fit: cover;
+            vertical-align: middle;
+            overflow: hidden;
+            & img {
+              display: flex;
+              width: 100%;
+              height: auto;
+              margin: auto 0px;
+            }
+
+          }
+
+          & span {
+            display: flex;
+            margin: auto;
+            width: 100%;
+            padding: 0.5rem;
+            height: auto;
+            flex-wrap: wrap;
+
+          }
+          & div {
+            display: flex;
+            margin: auto;
+            height: 2.5rem;
+            width: 100%;
+            padding: 0.5rem;
+            & img{
+              height: 100%;
+            }
+          }
+        }
+      }
+
+    }
+    @media (width <= 1000px)  {
+    #modal-container-left, #modal-container-right{
+        width: 75%;
+
+    }}
+    @media (width <= 800px)  {
+    #modal-container-left, #modal-container-right{
+        width: 100%;
+
+    }}
+</style>

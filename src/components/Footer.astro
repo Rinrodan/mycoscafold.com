@@ -1,0 +1,81 @@
+---
+interface Props {
+
+email?: string,
+phone?: string,
+contractorsLicense?: string;
+
+}
+
+// const { href, title, body } = Astro.props;
+
+import settings from '../config/settings';
+
+
+const email = settings.email;
+const phone = settings.phone;
+const licenseNumber = settings.contractorsLicense
+
+---
+<div class="footer">
+
+<div class="footerBody">
+    <div>
+        <span>California Contractors Licence #
+            <a 
+                class="footerLicenseNumber"
+                href={`https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum=${licenseNumber}`} 
+                target="_blank">
+                    {licenseNumber}
+            </a>
+        </span>
+    </div>
+</div> <!-- footerBody -->
+
+
+
+</div>  <!-- footer -->
+
+<style>
+	:root {	
+        --vivid-sky-blue: #0efffb;
+    }
+.footer{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 0px;
+    height: 4rem;
+    vertical-align: middle;
+
+}
+
+.footerBody{
+
+    margin: auto;
+    color: aliceblue;
+}
+.footerLicenseNumber{
+    font-weight: bold;
+    color: var(--vivid-sky-blue);
+    padding-inline: 0.25rem;
+    border: 1px 1px solid transparent;
+    border-radius: 0.25rem;
+  
+    &:hover{
+        background-color: var(--vivid-sky-blue);
+        color: black;
+
+    }
+}
+
+.email  {
+        display: flex;
+        text-decoration: none;
+        height: 100%;
+        width: 100%;
+
+    }
+
+
+</style>

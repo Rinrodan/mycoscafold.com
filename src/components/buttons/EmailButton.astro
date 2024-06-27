@@ -1,0 +1,14 @@
+---
+
+
+import settings from '../../config/settings';
+
+const email = settings.email;
+---
+
+{ email && <a href={`mailto:${email}`}>
+    <div class="email button">
+            {email}
+    </div>
+
+</a>}

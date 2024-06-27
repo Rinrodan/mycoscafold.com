@@ -1,0 +1,10 @@
+---
+import settings from '../../config/settings';
+const phone = settings.phone;
+---
+{phone && <a href={`tel:${phone}`}>
+        <div class="phone button">
+                {phone}
+        </div>
+    </a>
+}
