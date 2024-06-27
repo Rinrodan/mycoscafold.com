@@ -40,7 +40,7 @@ const { footerSocials, footerLists, copyrightName, background, color} =
           }
         </ul> -->
       </div>
-      {
+      <!-- {
         footerLists.map((list) => (
           <div>
             <p><strong>{list.title}</strong></p>
@@ -53,7 +53,7 @@ const { footerSocials, footerLists, copyrightName, background, color} =
             </ul>
           </div>
         ))
-      }
+      } -->
     </div>
    
     <div class="footer-copyright__container">
@@ -75,15 +75,17 @@ const { footerSocials, footerLists, copyrightName, background, color} =
   footer {
     --footer-bg: var(--theme-primary);
     --footer-color: var(--theme-on-primary);
-    min-height: 40vh;
+
     background-color: var(--footer-bg);
     color: var(--footer-color);
 
   }
   .footer-grid__container {
-    padding: 10vh 0 1rem 0;
+    padding: 2vh 0 1rem 0;
+
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
+    
   }
   .footer-socials__list {
     margin: 1rem 0;

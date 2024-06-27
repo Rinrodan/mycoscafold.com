@@ -14,7 +14,7 @@ const logoBig = "https://res.cloudinary.com/daa3cj6jz/image/upload/v1717725094/b
 ---
 
 <Layout {seo}>
-	
+	<div id="about-hero__sectiosn">
 	<HeroSection>
 		<div slot="text-container">
 			<h1>About Myco</h1>
@@ -34,4 +34,18 @@ const logoBig = "https://res.cloudinary.com/daa3cj6jz/image/upload/v1717725094/b
 	<TextSection narrow>
 		
 	</TextSection>
+</div>
 </Layout>
+
+<style>
+	#about-hero__section {
+		margin: var(--section-margin) auto;
+		height: 80vh;
+		width: 50%;
+		gap: 3rem;
+		background-color: aqua;
+		& h1 {
+			text-align: center;
+		}
+	}
+</style>

@@ -39,7 +39,7 @@
     },
     {
         "id": "p2",
-        "title": "Roof Bridge",
+        "title": "Roof Access",
         "thumb": {
             "id": "379962",
             "title": "Roof Access",
@@ -47,9 +47,9 @@
         },
         "content": {
             "description": [
-                "The client required a safe access solution to their roof, allowing construction workers to move freely between the two adjacent buildings.",
-                "The primary challenge was not only providing access to the first building's roof but also ensuring that workers could easily transition to the second building's roof , which was 30ft away.",
-                "My solution to address this need was a stair tower was constructed at one end of the buildings, leading up to the first roof. From there, a walking bridge was to install a span between the two structures, providing an accessible path for workers to move between the roofs safely. Results: The implementation of this scaffolding solution allowed construction workers to access both roofs securely and efficiently."
+                "The client required a safe access solution to their roof, allowing thier construction team to move freely between the two adjacent buildings.",
+                "The primary challenge was not only providing access to the first building's roof but also ensuring that workers could safely transition to the second building's roof, which was 30ft away.",
+                "My solution to address this need was to constructed stair towers at one end of the buildings with a ramp transition. Results: The implementation of this scaffolding solution allowed construction workers to access both roofs securely and efficiently."
         ],
             "tesitmonial": {
                 "thumb": "/assets/images/customer1.webp",

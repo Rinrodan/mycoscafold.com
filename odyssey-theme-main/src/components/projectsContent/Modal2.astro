@@ -4,6 +4,7 @@ import CarouselReact from '@components/images/CarouselReact'
 import Carousel2 from '../images/Carousel2.astro'
 import goldStar from '../../icons/goldStar.svg'
 import mountainLake from '../../assets/mountainLake.webp'
+import ContactButton from '@components/buttons/ContactButton.astro'
 
 
 
@@ -60,7 +61,7 @@ console.log('description........................................................
           <div class="project-description"> 
             <ul>
 							{project?.content?.description.map((bullet, index) => (
-								<li key={index}>&nbsp; &nbsp;{bullet}</li>
+								<li id={`desc-${index}`}>&nbsp; &nbsp;{bullet}</li>
 							))}
 						</ul>
             <!-- <p>{project.content.description}</p> -->
@@ -69,7 +70,8 @@ console.log('description........................................................
 
           <div id="modal-container-right-footer">
             <div class="quote-button-container">  
-              <QuoteButton />
+              <!-- <QuoteButton /> -->
+               <ContactButton />
             </div>
 
             <div class="testimonial-card"> 
