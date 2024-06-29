@@ -5,6 +5,8 @@ const font = settings.mainFont;
 import EmailButton from "./buttons/EmailButton.astro";
 import PhoneButton from "./buttons/PhoneButton.astro";
 
+const emailIcon = "../icons/"
+
 const { seo } = Astro.props;
 
 ---
@@ -23,7 +25,9 @@ const { seo } = Astro.props;
             </nav>
         </div>
         <EmailButton/>
+        
         <PhoneButton/>
+       
 
     </div> <!-- rightSide -->
 
@@ -37,6 +41,7 @@ const { seo } = Astro.props;
     }
     .header{
         display: flex;
+        flex-direction: row;
         width: 100%;
         min-width: 400px;
         height: 5%;
@@ -51,7 +56,7 @@ const { seo } = Astro.props;
         height: max-content;
         vertical-align: middle;
         padding-top: 0.5rem;
-        color: aliceblue;
+        color: #f0f8ff;
 
         & div{
             margin: auto;
@@ -79,10 +84,6 @@ const { seo } = Astro.props;
     }
 
 }
-@media screen and (max-width: 700px) {
-    .headerLogo {
-        display: flex;
-    }
-}
+
 
 </style>

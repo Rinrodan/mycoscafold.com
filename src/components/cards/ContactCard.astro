@@ -22,7 +22,7 @@ const licenseNumber = settings.contractorsLicense
 <div class="contactCard">
     <div class="contactCardHeader">
         <div>
-            Get in touch
+            Need a Quote?
         </div>
 
     </div> <!-- contactCardHeader -->
@@ -54,27 +54,28 @@ const licenseNumber = settings.contractorsLicense
         left: 1rem;
         bottom: 5rem;
         width: max-content;
-        height: max-content;
+        height: 13rem;
         margin-top: 0px;
         padding: 0.5rem 1rem;
-        background-color: yellow;
+        background-color: rgb(92, 92, 92);
         box-shadow: 2px 2px 6px aqua;
         text-align: center;
     }
     .contactCardHeader{
-        background-color: aqua;
+
             & div {
                 display: flex;
-                color: black;
+                color: aliceblue;
                 font-size:2rem;
                 font-weight: 500;
             }
     }
     .contactCardBody{
-        background-color: rgb(0, 255, 60);
-
-
-
+        display:flex;
+        flex-direction: column;
+        background-color: transparent;
+        height: 100%;
+        justify-content: space-around;
     }
     .email  {
             display: flex;
@@ -86,7 +87,7 @@ const licenseNumber = settings.contractorsLicense
 
     .contactCardFooter{
         font-size: small;
-        background-color: rgb(255, 85, 0);
+        background-color: transparent;
     }
     /* Hide the element when the screen height is less than 500px */
 @media screen and (max-height: 500px) {

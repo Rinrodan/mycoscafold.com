@@ -39,21 +39,7 @@ const description = settings.description;
 			</div>
 		</div>	 <!-- homeHero -->
 <div class="descriptionSubheadng">{description}</div>
-<div class="contactContainer">
-	<a href="mailto:MycoScaffold@gmail.com">
-		<button type="button" class="emailButton">
-			<Fragment set:html={emailIcon} />
-			<span>MycoScaffold@gmail.com</span>
-		</button>
-	</a>
-	<a href="mailto:MycoScaffold@gmail.com">
-		<button type="button" class="emailButton">
 
-			<span>(916) 538-1551</span>
-		</button>
-	</a>
-	
-</div>  <!-- contactContainer -->
 		<ContactCard/>
 		<!-- <Services/> -->
 </main>
@@ -69,7 +55,7 @@ const description = settings.description;
 
 	main {
 		margin: auto;
-
+		height: 90vh;
 		width: 100%;
 		max-width: calc(100% - 2rem);
 		color: white;
@@ -80,9 +66,10 @@ const description = settings.description;
 
 	.homeHero{
 		display:flex ;
-		width: 100%;
+		width: max-content;
 		height:50%;
 		flex-direction: column;
+		margin: auto;
 		& .descriptionSubheading2{
 			display: flex;
 			width: max-content;
@@ -105,7 +92,7 @@ const description = settings.description;
 		width: 100%;
 		text-align: center;
 		padding: 3rem 0px;
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 	.logoContainer{
 		display: flex;
@@ -152,10 +139,7 @@ const description = settings.description;
 			font-weight: 600;
 
 		}
-		&:hover {
-			border-color: aqua;
-			box-shadow: 2px 2px 4px rgb(197, 245, 245);
-		}
+
 		svg{
 			display: flex;
 				width: 3rem;
@@ -164,13 +148,6 @@ const description = settings.description;
 			}
 	}
 }
-@media screen and (max-width: 700px) {
-    .homeHero {
-        display: none;
-    }
-	.descriptionSubheadng{
-		display: flex;
-	}
-}
+
 
 </style>
