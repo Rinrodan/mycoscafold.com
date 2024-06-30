@@ -1,12 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
+import Layout from '../layouts/Page.astro'
 import { emailIcon } from '../icons/icons';
 import ContactCard from '../components/cards/ContactCard.astro';
 import settings from '../config/settings';
 import type { JsxElement } from 'typescript';
 import type { JSX } from 'astro/jsx-runtime';
 import Services from '../components/sections/Services.astro';
+import { Icon } from 'astro-icon/components'
+
 
 interface Props {
 
@@ -16,8 +17,8 @@ interface Props {
 
 }
 const seo = {
-	title: 'Contact | Myco',
-	description: 'Contact Page',
+	title: 'Myco Scaffold',
+	description: 'Full service scaffold company. Residential, commercial, and specialty applications serving the greater Sacramento area.',
 };
 const logoBig = "https://res.cloudinary.com/daa3cj6jz/image/upload/v1717725094/blue-atlas-5000x4000-white-bg_e4iagg.png"
 const description = settings.description;
@@ -36,12 +37,28 @@ console.log("SEO DATA",seo)
 			</div>
 			<div class="title">Myco Scaffold</div>
 			<div class="descriptionSubheading2">{description}</div>
+			<div class="readMore">
+				<div class="button" onclick="window.location.href='#servicesHero'">
+					<Icon name="mdi:chevron-down" class="icon" />  
+					&nbsp; Services
+				</div>
 			</div>
-		</div>	 <!-- homeHero -->
+			</div>
+
+			 <!-- homeHero -->
+		<div id="servicesHero">
+			<h2 id="servicesTitle">Services</h2>
+			<div class="categoryContainer">
+				<div class="category">Residential</div>
+				<div class="category">Commercial</div>
+				<div class="category">Industrial</div>
+			</div>
+		 </div> <!-- servicesHero -->
 <div class="descriptionSubheadng">{description}</div>
 
 		<ContactCard/>
 		<!-- <Services/> -->
+
 </main>
 </Layout>
 
@@ -54,30 +71,54 @@ console.log("SEO DATA",seo)
 
 
 	main {
+		display: flex;
+		flex-direction: column;
 		margin: auto;
-		height: 90vh;
+		margin-top: 0px;
+		height: auto;
 		width: 100%;
 		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
 	}
-
+.icon{
+	display: flex;
+	margin: auto;
+}
 
 	.homeHero{
 		display:flex ;
 		width: max-content;
-		height:50%;
+		height:90vh;
 		flex-direction: column;
-		margin: auto;
+		margin-inline: auto;
+		margin-top: 0px;
+	
 		& .descriptionSubheading2{
 			display: flex;
 			width: max-content;
-			margin: auto;
+			margin-inline: auto;
 			text-align: center;
 			font-size: 2rem;
+			transition-timing-function: ease-in-out 300;
+		}
+		& 		svg{
+			display: flex;
+				width: 3rem;
+				height: 1.8rem;
+				margin: auto;
+			}
+		&	.readMore {
+					display: flex;
+					margin-inline: auto;
+					margin-top: auto;
+					margin-bottom: 2rem;
+					height: max-content;
+					width: 100%;
 		}
 	}
+
 	.title {
 			font-family: 'Stick No Bills Variable', sans-serif;
 			font-size: 5rem;
@@ -140,12 +181,31 @@ console.log("SEO DATA",seo)
 
 		}
 
-		svg{
-			display: flex;
-				width: 3rem;
-				margin: auto;
 
+	}
+	#servicesHero {
+		display: flex;
+		flex-direction: column;
+		height: 50vh;
+		width: 50%;
+		min-width: 400px;
+		margin-inline: auto;
+		padding-top: 3rem;
+		& #servicesTitle{
+			margin-inline: auto;
+			width: max-content;
+
+		}
+		& .categoryContainer{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+				& .category{
+				display: flex;
+				padding-inline: 1rem;
+				
 			}
+		}
 	}
 }
 

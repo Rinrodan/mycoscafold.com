@@ -2,6 +2,8 @@
 
 import Layout from './Base.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 
 // google font 
@@ -18,22 +20,85 @@ const { seo } = Astro.props as Props;
 
 <Layout {seo}>
 	<header slot="header">
+		<Header />
 		<span slot="logo">
-			<!-- <Logo /> -->
-		</span>
 	</header>
 	<div id="page">
 		<slot />
 	</div>
-	<footer
-		slot="footer"
+	<footer slot="footer">
+		<Footer />
 
-		color="var(--theme-on-surface-1)"
-
-
-
-
-	>
-		<!-- <Logo slot="logo" /> -->
 	</footer>
 </Layout>
+
+<style is:global>
+	:root {
+										/* Theme Colors */
+		--vivid-sky-blue: #0efffb;
+		--sunset: #ebcc9dff;
+		--silver: #a7a7a7ff;
+		--black-ish:rgb(8, 7, 7);
+		--white: #f8f8f8;
+	
+		--main-bg:var(var(--silver))
+		--secondary-bg:var(--black-ish)
+		--accent: var(--vivid-sky-blue);
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+
+
+		--button-border:var(--black-ish);
+		--button-border-hover:var(--vivid-sky-blue)
+		
+		--shadow-blue-sm:1px 1px 3px var(--vivid-sky-blue)
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		width: 100%;
+		min-width: 600px;
+		scroll-behavior: smooth;
+	}
+	body{
+		width: 100%;
+		margin: auto;
+	}
+
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	.button{
+		display: flex;
+		width: max-content;
+		padding:0.25rem 0.75rem;
+		text-decoration: none;
+		text-align: center;
+		border: 4px solid transparent;
+		background-color: var(--black-ish);
+		border-radius: 0.5rem;
+		margin: 0px auto;
+		text-decoration: none;
+		text-align: center;
+		font-weight: 700;
+		box-shadow: 1px 1px 3px var(--vivid-sky-blue);
+		cursor: pointer;
+		color: var(--vivid-sky-blue);
+		&:hover {
+			background-color: var(--vivid-sky-blue);
+        	color: black;
+			box-shadow: 2px 2px 6px black;
+
+		}
+	}
+
+
+</style>
