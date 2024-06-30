@@ -23,18 +23,25 @@ const email = settings.email;
 </a>}
 
 <style>
-    .emailButton{
+    #emailButton{
         & .icon{
             display: none;
+
         }
     }
-    .email, .button{
+    .email, .button{        
         display: flex;
 
     }
     @media screen and (max-width: 600px) {
     .email, .button {
     display: none;
+    }
+    #emailButton{
+        & .icon{
+            display: flex;
+
+        }
     }
 }
     </style>

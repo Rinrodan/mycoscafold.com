@@ -1,6 +1,7 @@
 export default {
 	title: `MycoScaffold | Safe, Quality, Scaffold`,
 	description: `The scaffold builders scaffolding company`,
+	metaDescription: "Full service scaffold company. Residential, commercial, and specialty applications serving the greater Sacramento area.",
 	url: `https://mycoscaffod.com`, // No trailing slash!
 	name: `Myco`, // The short name of the business or brand name. Used for things like the copyright in the footer.
 	enableThemeSwitcher: false,

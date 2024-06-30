@@ -15,6 +15,8 @@ export interface Props {
   logoLarge?: string;
 }
 
+
+
 const title = Astro.props.title || settings.title;
 const description = Astro.props.description || settings.description;
 const canonicalURL = Astro.props.canonicalURL || new URL(Astro.url.pathname, Astro.site);
@@ -22,7 +24,7 @@ const image = new URL(Astro.props.image || './social.png', Astro.site);
 const contractorsLicense =  Astro.props.contractorsLicense || settings.contractorsLicense;
 
 
-
+console.log( "basehead canonical url ............",canonicalURL)
 ---
 
 <!-- Global Metadata -->

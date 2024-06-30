@@ -13,13 +13,14 @@ export interface Props {
 }
 const { title, description } = Astro.props;
 
+console.log("LAYOUT DESCRIPTION PROP", description)
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
@@ -40,7 +41,7 @@ const { title, description } = Astro.props;
 		--sunset: #ebcc9dff;
 		--silver: #a7a7a7ff;
 		--black-ish:rgb(8, 7, 7);
-		--white: #ffffff;
+		--white: #f8f8f8;
 	
 		--main-bg:var(var(--silver))
 		--secondary-bg:var(--black-ish)
@@ -51,13 +52,21 @@ const { title, description } = Astro.props;
 
 		--button-border:var(--black-ish);
 		--button-border-hover:var(--vivid-sky-blue)
+		
+		--shadow-blue-sm:1px 1px 3px var(--vivid-sky-blue)
 	}
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;
 		width: 100%;
+		min-width: 600px;
 
 	}
+	body{
+		width: 100%;
+		margin: auto;
+	}
+
 	code {
 		font-family:
 			Menlo,
@@ -82,11 +91,13 @@ const { title, description } = Astro.props;
 		text-decoration: none;
 		text-align: center;
 		font-weight: 700;
+		box-shadow: 1px 1px 3px var(--vivid-sky-blue);
 		
 		color: var(--vivid-sky-blue);
 		&:hover {
 			background-color: var(--vivid-sky-blue);
         	color: black;
+			box-shadow: 2px 2px 6px black;
 
 		}
 	}

@@ -1,11 +1,13 @@
 html,
 body {
+	display: block;
 	height: 100%;
+	width: 100vh;
 }
 
 body {
-	max-width: 1920px;
-	min-width: 430px;
+	max-width: 1320px;
+	min-width: 400px;
 	margin: 0 auto;
 	background-color: var(--theme-bg);
 	position: relative;
