@@ -8,7 +8,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://odyssey-theme.sapling.supply/',
+  site: 'https://mycoscaffold.com/',
   // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
   sitemap: true,
   // Generate sitemap (set to "false" to disable)
