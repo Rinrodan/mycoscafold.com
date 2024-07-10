@@ -1,0 +1,57 @@
+{{- /* Footer custom content area start */ -}}
+{{- /*     Insert any custom code web-analytics, resources, etc. here */ -}}
+<div id="footer-container">
+    <div id="footer-col-left">
+        {{- $currentPage := . }}
+        <ul class="list-no-decor">
+          {{ range .Site.Menus.main }}
+          {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+          {{- $page_url:= $currentPage.Permalink | absLangURL }}
+          {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
+          <li class="list-no-decor">
+            <a 
+              href="{{ .URL }}" title="{{ .Name | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
+              {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}
+            >
+
+              <span {{- if eq $menu_item_url $page_url }} class="menu-active" {{- end }}>
+                {{- if .Title }}
+                {{ .Title | safeHTML }}     
+                {{ end }}
+              </span>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+    </div>
+    <div id="footer-col-middle" class="text-center">
+        {{- if .Site.Copyright }}
+        <span>{{ .Site.Copyright | markdownify }} &copy; {{ now.Format "2006"}} {{ .Site.Title }}</span>
+        {{- else }}
+        <span>&copy; {{ now.Format "2006"}} <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a></span>
+        {{- end }}
+        <span>
+          <a href="tel:{{.Site.Params.phoneNumber}}"> 
+            {{ .Site.Params.phoneNumber}} 
+          </a>
+          &nbsp; |  &nbsp;
+          <a href="mailto:{{.Site.Params.email}}"> 
+            {{ .Site.Params.email}} 
+          </a>
+        </span>
+
+
+        <span>California Contractors Licence #
+          <a 
+              class="footerLicenseNumber"
+              href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum={{.Site.Params.contractorsLicense}}"
+              target="_blank">
+              <strong>{{.Site.Params.contractorsLicense}}</strong>
+          </a>
+      </span>
+    </div>
+    <div id="footer-col-right">
+
+    </div>
+</div>
+{{- /* Footer custom content area end */ -}}
