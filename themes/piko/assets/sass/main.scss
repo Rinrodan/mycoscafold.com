@@ -53,6 +53,7 @@
 }
 
 html {
+  display: flex;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
   overflow-y: scroll;
@@ -69,7 +70,7 @@ padding: 1px;
 main{
   display: flex;
   width: 100%;
-  min-width: 400px;
+  min-width: 360px;
 
 }
 .iframe{
@@ -187,7 +188,6 @@ main{
   .heroHome {
     display: flex;
     flex-direction: column;
-  padding: 1rem;
   width: 100%;
   margin: auto;
   }
@@ -217,7 +217,7 @@ main{
 
     margin-inline: auto;
     padding-top: 0px;
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-sm);
     text-align: center;
   }
 }
