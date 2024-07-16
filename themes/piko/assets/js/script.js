@@ -63,3 +63,21 @@ const openMobile = () => {
     menuOpen.style.display = 'block'
   }
 }
+
+function showModal() {
+
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  modal.style.display = "block";
+}
+
+/* Added a close Modal */
+
+function closeModal() {
+
+  // Get the <span> element that closes the modal
+  var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+
+}
