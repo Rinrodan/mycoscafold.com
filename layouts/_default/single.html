@@ -1,68 +1,37 @@
-{{ define "main" }}
-<div class="container">
-  <hgroup>
-    {{ partial "breadcrumbs.html" . }}
-    <h1>{{ .Title }}</h1>
-    {{- partial "post_meta.html" . -}}
-    <p>{{ .Description }}</p>
-  </hgroup>
-  {{- if .Params.tags }} {{- range ($.GetTerms "tags") }}
-  <a href="{{ .Permalink }}">
-    <kbd>{{ .LinkTitle }}</kbd>
-  </a>
-  {{- end }} {{- end }}
-
-  <div class="grid grid-main">
-    <div>
-      {{- if (.Param "ShowToc") }}
-        <article class="toc">
-          {{- partial "toc.html" . }} 
-        </article>
-      {{- end }}
-      
-      {{if .Params.Cover.Image }}<img
-        class="cover"
-        src="{{.Params.Cover.Image | absURL}}"
-        width="600"
-        height="400"
-        align="left"
-        layout="responsive"
-      >
-      </img
-      >{{end}}
-    
-      <div class="post">
-        
-        {{ partial "social-share.html" . }} {{- if not (.Param
-        "disableAnchoredHeadings") }} {{- partial "anchored_headings.html"
-        .Content -}} {{- else }}{{ .Content }}{{ end }}
-      </div>
-
-      {{ partial "social-share.html" . }}
-    </div>
-    
-    {{- if (.Param "ShowRelated") }} 
-    <aside>
-      <article>
-        {{ $related := .Site.RegularPages.Related . | first 5 }} {{ with
-        $related }}
-        <h3>See Also</h3>
-
-        {{ range . }}
-
-        <a href="{{ .RelPermalink }}">
-          <hgroup>
-            <h4><i>{{ .Title }}</i></h4>
-            <p>{{- partial "post_meta.html" . -}}</p>
-          </hgroup>
-        </a>
-
-        {{ end }} {{ end }} 
-      </article>
-    </aside>
+{{define "main"}}
+<article>
+  <header class="mb-4 bg-primary-600">
+    <span class="py-96">
+      <h1 class="py-16 text-5xl font-black text-center text-white capitalize">
+        {{ .Title }}
+      </h1>
+    </span>
+    {{ if .Params.banner_image }}
+    <img src="{{ $bannerimage }}" >
     {{ end }}
-    
+  </header>
+  <div class="max-w-4xl mx-auto mt-8 mb-2">
+    <div class="px-6">
+      {{ with .Params.featured_image }}
+      {{ with resources.Get . }}
+      {{ $small := (.Resize "400x webp q80").RelPermalink }}
+      {{ $medium := (.Resize "550x webp q80").RelPermalink }}
+      {{ $large := (.Resize "900x webp q80").RelPermalink }}
+      {{ $featuredimage := (.Resize "1500x webp q80").RelPermalink }}
+      <img src="{{ $featuredimage }}" srcset="
+        {{- with $small -}}, {{.}} 400w{{- end -}}
+        {{- with $medium -}}, {{.}} 550w{{- end -}}
+        {{- with $large -}}, {{.}} 768w{{- end -}}
+        {{- with $featuredimage -}}, {{.}} 1100w{{- end -}}"
+           class="object-fill overflow-hidden rounded-lg shadow-lg ring-4 ring-zinc-300/40 dark:ring-gray-900/40 shadow-neutral-100/20 dark:shadow-neutral-800/40"
+           width="100%" alt="{{ .Params.title }}" />
+      {{ end }}
+      {{ end }}
+    </div>
   </div>
-  {{- if (.Site.Params.comments) }} {{- partial "comments.html" . }} {{- end }}
-</div>
-{{ end }}
+  <!-- " {{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+  <div class="max-w-2xl px-6 pt-6 pb-16 mx-auto prose dark:prose-invert dark:text-white">
+    {{.Content}}
+  </div>
+</article>
+{{end}}

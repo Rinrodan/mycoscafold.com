@@ -1,13 +1,27 @@
-name = "Piko"
-license = "MIT"
-licenselink = "https://github.com/heksagonnet/piko/blob/master/LICENSE"
-description = "Piko is a minimalistic and fast theme powered by Hugo for building a blog or portfolio."
-homepage = "https://github.com/heksagonnet/piko"
-demosite = "https://piko-heksagon.netlify.app/"
-tags = ['forestry', 'landing-page', 'fast', 'light', 'dark', 'modern', 'heksagon', 'personal', 'dark mode', 'picco', 'blog', 'responsive', 'clean', 'simple', 'creative', 'contact-form', 'custom-themes', 'mobile', 'minimalistic', 'pages', 'resume', 'portfolio', 'google analytics', 'customizable', 'search', 'presentation', 'product', 'theme', 'company', 'archive']
-features = ['picco','responsive']
-min_version = "0.91.0"
+name = "TailBliss"
+license = "Apache-2.0"
+licenselink = "https://github.com/nusserstudios/tailbliss/blob/main/LICENSE"
+description = "TailBliss is an Hugo Starter with Tailwind CSS 3.2 and Alpine.js with light and dark modes. Submitted for Hacktoberfest 2022."
 
+# The home page of the theme, where the source can be found.
+homepage = "https://github.com/nusserstudios/tailbliss"
+
+# If you have a running demo of the theme.
+demosite = "https://tailbliss.netlify.app/"
+
+tags = ["blog", "tailwind", "tailwindcss", "dark", "light", "responsive", "minimal", "portfolio", "company", "gallery", "personal" ]
+features = ["blog", "categories", "webp", "tailwind3", "alpinejs"]
+
+min_version = "0.104.0"
+
+# If the theme has a single author
 [author]
-  name = "Heksagon"
-  homepage = "http://www.heksagon.net/"
+    name = "Jeremy Nusser"
+    homepage = "https://nusserstudios.com"
+
+# If porting an existing theme
+[original]
+  name = "Hugo-Tailwind-3.1"
+  author = "4044ever"
+  homepage = "https://github.com/4044ever"
+  repo = "https://github.com/4044ever/Hugo-Tailwind-3.1"

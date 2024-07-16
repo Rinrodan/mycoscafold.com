@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-    <head>
-        {{- partial "head.html" . -}}
-        {{- partial "extendhead.html" . -}}
-    </head>
-    <body>
-        {{- partial "header.html" . -}}
-        <main>
-        {{- block "main" . }}{{- end }}
-        </main>
-        {{- partial "footer.html" . -}}
-        {{- partial "scripts.html" . -}}
-    </body>
+<html lang="{{ .Language.Lang }}">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body class="bg-zinc-100 dark:bg-gray-800">
+    {{ partial "nav.html" . }}
+    {{ block "main" . }}{{ end }}
+    {{ partial "footer" . }}
+</body>
+
 </html>
