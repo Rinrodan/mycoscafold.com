@@ -54,23 +54,23 @@
 
 html {
   display: flex;
-  width: 100%;
+width: 100vw;
   -webkit-tap-highlight-color: transparent;
-  overflow-y: scroll;
   scroll-behavior: smooth;
+
 
 }
 body {
   display: flex;
   flex-direction: column;
   width: 100%;
-padding: 1px;
+
   margin-inline: auto;
 }
 main{
   display: flex;
   width: 100%;
-  min-width: 360px;
+  min-width: 350px;
 
 }
 .iframe{
@@ -162,12 +162,12 @@ main{
       font-size: var(--font-size-xxxl);
       margin-inline: auto;
     }
+    & h2 {
+      width: 75%;
+      margin-inline: auto;
+    }
   }
 
-  & h2 {
-    width: 75%;
-    margin-inline: auto;
-  }
 }
 
 .logo {
@@ -204,24 +204,29 @@ main{
 }
 @media (min-width: 0px) and (max-width: 575px) {
   body{
-    width: 100%;
+    display: flex;
+    width: 400px;
   }
   main {
     display: flex;
     width: 100%;
     margin-inline: auto;
-    min-width: none;
+  .home-hero-text-container{
+    display: flex;
+      & hgroup{
+        display: flex;
+        & #homeHeroTitle{
+          font-size: var(--font-size-xl);
+        }
+        & h2 {
+          width: 100%;
+          padding-inline: 0.5rem;
+        }
+      }
 
-  }
-  #homeHeroTitle  {
-
-    margin-inline: auto;
-    padding-top: 0px;
-    font-size: var(--font-size-sm);
-    text-align: center;
+    }
   }
 }
-
 
 img {
   object-fit: cover;
@@ -548,9 +553,9 @@ font-size: var(--font-size-sm);
 #servicesHero {
   display: flex;
   flex-direction: column;
-  height: 35vh;
-  width: 50%;
-  min-width: 400px;
+  min-height: 35vh;
+  width: 100%;
+  max-width: 600px;
   margin-inline: auto;
   padding-top: 3rem;
   & #servicesTitle{
@@ -560,6 +565,7 @@ font-size: var(--font-size-sm);
   }
   & .categoryContainer{
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: space-around;
       & .category{
