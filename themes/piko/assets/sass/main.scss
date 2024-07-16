@@ -195,9 +195,19 @@ main{
   margin: auto;
   }
   .home-hero-text-container{
-    max-width: none;
-    margin-inline: auto;
-  }
+    display: flex;
+    padding-right: 1rem;
+      & hgroup{
+        display: flex;
+        & #homeHeroTitle{
+          font-size: var(--font-size-xxl);
+        }
+        & h2 {
+          display: flex;
+        }
+      }
+
+    }
   .home-hero-image-container{
     margin: auto;
     width: 50%;
