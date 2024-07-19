@@ -162,6 +162,11 @@ params:
     PhotoAttrUrl: https://www.pexels.com/photo/instruments-prepared-for-measurements-in-house-4792479/
 menus:
   main: # Main Menu
+  - name: Services
+    title: Services
+    pre: file-text
+    url: mail
+    weight: "10"
   - name: Quote
     title: Quote
     pre: file-text
