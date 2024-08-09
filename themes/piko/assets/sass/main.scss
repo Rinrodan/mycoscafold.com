@@ -60,6 +60,10 @@ width: 100vw;
 
 
 }
+.text-xl {
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+}
 body {
   display: flex;
   flex-direction: column;
@@ -527,7 +531,8 @@ a[role='button'],
   display: flex;
   width: 100%;
   margin-inline: auto;
-  max-height: 200px;
+  height: 200px;
+
   position: relative;
   & .headerImage{
     display: flex;
@@ -594,6 +599,7 @@ font-size: var(--font-size-sm);
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
       & .category{
       display: flex;
       padding-inline: 1rem;
@@ -615,4 +621,17 @@ font-size: var(--font-size-sm);
   display: flex;
   height: 300px;
   margin-inline: auto;
+}
+@media (min-width: 0px) and (max-width: 575px) {
+  #servicesHero {
+
+    & .categoryContainer{
+      flex-direction: row;
+      flex-wrap: wrap;
+        & .category{
+        display: flex;
+        padding-inline: 1rem;
+      }
+    }
+  }
 }
