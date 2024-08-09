@@ -1,8 +1,34 @@
 <div id="servicesHero">
     <h2 id="servicesTitle">Services</h2>
     <div class="categoryContainer">
-        <div class="category">Residential</div>
-        <div class="category">Commercial</div>
-        <div class="category">Industrial</div>
+        {{ $servicesUrl := .Site.Params.servicesPage.url}}
+        {{ $catOne := "Residential"}}
+        {{ $catTwo := "#commercial"}}
+        {{ $catThree := "#industrial"}}
+
+        <div class="category">
+            <a         
+                href="{{ path.Join $servicesUrl $catOne  | relURL  }}"
+                role="button "
+                class="button contrast-outline contrast-text hero-buttons animate-hover">
+                    Residential
+            </a>
+        </div>
+        <div class="category">
+            <a         
+            href="{{ path.Join $servicesUrl $catTwo  | relURL  }}"
+            role="button "
+            class="button contrast-outline contrast-text hero-buttons animate-hover">
+                Commercial
+            </a>
+        </div>
+        <div class="category">
+            <a         
+            href="{{ path.Join $servicesUrl $catThree  | relURL  }}"
+            role="button "
+            class="button contrast-outline contrast-text hero-buttons animate-hover">
+                Industrial
+            </a>    
+        </div>
     </div>
  </div>

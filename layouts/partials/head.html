@@ -31,6 +31,10 @@
 {{ $navstyles := resources.Get "sass/nav.scss" | resources.ToCSS | minify  }}
 <link rel="stylesheet" href="{{ $navstyles.Permalink }}" />
 
+{{ "<!-- pages Stylesheet -->" | safeHTML }}
+{{ $pagesstyles := resources.Get "sass/pages.scss" | resources.ToCSS | minify  }}
+<link rel="stylesheet" href="{{ $pagesstyles.Permalink }}" />
+
 {{ "<!-- plugins CSS -->" | safeHTML }} 
 {{ range site.Params.plugins.css }}
 <link rel="stylesheet" href="{{ .link | absURL }} " />

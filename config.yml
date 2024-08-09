@@ -57,7 +57,7 @@ params:
   - "/uploads/og.webp"
   label:
     title: MycoScaffold
-    text: Welcome to Piko
+    text: MycoScaffold
     lightNavIcon: /uploads/logo-100x130.png
     darkNavIcon: /uploads/logo-100x130.png
     iconHeight: "35"
@@ -142,6 +142,16 @@ params:
     js:
     - link: plugins/js/feather.min.js
   # pages
+  servicespage:
+    name: Quote
+    url: "/services"
+    title: Services
+    description: --------------------
+    headerImageUrl: /uploads/headerImageQuote.webp
+    headerImageAltText: "Two people meeting with blueprints on the table and one of them is using a calculator."
+    PhotoAttrText: Photo by Pixabay
+    PhotoAttrUrl: https://www.pexels.com/photo/three-people-sitting-beside-table-416405/
+
   quotepage:
     name: Quote
     url: "/quote"
@@ -160,12 +170,14 @@ params:
     headerImageAltText: 
     PhotoAttrText: Photo by Anete Lusina
     PhotoAttrUrl: https://www.pexels.com/photo/instruments-prepared-for-measurements-in-house-4792479/
+
+
 menus:
   main: # Main Menu
   - name: Services
     title: Services
-    pre: file-text
-    url: mail
+    pre: tool
+    url: "/services"
     weight: "10"
   - name: Quote
     title: Quote
