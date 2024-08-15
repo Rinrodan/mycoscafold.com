@@ -1,5 +1,6 @@
-<div id="servicesHero">
+<div id="heroHomeServices">
     <h2 id="servicesTitle">Services</h2>
+    <span>Full Service Scaffolding</span>
     <div class="categoryContainer">
         {{ $servicesUrl := .Site.Params.servicesPage.url}}
         {{ $catOne := "Residential"}}
@@ -10,7 +11,7 @@
             <a         
                 href="{{ path.Join $servicesUrl $catOne  | relURL  }}"
                 role="button "
-                class="button contrast-outline contrast-text hero-buttons animate-hover">
+                class="button contrast-outline contrast-text hero-buttons animate-hover hoverFocus">
                     Residential
             </a>
         </div>
@@ -18,7 +19,7 @@
             <a         
             href="{{ path.Join $servicesUrl $catTwo  | relURL  }}"
             role="button "
-            class="button contrast-outline contrast-text hero-buttons animate-hover">
+            class="button contrast-outline contrast-text hero-buttons animate-hover hoverFocus">
                 Commercial
             </a>
         </div>
@@ -26,7 +27,7 @@
             <a         
             href="{{ path.Join $servicesUrl $catThree  | relURL  }}"
             role="button "
-            class="button contrast-outline contrast-text hero-buttons animate-hover">
+            class="button contrast-outline contrast-text hero-buttons animate-hover hoverFocus">
                 Industrial
             </a>    
         </div>
