@@ -40,15 +40,8 @@
           </a>
         </span>
 
-
-        <span>California Contractors Licence #
-          <a 
-              class="footerLicenseNumber"
-              href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum={{.Site.Params.contractorsLicense}}"
-              target="_blank">
-              <strong>{{.Site.Params.contractorsLicense}}</strong>
-          </a>
-      </span>
+        {{- partial "contLicence.html" . -}}
+        
     </div>
     <div id="footer-col-right">
 

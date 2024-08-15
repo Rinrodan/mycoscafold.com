@@ -1,5 +1,6 @@
 
 :root {
+
   --spacing-hero: 5rem;
   --font-stencil: "stick-no-bills";
   --border-radius: 0.3rem !important;
@@ -7,10 +8,15 @@
   --sunset: #ebcc9dff  !important;
   --silver: #a7a7a7ff !important;
   --silver-dark: #394046;
+  --dark-blue: rgb(1, 1, 93);
+  --accent-color-dark: var(--vivid-sky-blue);
+  --accent-color-light: var(--dark-blue);
   --black-ish: #00000f !important;
   --white: #ffffff !important;
+  --font-color: --white-ish;
   --white-ish: #edf0f3 !important;
   --primary-bg-light: var(--white-ish);
+  --font-size-xs: clamp(12.4px, 0.06vw + 12.13px, 12px);
   --font-size-sm: clamp(14.4px, 0.07vw + 14.13px, 15px);
 	--font-size-base: clamp(18px, 0.23vw + 17.09px, 20px);
 	--font-size-md: clamp(22.5px, 0.47vw + 20.61px, 26.66px);
@@ -27,22 +33,30 @@
 /* Can be forced with data-theme="light" */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
-  --muted-color: #4b555c !important;
-  --link-color: #27455a !important;
+  --muted-color: var(--silver) !important;
+  --link-color: var(--dark-blue) !important;
+  --contrast-text: var(--black-ish);
+  --contrast-outline: var(--black-ish);
+  --accent-color: var(--accent-color-light);
 }
 
 /* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --muted-color: #8fa3b1 !important;
+    --muted-color: var(--silver-dark) !important;
     --link-color: var(--vivid-sky-blue);
+    --contrast-text: var(--white-ish);
+    --accent-color: var(--accent-color-dark);
   }
 }
 
 /* Enabled if forced with data-theme="dark" */
 [data-theme="dark"] {
-  --muted-color: #8fa3b1 !important;
+  --muted-color: var(--silver-dark) !important;
   --link-color: var(--vivid-sky-blue);
+  --contrast-text: var(--white-ish);
+  --contrast-outline: var(--white-ish);
+  --accent-color: var(--accent-color-dark);
 }
 
 
@@ -54,7 +68,7 @@
 
 html {
   display: flex;
-width: 100vw;
+  width: 100vw;
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
 
@@ -68,11 +82,12 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-
+  color:var(--contrast-text);
   margin-inline: auto;
 }
 main{
   display: flex;
+  flex-direction: column;
   width: 100%;
   min-width: 350px;
 
@@ -91,11 +106,16 @@ main{
 .button-small{
   font-size: 0.5rem;
 }
+.hoverFocus{
+  &:hover{
+    background-color: var(--vivid-sky-blue);
+  }
+}
 .contrast-text{
-  color: var(--white-ish);
+  color: var(--contrast-text);
 }
 .contrast-outline{
-  border-color: var(--white-ish);
+  border-color: var(--contrast-outline);
 }
 .list-no-decor{
   text-decoration: none;
@@ -111,11 +131,11 @@ main{
   display: flex;
   flex-direction:row;
   justify-content: center;
-  background-color: var(--silver-dark);
+  background-color: var(--muted-color);
   background-position: center;
   background-size: cover;
   margin-inline: auto;
-
+  color: var(--contrast-text);
 
   & #home-hero-buttons{
     display: flex;
@@ -133,6 +153,21 @@ main{
 
 }
 
+.contractorsLicenseContainer{
+  display: flex;
+  width: auto;
+  margin: 0px auto;
+  font-size: var(--font-size-xs);
+  & span{
+    & a{
+      color: var(--contrast-text);
+      & span{
+        font-weight: 800;
+      }
+    }
+  }
+}
+
 .home-hero-image-container {
   display: flex;
   flex-direction: column;
@@ -148,12 +183,13 @@ main{
   }
 }
 .home-hero-text-container{
- display: flex;
+  display: flex;
   flex-direction: column;
   max-width: 600px;
   margin: 0%;
   padding-inline: 1rem;
   justify-content: center;
+  color: var(--contrast-text);
   & hgroup{
     display: flex;
     margin: 0px;
@@ -172,6 +208,7 @@ main{
     & h2 {
       width: 75%;
       margin-inline: auto;
+      color: var(--contrast-text);
     }
   }
 
@@ -186,12 +223,9 @@ main{
 @media (min-width: 0px) and (max-width: 1200px) {
   main {
     margin-top: 50px;
-
-
   }
 }
 @media (min-width: 0px) and (max-width: 700px) {
-
   .heroHome {
     display: flex;
     flex-direction: column;
@@ -217,7 +251,6 @@ main{
     width: 50%;
     padding: 0px;
   }
-
 }
 @media (min-width: 0px) and (max-width: 575px) {
   body{
@@ -228,6 +261,9 @@ main{
     display: flex;
     width: 100%;
     margin-inline: auto;
+  .heroHome{
+    padding: 0.5rem 0.1rem;
+  }  
   .home-hero-text-container{
     display: flex;
       & hgroup{
@@ -550,17 +586,17 @@ a[role='button'],
     bottom: -10px;
     right: 5px;
     text-wrap: nowrap;
-font-size: 50%;
+    font-size: 50%;
   }
 }
 
 
 #footer-container{
   display:flex;
-
   min-height: 4rem;
-padding-inline: 2rem;
-font-size: var(--font-size-sm);
+  padding-inline: 2rem;
+  padding-bottom: 1rem;
+  font-size: var(--font-size-sm);
   & div{
 
     overflow: hidden;
@@ -581,18 +617,24 @@ font-size: var(--font-size-sm);
   }
 }
 
-#servicesHero {
+#heroHomeServices {
   display: flex;
   flex-direction: column;
   min-height: 35vh;
   width: 100%;
   max-width: 600px;
   margin-inline: auto;
-  padding-top: 3rem;
+  padding: 1.5rem 0px;
   & #servicesTitle{
-    margin-inline: auto;
+    margin:0px auto 1rem auto;
     width: max-content;
-
+ 
+  }
+  & span{
+    display: flex;
+    margin-inline: auto;
+    padding: 0.5rem;
+    font-weight: bold;
   }
   & .categoryContainer{
     display: flex;
@@ -607,9 +649,12 @@ font-size: var(--font-size-sm);
     }
   }
 }
-#aboutHero {
+#heroHomeAbout {
   display: flex;
   flex-direction: column;
+  padding: 1.5rem 0px;
+  background-color: var(--muted-color);
+
   & .container{
     display: flex;
     flex-direction: row;
@@ -623,15 +668,21 @@ font-size: var(--font-size-sm);
   margin-inline: auto;
 }
 @media (min-width: 0px) and (max-width: 575px) {
-  #servicesHero {
-
+  #heroHomeServices {
+    padding: 0.5rem 0px;
     & .categoryContainer{
       flex-direction: row;
       flex-wrap: wrap;
-        & .category{
+      & .category{
         display: flex;
         padding-inline: 1rem;
       }
+    }
+  }
+  .heroHomeAbout {
+    padding: 0.5rem 0px;
+    & .container {
+      padding:0.5rem;
     }
   }
 }

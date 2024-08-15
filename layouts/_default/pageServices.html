@@ -1,67 +1,66 @@
 {{ define "main" }}
-<div class="page " id="servicesPage">
+<div class="page container" id="servicesPage">
 
-<div class="container">
-    
-    <hgroup>
-      {{ partial "breadcrumbs.html" . }}
-      <h1>{{ .Title }}</h1>
-      <h2>{{ .Description }}</h2>
+      <hgroup>
+        {{ partial "breadcrumbs.html" . }}
+        <h1>{{ .Title }}</h1>
+        <h2>{{ .Description }}</h2>
 
-    </hgroup>
-<div id="servicesHeroContainer">
-  <div id="residentialServices" class="servicesHero">
-    <div class="servicesImage">
-      <img 
-      src="{{ .Params.resImageUrl }}" 
-      alt="{{ .Params.resImageAlt }}"/>
+      </hgroup>
 
+    <div id="servicesContainer">
+      <div id="residentialServices" class="servicesCard">
+        <div class="servicesImage">
+          <img 
+          src="{{ .Params.resImageUrl }}" 
+          alt="{{ .Params.resImageAlt }}"/>
+
+        </div>
+        <div class="servicesText">
+          <div class="text-xl servicesTitle">{{ .Params.resTitle  }}</div>
+          <ul>
+            <li> &nbsp; &nbsp; {{ .Params.resBulletOne  }}</li>
+            <li> &nbsp; &nbsp; {{ .Params.resBulletTwo  }}</li>
+          </ul>
+        </div>
+
+      </div>
+      <div id="commercialServices" class="servicesCard">
+        <div class="servicesImage">
+          <img 
+          src="{{ .Params.comImageUrl }}" 
+          alt="{{ .Params.comImageAlt }}"/>
+
+        </div>
+        <div class="servicesText">
+          <div class="text-xl servicesTitle">{{ .Params.comTitle  }}</div>
+          <ul>
+            <li>{{ .Params.comBulletOne  }}</li>
+            <li>{{ .Params.comBulletTwo  }}</li>
+            <li>{{ .Params.comBulletThree  }}</li>
+            <li>{{ .Params.comBulletFour  }}</li>
+          </ul>
+        </div>
+
+      </div>
+      <div id="industrialServices" class="servicesCard">
+        <div class="servicesImage">
+          <img 
+          src="{{ .Params.indImageUrl }}" 
+          alt="{{ .Params.indImageAlt }}"/>
+
+        </div>
+        <div class="servicesText">
+          <div class="text-xl servicesTitle">{{ .Params.indTitle  }}</div>
+          <ul>
+            <li>{{ .Params.indBulletOne  }}</li>
+            <li>{{ .Params.indBulletTwo  }}</li>
+            <li>{{ .Params.indBulletThree  }}</li>
+            <li>{{ .Params.indBulletFour  }}</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="servicesText">
-      <div class="text-xl servicesTitle">{{ .Params.resTitle  }}</div>
-      <ul>
-        <li> &nbsp; &nbsp; {{ .Params.resBulletOne  }}</li>
-        <li> &nbsp; &nbsp; {{ .Params.resBulletTwo  }}</li>
-      </ul>
-    </div>
-
-  </div>
-  <div id="commercialServices" class="servicesHero">
-    <div class="servicesImage">
-      <img 
-      src="{{ .Params.comImageUrl }}" 
-      alt="{{ .Params.comImageAlt }}"/>
-
-    </div>
-    <div class="servicesText">
-      <div class="text-xl servicesTitle">{{ .Params.comTitle  }}</div>
-      <ul>
-        <li>{{ .Params.comBulletOne  }}</li>
-        <li>{{ .Params.comBulletTwo  }}</li>
-        <li>{{ .Params.comBulletThree  }}</li>
-        <li>{{ .Params.comBulletFour  }}</li>
-      </ul>
-    </div>
-
-  </div>
-  <div id="industrialServices" class="servicesHero">
-    <div class="servicesImage">
-      <img 
-      src="{{ .Params.indImageUrl }}" 
-      alt="{{ .Params.indImageAlt }}"/>
-
-    </div>
-    <div class="servicesText">
-      <div class="text-xl servicesTitle">{{ .Params.indTitle  }}</div>
-      <ul>
-        <li>{{ .Params.indBulletOne  }}</li>
-        <li>{{ .Params.indBulletTwo  }}</li>
-        <li>{{ .Params.indBulletThree  }}</li>
-        <li>{{ .Params.indBulletFour  }}</li>
-      </ul>
-    </div>
-  </div>
-</div>
 </div>
 
    
