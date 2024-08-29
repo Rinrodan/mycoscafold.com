@@ -50,6 +50,13 @@ params:
   email: "sales@mycoscaffold.com"
   phoneNumber: 916-538-1551
   contractorsLicense: 1121193
+  social:
+    instagram: 
+      icon: /uploads/icon-ig.png
+      url: https://www.instagram.com/myco_scaffold/
+    facebook:       
+      icon: /uploads/icon-fb.svg
+      url: https://www.facebook.com/profile.php?id=61554024987180
   PhotoAttrText:
   PhotoAttrUrl:
   math: false
