@@ -1,5 +1,6 @@
 {
 	"name": "odyssey-theme",
+	"type": "module",
 	"version": "2.0.2",
 	"private": false,
 	"repository": {
@@ -11,8 +12,10 @@
 		"LAN": "astro dev --host",
 		"start": "astro dev",
 		"build": "astro build",
+		"test": "vitest",
 		"preview": "astro preview",
 		"format": "npx prettier -w .",
+		"test:watch": "vitest  --watch",
 		"node20": "npm i node@20.11.1 --save-exact",
 		"v": "node -v && astro --version"
 	},
@@ -21,26 +24,34 @@
 		"npm": "10.5.0"
 	},
 	"devDependencies": {
-		"@astrojs/lit": "^4.0.1",
-		"@astrojs/mdx": "^2.1.1",
-		"@astrojs/sitemap": "^0.1.0",
+		"@astrojs/lit": "^4.3.0",
+		"@astrojs/mdx": "^3.1.4",
+		"@astrojs/sitemap": "^3.1.6",
 		"@iconify-json/ic": "^1.1.17",
 		"@iconify-json/mdi": "^1.1.64",
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"astro": "^4.4.13",
+		"astro": "^4.14.5",
 		"astro-icon": "^1.1.0",
 		"date-fns": "^2.28.0",
 		"lit": "^3.1.2",
-		"prettier-plugin-astro": "^0.0.12"
+		"prettier-plugin-astro": "^0.0.12",
+		"vitest": "^2.0.5"
 	},
 	"dependencies": {
-		"@astrojs/react": "^3.1.0",
+		"@astrojs/check": "^0.9.3",
+		"@astrojs/react": "^3.6.2",
 		"@types/react": "^18.2.65",
 		"@types/react-dom": "^18.2.22",
 		"cloudinary": "^2.2.0",
 		"node": "20.11.1",
 		"npm": "^10.8.1",
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react-dom": "^18.2.0",
+		"typescript": "^5.5.4"
+	},
+	"jest": {
+		"moduleNameMapper": {
+			"^astro/(.*)$": "astro/dist/entry.mjs"
+		}
 	}
 }
