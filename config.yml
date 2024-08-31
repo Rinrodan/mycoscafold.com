@@ -39,7 +39,7 @@ minify:
 params:
   analytics:
     google:
-      SiteVerificationTag: # Google Site Verification
+      SiteVerificationTag: G-73VZ1Y0ZQ5
     yandex:
       SiteVerificationTag: # Yandex Site Verification
     bing:
@@ -60,6 +60,10 @@ params:
   PhotoAttrText:
   PhotoAttrUrl:
   math: false
+  theme:
+    colors:
+      primary: --muted-color
+      contrast: --contrast-outline
   images:
   - "/uploads/og.webp"
   label:
@@ -112,7 +116,7 @@ params:
     aboutTitle: About
     aboutDescription: 
     aboutImgUrl: "/uploads/logo-500x649.png"
-    aboutContent: At Myco Scaffold, we are not just a business; we are the legacy of a family that has been the backbone of construction projects across Sacramento for three generations. We forge enduring relationships that stand the test of time, much like the structures we help to build. Our clients don't just see us as a provider; they see us as a partner in progress, elevating their projects with meticulous care and an unwavering commitment to safety.
+    aboutContent: At Myco Scaffold, we are not just a business; we are the legacy of a family that has been the backbone of construction projects across Sacramento and Northern California for three generations. We forge enduring relationships that stand the test of time, much like the structures we help to build. Our clients don't just see us as a provider; they see us as a partner in progress, elevating their projects with meticulous care and an unwavering commitment to safety.
     # Portfolio Section
     disablePortfolioSection: false
     portfolioTitle: Portfolio
