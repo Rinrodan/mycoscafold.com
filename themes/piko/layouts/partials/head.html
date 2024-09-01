@@ -6,14 +6,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-73VZ1Y0ZQ5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-73VZ1Y0ZQ5');
-</script>
 
 {{- /* Meta */}}
 
@@ -71,6 +63,10 @@
 <script defer crossorigin="anonymous" src="{{ $highlight.RelPermalink }}" onload="hljs.initHighlightingOnLoad();"></script>
 {{- end }}
 {{- end }}
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-73VZ1Y0ZQ5"></script>
+<script>  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}  gtag('js', new Date()); gtag('config', 'G-73VZ1Y0ZQ5');</script>
+
 
 {{- /* Favicons */}}
 <link rel="icon" href="{{ .Site.Params.assets.favicon | default 'favicon.ico' | absURL }}">
