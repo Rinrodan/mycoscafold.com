@@ -103,8 +103,8 @@ params:
     heroCTAPrimaryUrl: "/quote/"
     heroCTASecondaryText: Contact
     heroCTASecondaryUrl: "/contact/"
-    heroCTAImage: "/uploads/water-tower-1-square.jpg"
-    heroCTAImageAltText: "A water tower at dusk with scaffold being built to the top."
+    heroCTAImage: "/uploads/logo-500x649.png"
+    heroCTAImageAltText: "The Myco Scaffold Inc. Logo. A man holding up scaffolding and the globe."
     heroBackgroundImage: "/uploads/"
     # Blog Section
     disableBlogSection: false
