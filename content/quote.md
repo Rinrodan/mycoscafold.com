@@ -10,3 +10,5 @@ showToc: false
 
 ---
 
+
+   {{- partial "partner-card.html" . -}}

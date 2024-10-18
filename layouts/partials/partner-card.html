@@ -1,0 +1,75 @@
+<!-- ---
+{{ $address := "123 Main St."}}
+{{ $firstName := "John"}}
+{{ $lastName := "Billings"}}
+--- -->
+
+<div class="partner-card">
+    <div class="partner-card-header">
+
+        <!-- Partner Logo -->
+
+         <div class="partner-card-logo">
+            {{- if .Site.Copyright }}
+            <img src="../../static/uploads/icon-fb.svg">
+            {{- else }}
+            {{- partial "imageFallback.html" . -}}
+            {{- end }}
+            
+         </div>
+        <!-- Partner title -->
+        <div class="partner-card-title">Johnson Builders Group</div>
+    </div>
+    <div class="partner-card-body">
+        <!-- Partner Description -->
+Johnson Builders Group No. 5 is a general contractor made up of people and things. They specialize in building and groups.
+    </div>
+    <div class="partner-card-footer">
+            
+    </div>
+</div>
+
+<style>
+    .partner-card{
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin-inline: auto;
+        padding: 0.5rem;
+
+        background-color: antiquewhite;
+        & .partner-card-header{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 0px auto;
+            border: 0px solid transparent;
+            & .partner-card-logo{
+                display: flex;
+                margin: 0.2rem auto;
+                width: 50%;
+                aspect-ratio: 1;
+            }
+            & .partner-card-title{
+                display: flex;
+                flex-wrap: wrap;
+                text-align: center;
+                width: auto;
+                font-size: 1.8rem;
+                font-weight: 600;
+                text-wrap: wrap;
+
+            }
+        }
+        & .partner-card-body {
+            display: flex;
+            flex-direction: column;
+            border: 3px solid transparent;
+            border-top-color: black;
+            margin: 0.5rem 1rem;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+    }
+</style>
