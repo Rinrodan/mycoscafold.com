@@ -1,7 +1,7 @@
 ---
 baseURL: https://mycoscaffold.com/
 languageCode: en-us
-title: Myco Scaffold
+title: Myco Scaffold Inc.
 theme: piko
 paginate: "9"
 copyright: Built with [Piko](https://github.com/heksagonnet/piko)
@@ -162,7 +162,7 @@ params:
     headerImageAltText: "Two people meeting with blueprints on the table and one of them is using a calculator."
     PhotoAttrText: Photo by Pixabay
     PhotoAttrUrl: https://www.pexels.com/photo/three-people-sitting-beside-table-416405/
-
+# pages
   quotepage:
     name: Quote
     url: "/quote"
@@ -172,11 +172,22 @@ params:
     headerImageAltText: "Two people meeting with blueprints on the table and one of them is using a calculator."
     PhotoAttrText: Photo by Pixabay
     PhotoAttrUrl: https://www.pexels.com/photo/three-people-sitting-beside-table-416405/
+    # pages
   contactpage:
     name: Quote
     url: "/contact"
     title: Quote
     description: Let's figure this out together
+    headerImageUrl: /uploads/headerImageContact.webp
+    headerImageAltText: 
+    PhotoAttrText: Photo by Anete Lusina
+    PhotoAttrUrl: https://www.pexels.com/photo/instruments-prepared-for-measurements-in-house-4792479/
+    # pages 
+  careerspage:
+    name: Careers
+    url: "/careers"
+    title: Career with Myco Scaffold
+    description: Lets build together.
     headerImageUrl: /uploads/headerImageContact.webp
     headerImageAltText: 
     PhotoAttrText: Photo by Anete Lusina
@@ -195,8 +206,13 @@ menus:
     pre: file-text
     url: "/quote"
     weight: "20"
+  - name: Careers
+    title: Careers
+    pre: file-text
+    url: "/careers"
+    weight: "30"
   - name: Contact
     title: Contact
     pre: mail
     url: "/contact"
-    weight: "30"
+    weight: "40"
