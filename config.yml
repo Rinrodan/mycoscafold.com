@@ -206,11 +206,7 @@ menus:
     pre: file-text
     url: "/quote"
     weight: "20"
-  - name: Careers
-    title: Careers
-    pre: file-text
-    url: "/careers"
-    weight: "30"
+
   - name: Contact
     title: Contact
     pre: mail
